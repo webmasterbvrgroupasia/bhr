@@ -1,0 +1,427 @@
+@extends('layouts.admin')
+
+@section('page-title', 'Property Management')
+
+@section('page-content')
+    @if ($errors->any())
+        <div class="px-5 py-5 md:px-12 lg:px-[100px]">
+
+            <div class="flex p-4 mb-4 w-1/2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert">
+                <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <span class="sr-only">Danger</span>
+                <div>
+                    <span class="font-medium">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    </span>
+                    <ul class="mt-1.5 ml-4 list-disc list-inside">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    @endif
+    <section class="grid grid-cols-12 pt-4 px-5 md:px-8 lg:px-[100px] gap-y-5">
+        <nav class="col-span-12 flex" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="#"
+                        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                        <svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                            </path>
+                        </svg>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <a href="{{ route('properties.index') }}"
+                            class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">Properties</a>
+                    </div>
+                </li>
+                <li aria-current="page">
+                    <div class="flex items-center">
+                        <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">Add New
+                            Property</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+        <div class="col-span-12 font-bold tracking-tight text-xl">
+            Add New Property
+            <p class="text-base font-normal w-1/2 text-neutral-500 leading-relaxed">Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Aspernatur dolor fugiat, iure aliquid cupiditate rerum quaerat doloremque expedita non
+                architecto voluptate, aperiam dignissimos. Quia, veritatis!</p>
+        </div>
+    </section>
+
+    <form enctype="multipart/form-data" method="POST" enctype="multipart/form-data"
+        action="{{ route('properties.store') }}"class="grid grid-cols-12 gap-x-5 mt-4 px-5 md:px-8 lg:px-[100px] gap-y-5">
+        @csrf
+        <div class="col-span-4">
+            <label for="name" class="font-semibold">Property Name</label>
+            <input type="text" name="name" id="name" placeholder="e.g The Chillhouse Canggu"
+                class="block w-full py-2 px-2 mt-3 rounded-md border-[1px] border-neutral-500">
+        </div>
+        <div class="col-span-4">
+            <label for="" class="font-semibold">Area</label>
+            <select name="area_id" id="area_id"
+                class="block w-full rounded-md py-2 px-2 mt-3 border-[1px] border-neutral-500">
+                @foreach ($areas as $area)
+                    <option value="{{ $area->id }}">{{ $area->location }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="col-span-8">
+            <label for="name" class="font-semibold">URL Slug</label>
+            <div class="text-sm text-gray-400 font-normal">
+                URL Slug is used to create a SEO-friendly link.
+            </div>
+            <input type="text" name="slug" id="slug" placeholder="e.g the-chillhouse-canggu"
+                class="block w-full py-2 px-2 mt-3 rounded-md border-[1px] border-neutral-500">
+        </div>
+        <div class="col-span-8">
+            <label for="name" class="font-semibold">Booking Link</label>
+            <div class="text-sm text-gray-400 font-normal">
+                Direct Booking Link from Booking Engine
+            </div>
+            <input type="text" name="booking_link" id="booking_link" placeholder="e.g https://www.booking-link.com/property-1"
+                class="block w-full py-2 px-2 mt-3 rounded-md border-[1px] border-neutral-500">
+        </div>
+        <div class="col-span-8">
+            <label for="" class="font-semibold">Header Images</label>
+            <input type="file" name="header_images[]"
+                class="block w-full bg-white mt-3 rounded-md border-[1px] border-neutral-500" placeholder="" multiple />
+        </div>
+        <div class="col-span-8">
+            <label for="" class="font-semibold">Property Images</label>
+            <input type="file" name="images[]"
+                class="block w-full bg-white mt-3 rounded-md border-[1px] border-neutral-500" placeholder="" multiple />
+        </div>
+        <div class="col-span-8">
+            <label for="" class="font-semibold">Room Images</label>
+            <input type="file" name="room_images[]"
+                class="block w-full bg-white mt-3 rounded-md border-[1px] border-neutral-500" placeholder="" multiple />
+        </div>
+        <div class="col-span-8">
+            <label for="" class="font-semibold">Restaurant Images</label>
+            <input type="file" name="restaurant_images[]"
+                class="block w-full bg-white mt-3 rounded-md border-[1px] border-neutral-500" placeholder="" multiple />
+        </div>
+        <div class="col-span-8">
+            <label for="" class="font-semibold">Pool Images</label>
+            <input type="file" name="pool_images[]"
+                class="block w-full bg-white mt-3 rounded-md border-[1px] border-neutral-500" placeholder="" multiple />
+        </div>
+        <div class="col-span-8">
+            <label for="" class="font-semibold">Description</label>
+            <textarea name="description"
+                class="block w-full px-2 py-2 leading-relaxed rounded-md mt-3 border-[1px] border-neutral-500"
+                placeholder="e.g The Chillhouse Canggu by BVR Bali Holiday Rentals is nestled among rice fields in Canggu and ocated a 5-minute drive from Echo Beach."
+                id="" rows="5"></textarea>
+        </div>
+        <div class="col-span-8">
+            <label for="" class="font-semibold">Facilities</label>
+            <div class="grid grid-cols-2 gap-x-5">
+                <div class="col-span-1">
+                    <h3 class="mt-3 mb-1 font-medium text-sm">Pool</h3>
+                    <ul class="grid w-full gap-2 md:grid-cols-2">
+                        <li>
+                            <input type="radio" id="yes-pool" name="pool" value="1" class="hidden peer"
+                                required>
+                            <label for="yes-pool"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">Yes</div>
+                                    <div class="text-xs">There's a pool in the area</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="no-pool" name="pool" value="0" class="hidden peer">
+                            <label for="no-pool"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">No</div>
+                                    <div class="text-xs">There's no pool in the area</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+        
+                </div>
+                <div class="col-span-1">
+                    <h3 class="mt-3 mb-1 font-medium text-sm">Bar</h3>
+                    <ul class="grid w-full gap-2 md:grid-cols-2">
+                        <li>
+                            <input type="radio" id="yes-bar" name="bar" value="1" class="hidden peer"
+                                required>
+                            <label for="yes-bar"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">Yes</div>
+                                    <div class="text-xs">There's a bar in the area</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="no-bar" name="bar" value="0" class="hidden peer">
+                            <label for="no-bar"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">No</div>
+                                    <div class="text-xs">There's no bar in the area</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+        
+                </div>
+                <div class="col-span-1">
+                    <h3 class="mt-3 mb-1 font-medium text-sm">Sauna</h3>
+                    <ul class="grid w-full gap-2 md:grid-cols-2">
+                        <li>
+                            <input type="radio" id="yes-sauna" name="sauna" value="1" class="hidden peer"
+                                required>
+                            <label for="yes-sauna"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">Yes</div>
+                                    <div class="text-xs">There's a sauna in the area</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="no-sauna" name="sauna" value="0" class="hidden peer">
+                            <label for="no-sauna"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">No</div>
+                                    <div class="text-xs">There's no sauna in the area</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+        
+                </div>
+                <div class="col-span-1">
+                    <h3 class="mt-3 mb-1 font-medium text-sm">Garden</h3>
+                    <ul class="grid w-full gap-2 md:grid-cols-2">
+                        <li>
+                            <input type="radio" id="yes-garden" name="garden" value="1" class="hidden peer"
+                                required>
+                            <label for="yes-garden"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">Yes</div>
+                                    <div class="text-xs">There's a garden in the area</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="no-garden" name="garden" value="0" class="hidden peer">
+                            <label for="no-garden"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">No</div>
+                                    <div class="text-xs">There's no garden in the area</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+        
+                </div>
+                <div class="col-span-1">
+                    <h3 class="mt-3 mb-1 font-medium text-sm">Non-Smoking Room</h3>
+                    <ul class="grid w-full gap-2 md:grid-cols-2">
+                        <li>
+                            <input type="radio" id="yes-non-smoking" name="non_smoking_room" value="1" class="hidden peer"
+                                required>
+                            <label for="yes-non-smoking"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">Yes</div>
+                                    <div class="text-xs">There's a smoking room in this area</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="no-non-smoking" name="non_smoking_room" value="0" class="hidden peer">
+                            <label for="no-non-smoking"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">No</div>
+                                    <div class="text-xs">There's no smoking room in the area</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+        
+                </div>
+                <div class="col-span-1">
+                    <h3 class="mt-3 mb-1 font-medium text-sm">Family Rooms</h3>
+                    <ul class="grid w-full gap-2 md:grid-cols-2">
+                        <li>
+                            <input type="radio" id="yes-family-room" name="family_room" value="1" class="hidden peer"
+                                required>
+                            <label for="yes-family-room"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">Yes</div>
+                                    <div class="text-xs">There's a family rooms in this property</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="no-family-room" name="family_room" value="0" class="hidden peer">
+                            <label for="no-family-room"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">No</div>
+                                    <div class="text-xs">There's no family rooms in this property</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+        
+                </div>
+                <div class="col-span-1">
+                    <h3 class="mt-3 mb-1 font-medium text-sm">Hot Tub</h3>
+                    <ul class="grid w-full gap-2 md:grid-cols-2">
+                        <li>
+                            <input type="radio" id="yes-hot-tub" name="hot_tub" value="1" class="hidden peer"
+                                required>
+                            <label for="yes-hot-tub"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">Yes</div>
+                                    <div class="text-xs">There's a family rooms in this property</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="no-hot-tub" name="hot_tub" value="0" class="hidden peer">
+                            <label for="no-hot-tub"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">No</div>
+                                    <div class="text-xs">There's no family rooms in this property</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+        
+                </div>
+                <div class="col-span-1">
+                    <h3 class="mt-3 mb-1 font-medium text-sm">Jacuzzi</h3>
+                    <ul class="grid w-full gap-2 md:grid-cols-2">
+                        <li>
+                            <input type="radio" id="yes-jacuzzi" name="jacuzzi" value="1" class="hidden peer"
+                                required>
+                            <label for="yes-jacuzzi"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">Yes</div>
+                                    <div class="text-xs">There's a jacuzzi in this property</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="no-jacuzzi" name="jacuzzi" value="0" class="hidden peer">
+                            <label for="no-jacuzzi"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">No</div>
+                                    <div class="text-xs">There's no jacuzzi in this property</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+        
+                </div>
+                <div class="col-span-1">
+                    <h3 class="mt-3 mb-1 font-medium text-sm">Air Conditioner</h3>
+                    <ul class="grid w-full gap-2 md:grid-cols-2">
+                        <li>
+                            <input type="radio" id="yes-air-conditioner" name="air_conditioner" value="1" class="hidden peer"
+                                required>
+                            <label for="yes-air-conditioner"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">Yes</div>
+                                    <div class="text-xs">There's air-conditioner in this property</div>
+                                </div>
+                            </label>
+                        </li>
+                        
+                        <li>
+                            <input type="radio" id="no-air-conditioner" name="air_conditioner" value="0" class="hidden peer">
+                            <label for="no-air-conditioner"
+                                class="inline-flex items-center justify-between w-full px-3 py-2 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-sm font-semibold">No</div>
+                                    <div class="text-xs">There's no air-conditioner in this property</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-span-8">
+            <label for="" class="font-semibold">Property Status</label>
+            <div class="flex mt-3">
+                <div class="flex items-center mr-14">
+                    <input id="property_status" type="radio" value="1" name="property_status"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300">
+                    <label for="property_status" class="ml-2 text-sm font-semibold text-gray-900">
+                        Live
+                        <div class="text-sm text-gray-400 font-normal">
+                            Property <span class="font-bold underline">WILL</span> be shown on the property list
+                        </div>
+                    </label>
+                </div>
+                <div class="flex items-center mr-4">
+                    <input id="property_status" type="radio" value="0" name="property_status"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 ">
+                    <label for="property_status" class="ml-2 text-sm font-semibold text-gray-900">
+                        Not Live
+                        <div class="text-sm text-gray-400 font-normal">
+                            Property will <span class="font-bold underline">NOT</span> be shown on the property list
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-span-8">
+            <button type="submit"
+                class="w-full py-2 bg-blue-500 text-white font-bold mt-2 hover:bg-blue-600 transition-all duration-300 rounded-md">Submit</button>
+        </div>
+    </form>
+    <div class="h-[50px] md:h-[75px] lg:h-[100px]"></div>
+@endsection

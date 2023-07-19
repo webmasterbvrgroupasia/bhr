@@ -1,0 +1,13 @@
+/* Import Global Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Three Layers of Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] { display: none !important; }
+
+* {
+    font-family: 'Inter', sans-serif !important;
+}

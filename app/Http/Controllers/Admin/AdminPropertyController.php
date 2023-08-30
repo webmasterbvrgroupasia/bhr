@@ -19,13 +19,7 @@ class AdminPropertyController extends Controller
      */
     public function index()
     {
-        $properties =
-
-            DB::table('properties')
-
-            ->join('areas', 'areas.id', '=', 'properties.area_id')
-
-            ->select('properties.*', 'areas.location')
+        $properties = Property::query()
 
             ->orderBy('created_at', 'desc')
 
@@ -161,51 +155,51 @@ class AdminPropertyController extends Controller
         if (isset($validatedData['pool_images'])) {
 
             foreach ($validatedData['pool_images'] as $pool_image) {
-    
+
                 $fileName = uniqid() . '.' . $pool_image->getClientOriginalExtension();
-    
+
                 $image_path = $pool_image->storeAs('images', $fileName, 'public');
-    
+
                 array_push($pool_images, $image_path);
             }
-            
+
         }
 
 
         if (isset( $validatedData['restaurant_images'])) {
-          
+
             foreach ($validatedData['restaurant_images'] as $restaurant_image) {
-    
+
                 $fileName = uniqid() . '.' . $restaurant_image->getClientOriginalExtension();
-    
+
                 $image_path = $restaurant_image->storeAs('images', $fileName, 'public');
-    
+
                 array_push($restaurant_images, $image_path);
-          
+
             }
         }
-        
+
         if (isset($validatedData['room_images'])) {
-            
+
             foreach ($validatedData['room_images'] as $room_image) {
-    
+
                 $fileName = uniqid() . '.' . $room_image->getClientOriginalExtension();
-    
+
                 $image_path = $room_image->storeAs('images', $fileName, 'public');
-    
+
                 array_push($room_images, $image_path);
             }
-            
+
         }
 
         if (isset($validatedData['header_images'])) {
 
             foreach ($validatedData['header_images'] as $header_image) {
-    
+
                 $fileName = uniqid() . '.' . $header_image->getClientOriginalExtension();
-    
+
                 $image_path = $header_image->storeAs('images', $fileName, 'public');
-    
+
                 array_push($header_images, $image_path);
             }
 
@@ -324,6 +318,99 @@ class AdminPropertyController extends Controller
             'booking_link' => 'required'
 
         ]);
+
+        $images = [];
+
+        $pool_images = [];
+
+        $restaurant_images = [];
+
+        $room_images = [];
+
+        $header_images = [];
+
+        if (isset($validatedData['images'])) {
+
+            foreach ($validatedData['images'] as $image) {
+
+                $fileName = uniqid() . '.' . $image->getClientOriginalExtension();
+
+                $image_path = $image->storeAs('images', $fileName, 'public');
+
+                array_push($images, $image_path);
+            }
+
+            $allImages = join(',', $images);
+
+            $validatedData['images'] = $allImages;
+        }
+
+        if (isset($validatedData['pool_images'])) {
+
+            foreach ($validatedData['pool_images'] as $pool_image) {
+
+                $fileName = uniqid() . '.' . $pool_image->getClientOriginalExtension();
+
+                $image_path = $pool_image->storeAs('images', $fileName, 'public');
+
+                array_push($pool_images, $image_path);
+            }
+
+            $allPoolImages = join(',', $pool_images);
+
+            $validatedData['pool_images'] = $allPoolImages;
+        }
+
+
+        if (isset( $validatedData['restaurant_images'])) {
+
+            foreach ($validatedData['restaurant_images'] as $restaurant_image) {
+
+                $fileName = uniqid() . '.' . $restaurant_image->getClientOriginalExtension();
+
+                $image_path = $restaurant_image->storeAs('images', $fileName, 'public');
+
+                array_push($restaurant_images, $image_path);
+
+            }
+
+            $allRestaurantImages = join(',', $restaurant_images);
+
+            $validatedData['restaurant_images'] = $allRestaurantImages;
+        }
+
+        if (isset($validatedData['room_images'])) {
+
+            foreach ($validatedData['room_images'] as $room_image) {
+
+                $fileName = uniqid() . '.' . $room_image->getClientOriginalExtension();
+
+                $image_path = $room_image->storeAs('images', $fileName, 'public');
+
+                array_push($room_images, $image_path);
+            }
+
+            $allRoomImages = join(',', $room_images);
+
+            $validatedData['room_images'] = $allRoomImages;
+        }
+
+        if (isset($validatedData['header_images'])) {
+
+            foreach ($validatedData['header_images'] as $header_image) {
+
+                $fileName = uniqid() . '.' . $header_image->getClientOriginalExtension();
+
+                $image_path = $header_image->storeAs('images', $fileName, 'public');
+
+                array_push($header_images, $image_path);
+            }
+
+            $allHeaderImages = join(',', $header_images);
+
+            $validatedData['header_images'] = $allHeaderImages;
+
+        }
 
         $property->update($validatedData);
 

@@ -115,7 +115,50 @@ class Property extends Model
 
         'room_images'=>'-',
 
-        'air_conditioner'=>'0'
+        'air_conditioner'=>'0',
+
+        'booking_link' => '0',
+
+            'balcony' => '0',
+
+            'tv' => '0',
+
+            'electric_kettle' => '0',
+
+            'clothes_rack' => '0',
+
+            'hair_dryer' => '0',
+
+            'private_entrance' => '0',
+
+            'safety_box' => '0',
+
+            'desk' => '0',
+
+            'socket' => '0',
+
+            'private_bathroom' => '0',
+
+            'toilet_paper' => '0',
+
+            'shower' => '0',
+
+            'bathtub' => '0',
+
+            'slipper' => '0',
+
+            'toileteries' => '0',
+
+            'minibar' => '0',
+
+            'refrigerator' => '0',
+
+            'tea_coffee_maker' => '0',
+
+            'smoke_alarm' => '0',
+
+            'fire_extinguisher' => '0',
+
 
     ];
 

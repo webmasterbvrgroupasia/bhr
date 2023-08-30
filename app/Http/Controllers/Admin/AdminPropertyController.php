@@ -23,7 +23,7 @@ class AdminPropertyController extends Controller
 
             ->orderBy('created_at', 'desc')
 
-            ->skip(0)->paginate(9);
+            ->paginate(9);
 
         return view('pages.dashboard.superadmin.properties.index', ['properties' => $properties]);
     }
@@ -283,7 +283,9 @@ class AdminPropertyController extends Controller
 
             'slug' => 'required',
 
-            'images' => 'array',
+            'description' => 'required',
+
+            'images' => 'required|array',
 
             'pool_images' => 'array',
 
@@ -292,8 +294,6 @@ class AdminPropertyController extends Controller
             'room_images' => 'array',
 
             'header_images' => 'array',
-
-            'description' => 'required',
 
             'pool' => 'required',
 
@@ -311,11 +311,51 @@ class AdminPropertyController extends Controller
 
             'jacuzzi' => 'required',
 
-            'air_conditioning' => 'required',
+            'air_conditioning' => 'nullable',
 
             'property_status' => 'required',
 
-            'booking_link' => 'required'
+            'booking_link' => 'nullable',
+
+            'balcony' => 'nullable',
+
+            'tv' => 'nullable',
+
+            'electric_kettle' => 'nullable',
+
+            'clothes_rack' => 'nullable',
+
+            'hair_dryer' => 'nullable',
+
+            'private_entrance' => 'nullable',
+
+            'safety_box' => 'nullable',
+
+            'desk' => 'nullable',
+
+            'socket' => 'nullable',
+
+            'private_bathroom' => 'nullable',
+
+            'toilet_paper' => 'nullable',
+
+            'shower' => 'nullable',
+
+            'bathtub' => 'nullable',
+
+            'slipper' => 'nullable',
+
+            'toileteries' => 'nullable',
+
+            'minibar' => 'nullable',
+
+            'refrigerator' => 'nullable',
+
+            'tea_coffee_maker' => 'nullable',
+
+            'smoke_alarm' => 'nullable',
+
+            'fire_extinguisher' => 'nullable',
 
         ]);
 

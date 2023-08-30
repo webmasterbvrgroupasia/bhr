@@ -66,9 +66,9 @@
                         Area</label>
                     <select id="countries" name="area_id"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option>Choose a country</option>
+                        <option>Choose the area for this property</option>
                         @foreach ($areas as $area)
-                            <option selected value="{{ $area->id }}">{{ $area->location }}</option>
+                            <option value="{{ $area->id }}">{{ $area->location }}</option>
                         @endforeach
                     </select>
 

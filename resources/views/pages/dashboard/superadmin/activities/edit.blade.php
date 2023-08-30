@@ -22,7 +22,7 @@
         </div>
     </section>
     <form enctype="multipart/form-data" method="POST" enctype="multipart/form-data"
-        action="{{ route('activities.update',$activity->id) }}"class="grid grid-cols-12 gap-x-5 mt-4 px-5 md:px-8 lg:px-[100px] gap-y-5">
+        action="{{ route('activities.update', $activity->id) }}"class="grid grid-cols-12 gap-x-5 mt-4 px-5 md:px-8 lg:px-[100px] gap-y-5">
         @method('PUT')
         @csrf
         <div class="col-span-4">
@@ -73,8 +73,8 @@
         <div class="col-span-8">
             <label for="" class="font-semibold">Booking Link</label>
             <div class="flex items-center">
-                <input type="text" name="booking_link" id="booking_link" value="{{ $activity->booking_link }}" placeholder="e.g https://random-link.com"
-                class="block w-full py-2 px-2 mt-3">
+                <input type="text" name="booking_link" id="booking_link" value="{{ $activity->booking_link }}"
+                    placeholder="e.g https://random-link.com" class="block w-full py-2 px-2 mt-3">
             </div>
         </div>
         <div class="col-span-8">

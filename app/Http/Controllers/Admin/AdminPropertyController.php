@@ -65,15 +65,15 @@ class AdminPropertyController extends Controller
 
             'description' => 'required',
 
-            'images' => 'required|array|max:4056',
+            'images' => 'required|array',
 
-            'pool_images' => 'array|max:4056',
+            'pool_images' => 'array',
 
-            'restaurant_images' => 'array|max:4056',
+            'restaurant_images' => 'array',
 
-            'room_images' => 'array|max:4056',
+            'room_images' => 'array',
 
-            'header_images' => 'array|max:4056',
+            'header_images' => 'array',
 
             'pool' => 'required',
 
@@ -158,41 +158,60 @@ class AdminPropertyController extends Controller
             array_push($images, $image_path);
         }
 
-        foreach ($validatedData['pool_images'] as $pool_image) {
+        if (isset($validatedData['pool_images'])) {
 
-            $fileName = uniqid() . '.' . $pool_image->getClientOriginalExtension();
-
-            $image_path = $pool_image->storeAs('images', $fileName, 'public');
-
-            array_push($pool_images, $image_path);
+            foreach ($validatedData['pool_images'] as $pool_image) {
+    
+                $fileName = uniqid() . '.' . $pool_image->getClientOriginalExtension();
+    
+                $image_path = $pool_image->storeAs('images', $fileName, 'public');
+    
+                array_push($pool_images, $image_path);
+            }
+            
         }
 
-        foreach ($validatedData['restaurant_images'] as $restaurant_image) {
 
-            $fileName = uniqid() . '.' . $restaurant_image->getClientOriginalExtension();
-
-            $image_path = $restaurant_image->storeAs('images', $fileName, 'public');
-
-            array_push($restaurant_images, $image_path);
+        if (isset( $validatedData['restaurant_images'])) {
+          
+            foreach ($validatedData['restaurant_images'] as $restaurant_image) {
+    
+                $fileName = uniqid() . '.' . $restaurant_image->getClientOriginalExtension();
+    
+                $image_path = $restaurant_image->storeAs('images', $fileName, 'public');
+    
+                array_push($restaurant_images, $image_path);
+          
+            }
+        }
+        
+        if (isset($validatedData['room_images'])) {
+            
+            foreach ($validatedData['room_images'] as $room_image) {
+    
+                $fileName = uniqid() . '.' . $room_image->getClientOriginalExtension();
+    
+                $image_path = $room_image->storeAs('images', $fileName, 'public');
+    
+                array_push($room_images, $image_path);
+            }
+            
         }
 
-        foreach ($validatedData['room_images'] as $room_image) {
+        if (isset($validatedData['header_images'])) {
 
-            $fileName = uniqid() . '.' . $room_image->getClientOriginalExtension();
+            foreach ($validatedData['header_images'] as $header_image) {
+    
+                $fileName = uniqid() . '.' . $header_image->getClientOriginalExtension();
+    
+                $image_path = $header_image->storeAs('images', $fileName, 'public');
+    
+                array_push($header_images, $image_path);
+            }
 
-            $image_path = $room_image->storeAs('images', $fileName, 'public');
-
-            array_push($room_images, $image_path);
         }
 
-        foreach ($validatedData['header_images'] as $header_image) {
 
-            $fileName = uniqid() . '.' . $header_image->getClientOriginalExtension();
-
-            $image_path = $header_image->storeAs('images', $fileName, 'public');
-
-            array_push($header_images, $image_path);
-        }
 
         $allImages = join(',', $images);
 
@@ -270,15 +289,15 @@ class AdminPropertyController extends Controller
 
             'slug' => 'required',
 
-            'images' => 'array|max:1014',
+            'images' => 'array',
 
-            'pool_images' => 'array|max:1014',
+            'pool_images' => 'array',
 
-            'restaurant_images' => 'array|max:1014',
+            'restaurant_images' => 'array',
 
-            'room_images' => 'array|max:1014',
+            'room_images' => 'array',
 
-            'header_images' => 'array|max:1014',
+            'header_images' => 'array',
 
             'description' => 'required',
 

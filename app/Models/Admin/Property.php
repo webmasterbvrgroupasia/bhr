@@ -103,6 +103,14 @@ class Property extends Model
     protected $attributes = [
 
         'images' => '-',
+        
+        'header_images' => '-',
+        
+        'restaurant_images' => '-',
+
+        'pool_images' => '-',
+
+        'room_images'=>'-',
 
         'air_conditioner'=>'0'
 

@@ -105,7 +105,7 @@
                         // Split the string into an array using the comma as delimiter
                         $images = explode(',', $value);
                         
-                        $single_image = $images[2];
+                        $single_image = $images[0];
                         
                         $total_images = count($images);
 

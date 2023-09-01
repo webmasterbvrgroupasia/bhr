@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Property;
+use App\Models\Admin\RoomType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +17,7 @@ class RoomTypeController extends Controller
      */
     public function index()
     {
-        
+
     }
 
     /**
@@ -39,7 +40,7 @@ class RoomTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+     //
     }
 
     /**

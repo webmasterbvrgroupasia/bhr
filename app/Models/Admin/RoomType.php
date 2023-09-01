@@ -12,19 +12,21 @@ class RoomType extends Model
     protected $table = 'room_type';
 
     protected $fillable = [
-        
+
         'name',
-        
+
         'room_area',
-        
+
         'property_id',
-        
+
         'maximum_adult',
-        
+
         'maximum_child',
 
+        'images',
+
         'price_per_night'
-    
+
     ];
 
     public $timestamps = true;
@@ -32,8 +34,8 @@ class RoomType extends Model
     public function property()
 
     {
-    
+
         return $this->belongsTo(Property::class);
-    
+
     }
 }

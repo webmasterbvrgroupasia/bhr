@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\RoomType;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class AdminRoomTypeController extends Controller
 {
@@ -37,14 +38,42 @@ class AdminRoomTypeController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            
-            'name' => 'required'
-       
+
+            'name' => 'required',
+
+            'room_area' => 'required',
+
+            'maximum_adult' => 'required',
+
+            'maximum_child' => 'required',
+
+            'images' => 'required|array',
+
+            'price_per_night' => 'required',
+
+            'property_id' => 'required'
         ]);
 
-        dd($validatedData);
+        $images = [];
+
+        foreach ($validatedData['images'] as $image) {
+            $fileName = uniqid() . '.' . $image->getClientOriginalExtension();
+
+            $image_path = $image->storeAs('images', $fileName, 'public');
+
+            Image::make($image->getRealPath())->resize(150, 150)-save($image_path);
+
+            array_push($images, $image_path);
+        }
+
+        $allImages = join(',', $images);
+
+        $validatedData['images'] = $allImages;
 
         RoomType::create($validatedData);
+
+        return redirect()->route('properties.index')->with('success', 'Success Add Room Type');
+
     }
 
     /**
@@ -64,9 +93,9 @@ class AdminRoomTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(RoomType $roomType)
     {
-        //
+        return view('pages.dashboard.superadmin.properties.room-types.edit', ['roomTypes' => $roomType]);
     }
 
     /**
@@ -76,9 +105,47 @@ class AdminRoomTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, RoomType $roomType)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required',
+
+            'room_area' => 'required',
+
+            'maximum_adult' => 'required',
+
+            'maximum_child' => 'required',
+
+            'images' => 'nullable|array',
+
+            'price_per_night' => 'required',
+
+        ]);
+
+        $images = [];
+
+        if (isset($request['images'])) {
+
+            foreach ($validateData['images'] as $image) {
+
+                $fileName = uniqid() . '.' . $image->getClientOriginalExtension();
+
+                $image_path = $image->storeAs('images', $fileName, 'public');
+
+                Image::make($image->getRealPath())->resize(150, 150)-save($image_path);
+
+                array_push($image, $image_path);
+
+            }
+
+            $allImages = join(',', $images);
+
+            $validateData['images'] = $allImages;
+        }
+
+        $roomType->update($validateData);
+
+        return redirect()->route('properties.index')->with('success', 'Success Add Room Type');
     }
 
     /**
@@ -87,8 +154,10 @@ class AdminRoomTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(RoomType $roomType)
     {
-        //
+        $roomType->delete();
+
+        return redirect()->route('properties.index')->with('success', 'Success Add Room Type');
     }
 }

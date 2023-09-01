@@ -9,7 +9,7 @@
         openPopover3: false,
         openPopover4: false,
         openPopover5: false,
-    
+
     }">
         <div class="max-w-4xl p-5 bg-white drop-shadow-md mx-auto space-y-[16px] h-[75vh] overflow-y-scroll">
 
@@ -39,7 +39,7 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option>Select property area</option>
                         @foreach ($areas as $area)
-                            <option value="{{ $area->id }}">{{ $area->location }}</option>
+                            <option  value="{{ $area->id }}">{{ $area->location }}</option>
                         @endforeach
                     </select>
 
@@ -771,10 +771,10 @@
         </div>
     </div>
     @endif
-    
+
     <div class="px-5 py-5 md:px-12 lg:px-[100px]">
 
-        
+
     </div>
-    
+
 @endsection

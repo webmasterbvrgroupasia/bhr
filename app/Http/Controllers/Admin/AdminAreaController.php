@@ -53,7 +53,7 @@ class AdminAreaController extends Controller
         if($request->file('image')) {
 
             $validatedData['image'] = $request->file('image')->store('area-images');
-        
+
         }
 
         // dd($validatedData);
@@ -109,7 +109,7 @@ class AdminAreaController extends Controller
 
         Area::destroy($area->id);
 
-        return redirect()->route('areas.index');
-        
+        return redirect()->route('areas.index')->with(['delete-success' => 'Data Removed']);
+
     }
 }

@@ -5,7 +5,7 @@
     class="absolute z-50 top-0 md:left-6 px-2 w-full py-4 grid md:grid lg:hidden grid-cols-2 items-center max-w-full md:max-w-3xl lg:max-w-5xl mx-auto">
     <div class="col-span-1">
         <a href="/">
-            <img src="{{ asset('images/logo-bhr-white.png') }}" class="w-44 md:w-52" alt="BVR Bali Holiday Rentals">
+            <img src="{{ asset('images/bhr-logo-white.png') }}" class="w-52 md:w-52" alt="BVR Bali Holiday Rentals">
         </a>
     </div>
     <div class="col-span-1 flex w-full justify-end">
@@ -109,7 +109,7 @@
     <div class="py-4 bg-white w-full">
         <div class="max-w-5xl mx-auto flex justify-between items-center">
             <div>
-                <img src="{{asset('images/logo-bhr.png')}}" class="w-[144px]" alt="BVR Bali Holiday">
+                <img src="{{asset('images/bhr-logo.png')}}" class="w-52" alt="BVR Bali Holiday">
             </div>
             <div class="text-sm font-medium text-gray-900 flex space-x-[16px]">
                 <div>

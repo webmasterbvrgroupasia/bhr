@@ -30,7 +30,7 @@
                         <a href="/blogpost">Blogposts</a>
                     </li>
                 </ul>
-                
+
             </div>
         </div>
         <div class="col-span-12 md:col-span-3">
@@ -43,7 +43,7 @@
                         <a href="/about-us">About BVR Bali Holiday Rentals</a>
                     </li>
                 </ul>
-                
+
             </div>
         </div>
         <div class="col-span-12 flex justify-start">
@@ -65,7 +65,7 @@
                         <img src="{{asset('images/bcc-logo.png')}}" class="w-14 mt-2" alt="Bali Coffee Club">
                     </a>
                 </div>
-                
+
             </div>
         </div>
         <div class="col-span-12 flex items-center justify-center text-gray-500 border-t-[1px] pt-8 gap-x-[8px]">

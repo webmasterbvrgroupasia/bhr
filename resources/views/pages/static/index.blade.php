@@ -100,43 +100,43 @@
                     </svg>
                 </a>
             </div>
-            <div class="grid grid-cols-3 gap-5">
-                @foreach ($properties as $property)
-                    @if ($property->images != '')
-                        {{-- Extract first picture and store it in a variable --}}
-                        @php
-                            $value = $property->images;
-                            
-                            // Remove the array symbol and the quotes
-                            $value = str_replace(['"'], '', $value);
-                            
-                            // Split the string into an array using the comma as delimiter
-                            $images = explode(',', $value);
-                            
-                            $single_image = $images[2];
-                            
-                            $total_images = count($images);
-                            
-                            // You can now access each image path using a loop or by index
-                            
-                        @endphp
-                        <div class="col-span-3 md:col-span-1 border bg-white">
-                            <img src="{{ asset('storage/' . $single_image) }}"
-                                class="h-44 w-full overflow-hidden object-cover" alt="{{ $property->name }}">
-                            <div class="font-semibold mt-4  px-5 pb-5">
-                                {{ $property->name }}
-                                <div class="font-normal text-gray-600">
-                                    <a class="text-blue-800"
-                                        href="areas/{{ Str::lower($property->location) }}">{{ $property->location }}</a>,
-                                    Indonesia
-                                </div>
-                                <a href="/properties/{{ $property->slug }}" class="block font-medium text-blue-600">View
-                                    More Details</a>
-                            </div>
-                        </div>
-                    @endif
-                @endforeach
-            </div>
+{{--            <div class="grid grid-cols-3 gap-5">--}}
+{{--                @foreach ($properties as $property)--}}
+{{--                    @if ($property->images != '')--}}
+{{--                        --}}{{-- Extract first picture and store it in a variable --}}
+{{--                        @php--}}
+{{--                            $value = $property->images;--}}
+{{--                            --}}
+{{--                            // Remove the array symbol and the quotes--}}
+{{--                            $value = str_replace(['"'], '', $value);--}}
+{{--                            --}}
+{{--                            // Split the string into an array using the comma as delimiter--}}
+{{--                            $images = explode(',', $value);--}}
+{{--                            --}}
+{{--                            $single_image = $images[2];--}}
+{{--                            --}}
+{{--                            $total_images = count($images);--}}
+{{--                            --}}
+{{--                            // You can now access each image path using a loop or by index--}}
+{{--                            --}}
+{{--                        @endphp--}}
+{{--                        <div class="col-span-3 md:col-span-1 border bg-white">--}}
+{{--                            <img src="{{ asset('storage/' . $single_image) }}"--}}
+{{--                                class="h-44 w-full overflow-hidden object-cover" alt="{{ $property->name }}">--}}
+{{--                            <div class="font-semibold mt-4  px-5 pb-5">--}}
+{{--                                {{ $property->name }}--}}
+{{--                                <div class="font-normal text-gray-600">--}}
+{{--                                    <a class="text-blue-800"--}}
+{{--                                        href="areas/{{ Str::lower($property->location) }}">{{ $property->location }}</a>,--}}
+{{--                                    Indonesia--}}
+{{--                                </div>--}}
+{{--                                <a href="/properties/{{ $property->slug }}" class="block font-medium text-blue-600">View--}}
+{{--                                    More Details</a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
+{{--                @endforeach--}}
+{{--            </div>--}}
         </section>
         <section class="space-y-[32px]">
             <div class="space-y-[20px]">

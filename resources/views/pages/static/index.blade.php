@@ -32,7 +32,7 @@
             </div>
             <div class="flex space-x-[16px]">
                 <a href="/properties"
-                    class="text-white text-center text-sm bg-gradient-to-r from-sky-500 to-blue-500 p-3 block w-fit rounded-lg">Our
+                    class="text-white text-center text-sm bg-[#ff5700] to-blue-500 p-3 block w-fit rounded-lg">Our
                     Selected Properties</a>
                 <a href="/activities" class="text-white text-center text-sm block w-fit p-3">Find Fun Activities</a>
             </div>
@@ -54,7 +54,7 @@
                     </div>
 
                     <button
-                        class="bg-blue-600 rounded-lg text-white w-full md:w-fit lg:w-full px-6 py-[14px] flex justify-center col-span-2 md:col-span-1  lg:col-span-2">
+                        class="bg-[#ff5700] rounded-lg text-white w-full md:w-fit lg:w-full px-6 py-[14px] flex justify-center col-span-2 md:col-span-1  lg:col-span-2">
                         <div class="flex items-center space-x-[8px]">
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -101,41 +101,40 @@
                 </a>
             </div>
             <div class="grid grid-cols-3 gap-5">
-{{--                @foreach ($properties as $property)--}}
-{{--                    @if ($property->images != '')--}}
-{{--                         Extract first picture and store it in a variable--}}
-{{--                        @php--}}
-{{--                            $value = $property->images;--}}
+                @foreach ($properties as $property)
+                    @if ($property->images != '')
+                        @php
+                            $value = $property->images;
 
-{{--                            // Remove the array symbol and the quotes--}}
-{{--                            $value = str_replace(['"'], '', $value);--}}
+                            // Remove the array symbol and the quotes
+                            $value = str_replace(['"'], '', $value);
 
-{{--                            // Split the string into an array using the comma as delimiter--}}
-{{--                            $images = explode(',', $value);--}}
+                            // Split the string into an array using the comma as delimiter
+                            $images = explode(',', $value);
 
-{{--                            $single_image = $images[2];--}}
+                            $single_image = $images[2];
 
-{{--                            $total_images = count($images);--}}
+                            $total_images = count($images);
 
-{{--                            // You can now access each image path using a loop or by index--}}
+                            // You can now access each image path using a loop or by index
 
-{{--                        @endphp--}}
-{{--                        <div class="col-span-3 md:col-span-1 border bg-white">--}}
-{{--                            <img src="{{ asset('storage/' . $single_image) }}"--}}
-{{--                                class="h-44 w-full overflow-hidden object-cover" alt="{{ $property->name }}">--}}
-{{--                            <div class="font-semibold mt-4  px-5 pb-5">--}}
-{{--                                {{ $property->name }}--}}
-{{--                                <div class="font-normal text-gray-600">--}}
-{{--                                    <a class="text-blue-800"--}}
-{{--                                        href="areas/{{ Str::lower($property->location) }}">{{ $property->location }}</a>,--}}
-{{--                                    Indonesia--}}
-{{--                                </div>--}}
-{{--                                <a href="/properties/{{ $property->slug }}" class="block font-medium text-blue-600">View--}}
-{{--                                    More Details</a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    @endif--}}
-{{--                @endforeach--}}
+                        @endphp
+                        <div class="col-span-3 md:col-span-1 border bg-white">
+                            <img src="{{ asset('storage/' . $single_image) }}"
+                                class="h-44 w-full overflow-hidden object-cover" alt="{{ $property->name }}">
+                            <div class="font-semibold mt-4  px-5 pb-5">
+                                {{ $property->name }}
+                                <div class="font-normal text-gray-600">
+                                    <a class="text-blue-800"
+                                        href="areas/{{ Str::lower($property->location) }}">{{ $property->location }}</a>,
+                                    Indonesia
+                                </div>
+                                <a href="/properties/{{ $property->slug }}" class="block font-medium text-blue-600">View
+                                    More Details</a>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
             </div>
         </section>
         <section class="space-y-[32px]">
@@ -223,8 +222,8 @@
 
             <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg drop-shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700"
                 style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/images/property-background.jpg'); background-size:cover; background-position:center;">
-                <h5 class="mb-2 text-2xl md:text-3xl font-bold text-white">WHY RENTING when you can buy your dream
-                    property?</h5>
+                <h5 class="mb-2 text-2xl md:text-3xl font-bold text-white">Why Renting When You Can Buy Your Dream
+                    Property?</h5>
                 <p class="mb-5 text-base sm:text-lg text-gray-200"></p>
                 <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
                     <a href="https://bvrproperty.com" target="_blank"

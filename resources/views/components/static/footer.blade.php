@@ -72,6 +72,4 @@
             Powered by <a href="https://www.bvrdigital.com"><img src="{{asset('images/bvr-digitall.png')}}" alt="BVR Digital" class="w-24"/> </a>
         </div>
     </div>
-
-
 </footer>

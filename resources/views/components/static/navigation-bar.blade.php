@@ -109,7 +109,7 @@
     <div class="py-4 bg-white w-full">
         <div class="max-w-5xl mx-auto flex justify-between items-center">
             <div>
-                <img src="{{asset('images/bhr-logo.png')}}" class="w-52" alt="BVR Bali Holiday">
+                <img src="{{asset('images/bhr-logo.png')}}" class="w-64" alt="BVR Bali Holiday">
             </div>
             <div class="text-sm font-medium text-gray-900 flex space-x-[16px]">
                 <div>

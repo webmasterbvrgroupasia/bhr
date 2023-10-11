@@ -100,25 +100,25 @@
                     </svg>
                 </a>
             </div>
-{{--            <div class="grid grid-cols-3 gap-5">--}}
+            <div class="grid grid-cols-3 gap-5">
 {{--                @foreach ($properties as $property)--}}
 {{--                    @if ($property->images != '')--}}
-{{--                        --}}{{-- Extract first picture and store it in a variable --}}
+{{--                         Extract first picture and store it in a variable--}}
 {{--                        @php--}}
 {{--                            $value = $property->images;--}}
-{{--                            --}}
+
 {{--                            // Remove the array symbol and the quotes--}}
 {{--                            $value = str_replace(['"'], '', $value);--}}
-{{--                            --}}
+
 {{--                            // Split the string into an array using the comma as delimiter--}}
 {{--                            $images = explode(',', $value);--}}
-{{--                            --}}
+
 {{--                            $single_image = $images[2];--}}
-{{--                            --}}
+
 {{--                            $total_images = count($images);--}}
-{{--                            --}}
+
 {{--                            // You can now access each image path using a loop or by index--}}
-{{--                            --}}
+
 {{--                        @endphp--}}
 {{--                        <div class="col-span-3 md:col-span-1 border bg-white">--}}
 {{--                            <img src="{{ asset('storage/' . $single_image) }}"--}}
@@ -136,7 +136,7 @@
 {{--                        </div>--}}
 {{--                    @endif--}}
 {{--                @endforeach--}}
-{{--            </div>--}}
+            </div>
         </section>
         <section class="space-y-[32px]">
             <div class="space-y-[20px]">
@@ -223,7 +223,7 @@
 
             <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg drop-shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700"
                 style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/images/property-background.jpg'); background-size:cover; background-position:center;">
-                <h5 class="mb-2 text-2xl md:text-3xl font-bold text-white">Why Renting when you can buy your dream
+                <h5 class="mb-2 text-2xl md:text-3xl font-bold text-white">WHY RENTING when you can buy your dream
                     property?</h5>
                 <p class="mb-5 text-base sm:text-lg text-gray-200"></p>
                 <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">

@@ -19,9 +19,9 @@
     </div>
     <div class="col-span-2 bg-white mt-2 text-sm font-medium z-50" x-transition x-show="openNavbar">
         <a href="/" class="block border-b-[1px] px-4 py-3">Home</a>
-        <a href="/properties" class="block border-b-[1px] px-4 py-3">Properties</a>
-        <a href="/activities" class="block border-b-[1px] px-4 py-3">Activities</a>
-        <a href="/areas" class="block border-b-[1px] px-4 py-3">Areas</a>
+        <a href="/properties" class="block border-b-[1px] px-4 py-3">Bali Rentals</a>
+        <a href="/activities" class="block border-b-[1px] px-4 py-3">Bali Attractives</a>
+        <a href="/areas" class="block border-b-[1px] px-4 py-3">Top Destinations</a>
         <a href="/blogpost" class="block border-b-[1px] px-4 py-3">Blogpost</a>
         <div class="px-4 py-3 space-y-[8px]">
             <div>
@@ -132,12 +132,12 @@
                 </li>
                 <li>
                     <a href="/properties" class="hover:text-gray-900 transition">
-                        Properties
+                        Bali Rentals
                     </a>
                 </li>
                 <li>
                     <a href="/activities" class="hover:text-gray-900 transition">
-                        Activities
+                        Bali Attractives
                     </a>
                 </li>
                 <li>

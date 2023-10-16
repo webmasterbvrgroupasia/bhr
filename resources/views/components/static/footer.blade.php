@@ -18,13 +18,13 @@
                 </div>
                 <ul  class="text-sm space-y-[16px] text-gray-600">
                     <li>
-                        <a href="/properties">Properties</a>
+                        <a href="/properties">Bali Rentals</a>
                     </li>
                     <li>
-                        <a href="/areas">Areas</a>
+                        <a href="/areas">Top Destinations</a>
                     </li>
                     <li>
-                        <a href="/activities">Activities</a>
+                        <a href="/activities">Bali Attractives</a>
                     </li>
                     <li>
                         <a href="/blogpost">Blogposts</a>

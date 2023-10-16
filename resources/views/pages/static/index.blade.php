@@ -83,17 +83,16 @@
         <section class="space-y-[32px]">
             <div class="space-y-[20px]">
                 <h3 class="leading-tight text-3xl font-extrabold tracking-tight text-gray-900">
-                    Hold on, we have so many good places to stay over!
+                    Bali Hotel, Resort & Villa Rentals
                 </h3>
                 <p class="text-gray-500">
                     @php
                         $total_property = count($all_properties);
                     @endphp
-                    BVR Bali Holiday Rentals has carefully selected only the best properties to enhance your stay in
-                    Indonesia. Let's choose yours!
+                    We serve you villa, resort, and hotel for your convenience in Bali - the Land of Gods.
                 </p>
                 <a href="/properties" class="text-blue-600 flex items-center space-x-[4px]">
-                    Let me choose!
+                    See more
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" class="w-4 h-4">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -140,15 +139,13 @@
         <section class="space-y-[32px]">
             <div class="space-y-[20px]">
                 <h3 class="leading-tight text-3xl font-extrabold tracking-tight text-gray-900">
-                    Why not explore something while you stay?
+                    Attractive Places in Bali
                 </h3>
                 <p class="text-gray-500">
-                    There will always be somewhere to stay and something to do to complete your holiday. And we can't deny,
-                    what you explore during your holiday will provide you with lasting memories when you return home. So,
-                    let's discover the activities that suit you!
+                    Browse some of best activities and places to go in Canggu, Seminyak, Kuta, Ubud, and any other sought-after places in Bali.
                 </p>
                 <a href="/activities" class="text-blue-600 flex items-center space-x-[4px]">
-                    I'm In!
+                    Bali tourist spots
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" class="w-4 h-4">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -190,12 +187,10 @@
         <section class="space-y-[32px]">
             <div class="space-y-[20px]">
                 <h3 class="leading-tight text-3xl font-extrabold tracking-tight text-gray-900">
-                    Still wondering? Let’s find out the best destination that suit you!
+                    Top Destinations in Bali
                 </h3>
                 <p class="text-gray-500">
-                    Indeed, Indonesia is an archipelago country with numerous islands stretching from west to east. However,
-                    Bali consistently remains one of the best destinations that will always be our favorite. Speaking of
-                    which, let's discover the best suit areas to vacation!
+                    Make your holiday perfect by finding must visit places in Bali.
                 </p>
                 <a href="/areas" class="text-blue-600 flex items-center space-x-[4px]">
                     Let me know!

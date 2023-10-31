@@ -113,9 +113,6 @@
             </div>
             <div class="text-sm font-medium text-gray-900 flex space-x-[16px]">
                 <div>
-                    +62 857-3893-0043
-                </div>
-                <div>
                     <a href="https://wa.me/6285738930043" class="text-blue-600">Contact Us</a>
                 </div>
             </div>

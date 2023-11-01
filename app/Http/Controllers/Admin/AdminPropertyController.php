@@ -285,7 +285,7 @@ class AdminPropertyController extends Controller
 
             'description' => 'required',
 
-            'images' => 'required|array',
+            'images' => 'array',
 
             'pool_images' => 'array',
 

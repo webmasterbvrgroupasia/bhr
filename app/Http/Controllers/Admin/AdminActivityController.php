@@ -16,18 +16,18 @@ class AdminActivityController extends Controller
      */
     public function index()
     {
-        
+
         $activities = DB::table('activities')
-        
+
         ->join('areas', 'areas.id', '=', 'activities.area_id')
 
         ->select('activities.*', 'areas.location')
 
         ->skip(0)->paginate(10);;
-        
+
         return view('pages.dashboard.superadmin.activities.index',['activities' => $activities]);
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -37,9 +37,9 @@ class AdminActivityController extends Controller
     {
 
         $areas = DB::table('areas')->get();
-        
+
         return view('pages.dashboard.superadmin.activities.add',[ 'areas' => $areas]);
-    
+
     }
 
     /**
@@ -51,7 +51,7 @@ class AdminActivityController extends Controller
     public function store(Request $request)
     {
        $validatedData = $request -> validate([
-        
+
             'name' => 'required',
 
             'area_id' => 'required',
@@ -80,12 +80,11 @@ class AdminActivityController extends Controller
 
             array_push($images, $image_path);
         }
-        
+
         $allImages = join(',', $images);
 
         $validatedData['images'] = $allImages;
 
-        // dd($validatedData);
 
         Activity::create($validatedData);
 
@@ -113,7 +112,7 @@ class AdminActivityController extends Controller
      */
     public function edit(Activity $activity)
     {
-        
+
         $areas = DB::table('areas')->get();
 
         return view ('pages.dashboard.superadmin.activities.edit',compact('activity'))->with(['areas'=>$areas]);
@@ -129,7 +128,7 @@ class AdminActivityController extends Controller
     public function update(Request $request, Activity $activity)
     {
         $request -> validate([
-        
+
             'name' => 'required',
 
             'area_id' => 'required',
@@ -163,6 +162,6 @@ class AdminActivityController extends Controller
     {
         Activity::destroy($activity->id);
 
-        return redirect()->route('activities.index');
+        return redirect()->route('activities.index')->with('success-delete', 'Data removed');
     }
 }

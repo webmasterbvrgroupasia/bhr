@@ -6,7 +6,7 @@
 
 @section('page-content')
     <div class="max-w-full md:max-w-3xl lg:max-w-5xl px-2 space-y-[24px] mx-auto mt-4" x-data="{
-    
+
     }">
 
         <div class="w-full">
@@ -91,7 +91,7 @@
                                     Save your seat for {{ $activities->name }}
                                 </p>
                                 <a href="{{ $activities->booking_link }}"
-                                    class="bg-blue-600 block text-white w-fit px-4 py-2 text-sm rounded-md mx-auto">Book
+                                    class="bg-[#ff5700] block text-white w-fit px-4 py-2 text-sm rounded-md mx-auto">Book
                                     Now</a>
                             </div>
                         @else
@@ -108,7 +108,7 @@
                                     Save your seat for {{ $activities->name }}
                                 </p>
                                 <a href="{{ $activities->booking_link }}"
-                                    class="bg-blue-600 block text-white w-fit px-4 py-2 text-sm rounded-md mx-auto">Book
+                                    class="bg-[#ff5700] block text-white w-fit px-4 py-2 text-sm rounded-md mx-auto">Book
                                     Now</a>
                             </div>
                         @endif
@@ -126,12 +126,12 @@
                         <div class="text-sm font-normal">
                             Subscribe our newsletter for latest bali news and promotion. Let's stay updated!
                         </div>
-                        
+
                         <x-forms.subscriber/>
-                
+
                     </div>
                 </div>
-                
+
             </div>
 
         </main>

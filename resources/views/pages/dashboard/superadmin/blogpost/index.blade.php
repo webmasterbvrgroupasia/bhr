@@ -14,7 +14,7 @@
                 Blogpost</a>
         </div>
     </section>
-    @if (Session::has('success-delete'))
+    @if (Session::has('delete-success'))
         <div id="toast-danger"
             class="flex absolute bottom-5 right-5 z-50 items-center w-full max-w-xs p-4 mb-4 text-white bg-red-400 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
             role="alert">

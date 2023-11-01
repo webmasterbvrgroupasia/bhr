@@ -70,7 +70,7 @@ background-position:center;
                         placeholder="2 Adults, 1 Children">
                 </div>
                 <button
-                    class="bg-blue-600 rounded-lg text-white w-full md:w-fit lg:w-full px-6 py-[14px] flex justify-center col-span-2 md:col-span-1  lg:col-span-2">
+                    class="bg-[#ff5700] rounded-lg text-white w-full md:w-fit lg:w-full px-6 py-[14px] flex justify-center col-span-2 md:col-span-1  lg:col-span-2">
                     <div class="flex items-center space-x-[8px]">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">

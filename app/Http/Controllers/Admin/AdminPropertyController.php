@@ -383,6 +383,8 @@ class AdminPropertyController extends Controller
             $allImages = join(',', $images);
 
             $validatedData['images'] = $allImages;
+
+
         }
 
         if (isset($validatedData['pool_images'])) {
@@ -452,6 +454,7 @@ class AdminPropertyController extends Controller
 
         }
 
+
         $property->update($validatedData);
 
         return redirect()->route('properties.index')->with('update-success', 'Data has been updated successfully');
@@ -467,7 +470,7 @@ class AdminPropertyController extends Controller
     {
         Property::destroy($property->id);
 
-        return redirect()->route('properties.index');
+        return redirect()->route('properties.index')->with('success-delete', 'Data Removed');
     }
 
     public function add_room_type($id)

@@ -5,7 +5,7 @@
     class="absolute z-50 top-0 md:left-6 px-2 w-full py-4 grid md:grid lg:hidden grid-cols-2 items-center max-w-full md:max-w-3xl lg:max-w-5xl mx-auto">
     <div class="col-span-1">
         <a href="/">
-            <img src="{{ asset('images/logo-bhr-white.png') }}" class="w-44 md:w-52" alt="BVR Bali Holiday Rentals">
+            <img src="{{ asset('images/bhr-logo-white.png') }}" class="w-52 md:w-52" alt="BVR Bali Holiday Rentals">
         </a>
     </div>
     <div class="col-span-1 flex w-full justify-end">
@@ -19,9 +19,9 @@
     </div>
     <div class="col-span-2 bg-white mt-2 text-sm font-medium z-50" x-transition x-show="openNavbar">
         <a href="/" class="block border-b-[1px] px-4 py-3">Home</a>
-        <a href="/properties" class="block border-b-[1px] px-4 py-3">Properties</a>
-        <a href="/activities" class="block border-b-[1px] px-4 py-3">Activities</a>
-        <a href="/areas" class="block border-b-[1px] px-4 py-3">Areas</a>
+        <a href="/properties" class="block border-b-[1px] px-4 py-3">Bali Rentals</a>
+        <a href="/activities" class="block border-b-[1px] px-4 py-3">Bali Attractives</a>
+        <a href="/areas" class="block border-b-[1px] px-4 py-3">Top Destinations</a>
         <a href="/blogpost" class="block border-b-[1px] px-4 py-3">Blogpost</a>
         <div class="px-4 py-3 space-y-[8px]">
             <div>
@@ -109,12 +109,9 @@
     <div class="py-4 bg-white w-full">
         <div class="max-w-5xl mx-auto flex justify-between items-center">
             <div>
-                <img src="{{asset('images/logo-bhr.png')}}" class="w-[144px]" alt="BVR Bali Holiday">
+                <img src="{{asset('images/bhr-logo.png')}}" class="w-64" alt="BVR Bali Holiday">
             </div>
             <div class="text-sm font-medium text-gray-900 flex space-x-[16px]">
-                <div>
-                    +62 857-3893-0043
-                </div>
                 <div>
                     <a href="https://wa.me/6285738930043" class="text-blue-600">Contact Us</a>
                 </div>
@@ -132,12 +129,12 @@
                 </li>
                 <li>
                     <a href="/properties" class="hover:text-gray-900 transition">
-                        Properties
+                        Bali Rentals
                     </a>
                 </li>
                 <li>
                     <a href="/activities" class="hover:text-gray-900 transition">
-                        Activities
+                        Bali Attractives
                     </a>
                 </li>
                 <li>

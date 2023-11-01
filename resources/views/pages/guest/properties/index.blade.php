@@ -74,7 +74,7 @@
                         placeholder="2 Adults, 1 Children">
                 </div>
                 <button
-                    class="bg-blue-600 rounded-lg text-white w-full md:w-fit lg:w-full px-6 py-[14px] flex justify-center col-span-2 md:col-span-1  lg:col-span-2">
+                    class="bg-[#ff5700] rounded-lg text-white w-full md:w-fit lg:w-full px-6 py-[14px] flex justify-center col-span-2 md:col-span-1  lg:col-span-2">
                     <div class="flex items-center space-x-[8px]">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
@@ -98,15 +98,15 @@
                     {{-- Extract first picture and store it in a variable --}}
                     @php
                         $value = $property->images;
-                        
+
                         // Remove the array symbol and the quotes
                         $value = str_replace(['"'], '', $value);
-                        
+
                         // Split the string into an array using the comma as delimiter
                         $images = explode(',', $value);
-                        
+
                         $single_image = $images[0];
-                        
+
                         $total_images = count($images);
 
                         $header_value = $property->header_images;
@@ -116,12 +116,12 @@
                         $single_header = explode(',',$header_value);
 
                         $single_header = $single_header[0];
-                        
+
                         // You can now access each image path using a loop or by index
-                        
+
                     @endphp
                     <div class="col-span-3 md:col-span-1 border bg-white">
-                        
+
                         @if ($property->header_images)
                         <img src="{{ asset('storage/' . $single_header) }}"
                         class="h-44 w-full overflow-hidden object-cover" alt="Header Images">

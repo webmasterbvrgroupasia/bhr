@@ -57,13 +57,23 @@
             <!-- Carousel wrapper -->
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96 lg:h-[450px]">
                 @if ($property->header_images)
-                    @foreach ($header_images as $header_image)
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="/storage/{{ $header_image }}"
-                                class="absolute block max-w-full w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                alt="{{ $property->name }}" title="{{ $property->name }}">
-                        </div>
-                    @endforeach
+
+                    @if(count($header_images) > 1)
+                        @foreach ($header_images as $header_image)
+                            <div  class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img src="{{ asset('storage/'.$header_image) }}"
+                                     class="absolute block max-w-full w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                     alt="{{ $property->name }}" title="{{ $property->name }}">
+                            </div>
+                        @endforeach
+                    @endif
+                        @foreach ($header_images as $header_image)
+                            <div>
+                                <img src="{{ asset('storage/'.$header_image) }}"
+                                     class="absolute block max-w-full w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                     alt="{{ $property->name }}" title="{{ $property->name }}">
+                            </div>
+                        @endforeach
                 @else
                     @foreach ($property_images as $image)
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -73,8 +83,6 @@
                         </div>
                     @endforeach
                 @endif
-
-
             </div>
             <!-- Slider controls -->
             <button type="button"
@@ -103,8 +111,6 @@
                 </span>
             </button>
         </div>
-
-
 
         {{-- Main Section Start --}}
         <main class="space-y-[24px] w-full mx-auto mt-2 md:mt-4 lg:mt-8">

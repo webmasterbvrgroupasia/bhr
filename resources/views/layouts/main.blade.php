@@ -17,7 +17,7 @@
 <body class="bg-white">
     @include('components.static.navigation-bar')
     @yield('page-header')
-    <main class="">
+    <main>
         @yield('page-content')
     </main>
     @include('components.static.footer')

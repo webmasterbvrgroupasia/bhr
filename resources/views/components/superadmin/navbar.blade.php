@@ -11,6 +11,7 @@
         <a href="/admin/activities">Activities</a>
         <a href="/admin/blogpost">Blogpost</a>
         <a href="/admin/users">User Management</a>
+        <a href="/admin/special-offers">Special Offers</a>
     </section>
     <section class="col-span-2" x-data="{ open: false }">
         <button @click="open = ! open" class="flex space-x-3 ml-auto items-center">

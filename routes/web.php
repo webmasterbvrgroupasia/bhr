@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdminPropertyController;
 use App\Http\Controllers\Admin\AdminAreaController;
 use App\Http\Controllers\Admin\AdminBlogpostController;
 use App\Http\Controllers\Admin\AdminRoomTypeController;
+use App\Http\Controllers\Admin\AdminSpecialOfferController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\IndexController as AdminIndexController;
 use App\Http\Controllers\Admin\RoomTypeController;
@@ -30,6 +31,7 @@ use Illuminate\Support\Facades\Artisan;
 // Search Controller
 use App\Http\Controllers\FindPropertyController;
 use App\Http\Controllers\Guest\FindPropertyController as GuestFindPropertyController;
+use App\Http\Controllers\Guest\SpecialOfferController;
 use App\Http\Controllers\SubscriberController;
 
 /*
@@ -69,6 +71,10 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::post('/logout', [LoginController::class, 'logout']);
 
+Route::get('/special-offers',[SpecialOfferController::class,'index']);
+
+Route::get('/special-offers/{slug}',[SpecialOfferController::class,'show'])->name('offer.detail');
+
 Route::resource('/properties', PropertyController::class);
 
 Route::resource('/testimonials', TestimonialController::class);
@@ -104,5 +110,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/admin/users', AdminUserController::class);
 
     Route::resource('/admin/room-type',AdminRoomTypeController::class);
+
+    Route::resource('/admin/special-offers',AdminSpecialOfferController::class);
     
 });

@@ -23,6 +23,7 @@
         <a href="/activities" class="block border-b-[1px] px-4 py-3">Bali Attractives</a>
         <a href="/areas" class="block border-b-[1px] px-4 py-3">Top Destinations</a>
         <a href="/blogpost" class="block border-b-[1px] px-4 py-3">Blogpost</a>
+        <a href="/special-offers" class="block border-b-[1px] px-4 py-3">Special Offers</a>
         <div class="px-4 py-3 space-y-[8px]">
             <div>
                 Social
@@ -145,6 +146,11 @@
                 <li>
                     <a href="/blogpost" class="hover:text-gray-900 transition">
                         Blogpost
+                    </a>
+                </li>
+                <li>
+                    <a href="/special-offers" class="hover:text-gray-900 transition">
+                        Special Offers
                     </a>
                 </li>
             </ul>

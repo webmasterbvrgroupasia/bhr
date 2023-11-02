@@ -1,6 +1,9 @@
 @extends('layouts.main')
 @section('page-title', 'Home')
 
+@section('additional-style')
+@endsection
+
 {{-- Page Meta Keywords --}}
 @section('page-meta-keywords')
     best travel agency in bali, bali holiday rentals, one stop travel platform

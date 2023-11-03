@@ -55,17 +55,29 @@
                     </textarea>
                 </div>
                 <div class="space-y-2">
+                    <div>
+                        <label for="inclusions" class="text-sm font-normal text-neutral-700">Inclusions</label>
+                        <label for="" class="block text-xs text-neutral-500">Separate using comma.</label>
+                    </div>
+                    <input type="text" required name="inclusions" id="inclusions"
+                        class="w-full text-sm py-2.5 border-neutral-300" placeholder="One Night Stay at Sampatti Villa,One Hour Balinese Massage" value="{{old('inclusions')}}">
+                </div>
+                <div class="space-y-2">
                     <label for="image" class="text-sm font-normal text-neutral-700">Package Image</label>
                     <input required type="file" name="image" id="" class="w-full text-sm border-neutral-300">
                 </div>
                 <div class="space-y-2">
+                    <label for="related_images" class="text-sm font-normal text-neutral-700">Related Image</label>
+                    <input multiple type="file" name="related_images[]" id="related_images" class="w-full text-sm border-neutral-300">
+                </div>
+                <div class="space-y-2">
                     <label for="additional_notes" class="text-sm font-normal text-neutral-700">Additional Notes</label>
-                    <input required type="text" name="additional_notes" id="additional_notes"
+                    <input type="text" name="additional_notes" id="additional_notes"
                         class="w-full text-sm py-2.5 border-neutral-300" placeholder="Example Notes for this package" value="{{old('additional_notes')}}">
                 </div>
                 <div class="space-y-2">
                     <label for="booking_link" class="text-sm font-normal text-neutral-700">Booking Link</label>
-                    <input required type="text" name="booking_link" id="booking_link"
+                    <input type="text" name="booking_link" id="booking_link"
                         class="w-full text-sm py-2.5 border-neutral-300" placeholder="Leave empty if no link." value="{{old('additional_notes')}}">
                 </div>
                 <div class="col-span-2">

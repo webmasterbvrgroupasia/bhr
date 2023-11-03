@@ -1,13 +1,13 @@
 @extends('layouts.main')
 
 @section('page-title')
-    {{$offer->package_name}}
+    {{ $offer->package_name }}
 @endsection
 
 @section('page-header')
     <header class="pb-10 h-[75vh] md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-start tracking-tight"
         style="
-background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('{{ asset('storage/'.$offer->image) }}');
+background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('{{ asset('storage/' . $offer->image) }}');
 background-size:cover;
 background-position:center;
 ">
@@ -25,12 +25,57 @@ background-position:center;
     <section class="px-2 py-8 md:py-8 lg:pb-16 max-w-full md:max-w-3xl lg:max-w-5xl mx-auto space-y-[64px]">
         <div class="space-y-4 w-full lg:w-8/12">
             <div class="space-y-2">
-                <div class="font-semibold text-lg text-gray-900">
+                <div class="font-semibold text-base text-gray-900">
                     Description
                 </div>
-                <p class="text-base text-gray-500 w-full md:w-full">
+                <p class="text-base text-neutral-500 w-full md:w-full">
                     {{ $offer->description }}
                 </p>
+            </div>
+            <div class="space-y-2">
+                <div class="font-semibold text-base text-gray-900">
+                    Inclusions in this Package
+                </div>
+                <p class="text-base text-gray-500 w-full md:w-full">
+
+                    @php
+
+                        $inclusionsCollection = $offer->inclusions;
+
+                        $singleInclusion = explode(',', $inclusionsCollection);
+
+                    @endphp
+
+                <ul class="list-disc px-4 text-neutral-500 space-y-2">
+                    @foreach ($singleInclusion as $si)
+                        <li>
+                            {{ $si }}
+                        </li>
+                    @endforeach
+                </ul>
+
+                </p>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+                @php
+                    $relatedImages = $offer->related_images;
+
+                    $relatedImages = str_replace('"', '', $relatedImages);
+
+                    $relatedImage = explode(',', $relatedImages);
+
+                @endphp
+
+                @foreach ($relatedImage as $image)
+
+                    <div class="">
+                
+                        <img src="{{ asset('storage/' . $image) }}" alt="{{$offer->package_name}}" title="{{$offer->package_name}}" class="h-44 w-full object-cover">
+                
+                    </div>
+                
+                @endforeach
+
             </div>
             <div>
                 @if ($offer->additional_notes)
@@ -43,12 +88,9 @@ background-position:center;
                 @endif
             </div>
             <div class="space-y-4">
-                <div class="font-semibold text-gray-900">
-                    Enquire for Special Rate
-                </div>
                 <div>
                     <a class="w-full text-center text-sm block bg-[#ff5700] text-white hover:text-[#ff5700] hover:bg-white transition py-2.5"
-                        href="https://wa.me/6285738930043">Contact Us!</a>
+                        href="https://wa.me/6285738930043">Book Now!</a>
                 </div>
             </div>
         </div>

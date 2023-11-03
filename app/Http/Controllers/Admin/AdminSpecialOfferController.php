@@ -49,11 +49,15 @@ class AdminSpecialOfferController extends Controller
 
             'description'=>'required',
 
+            'inclusions'=>'string',
+
             'booking_link'=>'required',
             
             'slug' => 'required|string',
 
             'image' => 'required',
+
+            'related_images'=> 'array',
             
             'additional_notes'=>'string',
 
@@ -61,11 +65,31 @@ class AdminSpecialOfferController extends Controller
 
         $image = $offerData['image'];
 
+        $relatedImages = [];
+
         $fileName = uniqid() . '.' . $offerData['image']->getClientOriginalExtension();
 
         $imagePath = $image->storeAs('offerImages',$fileName,'public');
 
         $offerData['image'] = $imagePath;
+
+        if (isset($offerData['related_images'])) {
+
+            foreach ($offerData['related_images'] as $relatedImage) {
+
+                $fileName = uniqid() . '.' . $relatedImage->getClientOriginalExtension();
+
+                $imagePath = $relatedImage->storeAs('offerImages',$fileName,'public');
+
+                array_push($relatedImages,$imagePath);
+
+            }
+
+            $allRelatedImages = join(',',$relatedImages);
+
+            $offerData['related_images'] = $allRelatedImages;
+
+        }
         
         // dd($offerData);
 
@@ -121,15 +145,49 @@ class AdminSpecialOfferController extends Controller
 
             'description'=>'required',
 
+            'inclusions'=>'string',
+
             'booking_link'=>'required',
             
             'slug' => 'required|string',
 
-            'image' => 'string',
+            'image' => 'required',
+
+            'related_images'=>'array',
             
             'additional_notes'=>'string',
 
         ]);
+
+        $image = $updateData['image'];
+
+        $relatedImages = [];
+
+        $fileName = uniqid() . '.' . $updateData['image']->getClientOriginalExtension();
+
+        $imagePath = $image->storeAs('offerImages',$fileName,'public');
+
+        $updateData['image'] = $imagePath;
+
+        if (isset($updateData['related_images'])) {
+
+            foreach ($updateData['related_images'] as $relatedImage) {
+
+                $fileName = uniqid() . '.' . $relatedImage->getClientOriginalExtension();
+
+                $imagePath = $relatedImage->storeAs('offerImages',$fileName,'public');
+
+                array_push($relatedImages,$imagePath);
+
+            }
+
+            $allRelatedImages = join(',',$relatedImages);
+
+            $updateData['related_images'] = $allRelatedImages;
+
+        }
+
+        // dd($updateData);
 
         $specialOffer = SpecialOffer::find($id);
 

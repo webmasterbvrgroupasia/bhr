@@ -6,7 +6,7 @@
     <section class="grid grid-cols-12 gap-y-5 max-w-7xl mx-auto py-8">
         <div class="col-span-12 font-bold tracking-tight text-xl flex items-center justify-between bg-white">
             <div>
-                Add New Special Package or Offer
+                Edit Existing Package
             </div>
         </div>
     </section>
@@ -52,8 +52,20 @@
                     </textarea>
                 </div>
                 <div class="space-y-2">
+                    <div>
+                        <label for="inclusions" class="text-sm font-normal text-neutral-700">Inclusions</label>
+                        <label for="" class="block text-xs text-neutral-500">Separate using comma.</label>
+                    </div>
+                    <input type="text" required name="inclusions" id="inclusions"
+                        class="w-full text-sm py-2.5 border-neutral-300" placeholder="One Night Stay at Sampatti Villa,One Hour Balinese Massage" value="{{$offer->inclusions}}">
+                </div>
+                <div class="space-y-2">
                     <label for="image" class="text-sm font-normal text-neutral-700">Package Image</label>
                     <input type="file" value="{{$offer->image}}" name="image" id="" class="w-full text-sm border-neutral-300">
+                </div>
+                <div class="space-y-2">
+                    <label for="related_images" class="text-sm font-normal text-neutral-700">Related Image</label>
+                    <input type="file" name="related_images[]" id="related_images" class="w-full text-sm border-neutral-300" multiple>
                 </div>
                 <div class="space-y-2">
                     <label for="additional_notes" class="text-sm font-normal text-neutral-700">Additional Notes</label>

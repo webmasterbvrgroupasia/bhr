@@ -19,7 +19,11 @@ class SpecialOffer extends Model
 
         'description',
 
+        'inclusions',
+
         'image',
+
+        'related_images',
 
         'booking_link',
 
@@ -29,6 +33,12 @@ class SpecialOffer extends Model
 
         'additional_notes'
     
+    ];
+
+    protected $casts = [
+
+        'related_images' => 'array'
+
     ];
 
     public $timestamps = true;

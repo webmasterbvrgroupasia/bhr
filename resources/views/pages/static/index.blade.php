@@ -22,63 +22,51 @@
 @endsection
 
 @section('page-header')
-    <header class="pb-10 h-auto md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-center tracking-tight"
-        style="
-        background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('https://images.unsplash.com/photo-1564359166390-3a2ddf09543e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80');
-        background-size:cover;
-        background-position:center;
-    ">
-        <div class="max-w-full md:max-w-3xl lg:max-w-5xl px-2 space-y-[24px]">
+    <header class="relative pb-10 h-auto md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-center tracking-tight">
+        <div class="absolute inset-0 overflow-hidden ">
+            <video class="h-screen w-full object-cover " autoplay loop muted>
+                <source src="https://bvrbaliholidayrentals.com/videos/index-header.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+        </div>
+
+        <div class="relative max-w-full md:max-w-3xl lg:max-w-5xl px-2 space-y-[24px]">
             <div>
                 <h1 class="text-base font-normal md:text-xl text-gray-400">Welcome to BVR Bali Holiday Rentals</h1>
                 <h2 class="text-white leading-tight text-4xl md:text-6xl font-black">Your One Stop Travel Platform</h2>
             </div>
             <div class="flex space-x-[16px]">
-                <a href="/properties"
-                    class="text-white text-center text-sm bg-[#ff5700] to-blue-500 p-3 block w-fit rounded-lg">Our
-                    Selected Properties</a>
+                <a href="/properties" class="text-white text-center text-sm bg-[#ff5700] to-blue-500 p-3 block w-fit rounded-lg">Our Selected Properties</a>
                 <a href="/activities" class="text-white text-center text-sm block w-fit p-3">Find Fun Activities</a>
             </div>
             <div class="bg-white p-[10px] rounded-lg">
                 <form method="GET" action="/properties/search" class="grid grid-cols-2 lg:grid-cols-12 gap-[16px]">
                     <div class="relative col-span-2 md:col-span-2 lg:col-span-10">
                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                class="w-5 h-5 text-gray-400">
-                                <path fill-rule="evenodd"
-                                    d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"
-                                    clip-rule="evenodd" />
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-gray-400">
+                                <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
                             </svg>
-
                         </div>
-                        <input type="text" name="search" id="email-address-icon"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-[14px]  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Where to">
+                        <input type="text" name="search" id="email-address-icon" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-[14px]  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Where to">
                     </div>
-
-                    <button
-                        class="bg-[#ff5700] rounded-lg text-white w-full md:w-fit lg:w-full px-6 py-[14px] flex justify-center col-span-2 md:col-span-1  lg:col-span-2">
+                    <button class="bg-[#ff5700] rounded-lg text-white w-full md:w-fit lg:w-full px-6 py-[14px] flex justify-center col-span-2 md:col-span-1  lg:col-span-2">
                         <div class="flex items-center space-x-[8px]">
                             <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    class="w-4 h-4">
-                                    <path fill-rule="evenodd"
-                                        d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z"
-                                        clip-rule="evenodd" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                    <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clip-rule="evenodd" />
                                 </svg>
-
                             </div>
                             <div>
                                 Search
                             </div>
                         </div>
                     </button>
-
                 </form>
             </div>
         </div>
-
     </header>
+
 @endsection
 
 @section('page-content')

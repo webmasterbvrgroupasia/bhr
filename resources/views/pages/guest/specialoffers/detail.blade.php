@@ -93,6 +93,11 @@ background-position:center;
                         href="https://wa.me/6285738930043">Book Now!</a>
                 </div>
             </div>
+            @if ($offer->youtube_link)               
+            <div class="py-8">
+                <iframe class="w-full h-52 md:h-96 lg:h-96" src="https://www.youtube.com/embed/{{$offer->youtube_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            @endif
         </div>
     </section>
 @endsection

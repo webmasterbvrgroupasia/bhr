@@ -52,6 +52,8 @@ class AdminSpecialOfferController extends Controller
             'inclusions'=>'string',
 
             'booking_link'=>'required',
+
+            'youtube_link'=>'string',
             
             'slug' => 'required|string',
 
@@ -148,6 +150,8 @@ class AdminSpecialOfferController extends Controller
             'inclusions'=>'string',
 
             'booking_link'=>'required',
+
+            'youtube_link'=>'string',
             
             'slug' => 'required|string',
 

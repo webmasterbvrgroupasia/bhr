@@ -27,6 +27,8 @@ class SpecialOffer extends Model
 
         'booking_link',
 
+        'youtube_link',
+
         'meta_description',
 
         'meta_keywords',

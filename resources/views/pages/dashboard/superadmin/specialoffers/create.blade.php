@@ -78,7 +78,12 @@
                 <div class="space-y-2">
                     <label for="booking_link" class="text-sm font-normal text-neutral-700">Booking Link</label>
                     <input type="text" name="booking_link" id="booking_link"
-                        class="w-full text-sm py-2.5 border-neutral-300" placeholder="Leave empty if no link." value="{{old('additional_notes')}}">
+                        class="w-full text-sm py-2.5 border-neutral-300" placeholder="Leave empty if no link." value="{{old('booking_link')}}">
+                </div>
+                <div class="space-y-2">
+                    <label for="youtube_link" class="text-sm font-normal text-neutral-700">Youtube Link</label>
+                    <input type="text" name="youtube_link" id="youtube_link"
+                        class="w-full text-sm py-2.5 border-neutral-300" placeholder="Use youtube video ID on the URL" value="{{old('youtube_link')}}">
                 </div>
                 <div class="col-span-2">
                     <button type="submit" class="bg-blue-500 w-full py-2.5 text-white text-sm">Submit</button>

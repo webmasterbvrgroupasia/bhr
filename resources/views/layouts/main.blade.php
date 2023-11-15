@@ -8,7 +8,10 @@
     <meta name="description" content="@yield('page-meta-description')">
     <meta name="keywords" content="@yield('page-meta-keywords')">
     <meta name="robots" content="index,follow" />
-    <title>BVR Bali Holiday Rentals - @yield('page-title')</title>
+    <meta name="revisit-after" content="10 days">
+    <title>@yield('page-title')</title>
+    <meta name="mobileOptimized" content="320">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @yield('custom-styles')
 

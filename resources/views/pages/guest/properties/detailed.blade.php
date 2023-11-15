@@ -141,6 +141,7 @@
                 </button>
             </div>
         @endif
+
         {{-- Main Section Start --}}
         <main class="space-y-[24px] w-full mx-auto mt-2 md:mt-4 lg:mt-8">
             <nav class="flex" aria-label="Breadcrumb">

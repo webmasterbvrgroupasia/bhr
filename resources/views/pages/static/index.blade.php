@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('page-title', 'Home')
+@section('page-title', 'Bali Holiday at Your Fingertips | BVR Bali Holiday Rentals')
 
 @section('additional-style')
 @endsection
@@ -11,10 +11,7 @@
 
 {{-- Page Meta Description --}}
 @section('page-meta-description')
-    Discover the enchanting beauty of Bali with our premier travel agency. Immerse yourself in a tropical paradise as we
-    curate unforgettable experiences tailored to your preferences. From serene beaches to ancient temples, let us guide you
-    through the captivating landscapes and rich cultural heritage of Bali. Start your journey today and create lifelong
-    memories with our expert team of travel enthusiasts.
+    Experiencing paradise vibes never gets easier. With BVR Bali Holiday Rentals, make your Bali holiday perfect, at your fingertips!
 @endsection
 
 {{-- Additional CSS for specific page --}}
@@ -208,8 +205,8 @@
 
             <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg drop-shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700"
                 style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/images/property-background.jpg'); background-size:cover; background-position:center;">
-                <h5 class="mb-2 text-2xl md:text-3xl font-bold text-white">Why Renting When You Can Buy Your Dream
-                    Property?</h5>
+                <h3 class="mb-2 text-2xl md:text-3xl font-bold text-white">Why Renting When You Can Buy Your Dream
+                    Property?</h3>
                 <p class="mb-5 text-base sm:text-lg text-gray-200"></p>
                 <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
                     <a href="https://bvrproperty.com" target="_blank"

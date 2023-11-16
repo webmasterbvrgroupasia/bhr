@@ -35,17 +35,17 @@ background-position:center;
 
 
 @section('page-content')
-<section class="px-2 py-8 md:py-8 lg:pb-16 max-w-full md:max-w-3xl lg:max-w-5xl mx-auto -mt-10 bg-white border rounded-lg drop-shadow-md text-gray-900">
+<section  class="px-2 py-8 md:py-8 lg:pb-16 max-w-full md:max-w-3xl lg:max-w-5xl mx-auto -mt-10 bg-white border rounded-lg drop-shadow-md text-gray-900" itemscope>
     <section class="px-6 py-2 border-b-[1px] text-sm flex space-x-[12px]">
-        <div>
+        <div itemprop="by">
             by <span class="font-medium">BVR Bali Holiday Rentals</span>
         </div>
-        <div>
+        <div itemprop="datetime">
             {{$post->created_at}}
         </div>
     </section>
-    <article class="px-6 py-12">
-        
+    <article class="px-6 py-12" itemprop="content">
+
         {!! $post->content !!}
     </article>
 </section>

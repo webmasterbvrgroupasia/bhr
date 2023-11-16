@@ -143,11 +143,11 @@
         @endif
 
         {{-- Main Section Start --}}
-        <main class="space-y-[24px] w-full mx-auto mt-2 md:mt-4 lg:mt-8">
+        <main class="space-y-[24px] w-full mx-auto mt-2 md:mt-4 lg:mt-8" itemscope>
             <nav class="flex" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1 md:space-x-3">
                     <li class="inline-flex items-center">
-                        <a href="/"
+                        <a href="/" title="Home"
                             class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
                             <svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -166,7 +166,7 @@
                                     d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                     clip-rule="evenodd"></path>
                             </svg>
-                            <a href="/properties"
+                            <a href="/properties" title="Properties"
                                 class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">Properties</a>
                         </div>
                     </li>
@@ -185,7 +185,7 @@
                 </ol>
             </nav>
 
-            <h1 class="leading-tight text-3xl font-extrabold">
+            <h1 class="leading-tight text-3xl font-extrabold" itemprop="name">
                 {{ $property->name }}
             </h1>
             <p class="text-lg font-normal">
@@ -195,7 +195,7 @@
                         <div class="font-semibold text-gray-900">
                             Description
                         </div>
-                        <p class="text-sm text-gray-500">
+                        <p class="text-sm text-gray-500" itemprop="description">
                             {{ $property->description }}
                         </p>
                     </div>
@@ -208,7 +208,7 @@
                         <p class="text-base md:text-base lg:text-lg">
                             Book Your Stay at {{ $property->name }}
                         </p>
-                        <a href="{{ $property->booking_link }}"
+                        <a href="{{ $property->booking_link }}" title="Book Now"
                             class="bg-[#ff5700] block text-white w-fit px-4 py-2 text-sm rounded-md mx-auto">Book Now</a>
                     </div>
                     <div>

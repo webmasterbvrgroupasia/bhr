@@ -47,8 +47,6 @@ background-position:center;
                             d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zm13.5 9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v7.5a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-7.5z"
                             clip-rule="evenodd" />
                     </svg>
-
-
                 </div>
                 <input type="text" id="email-address-icon"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-[14px]  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -88,9 +86,9 @@ background-position:center;
 
         </form>
     </div>
-    <div class="grid grid-cols-12 gap-6 items-start">
-        <a href="https://berryamourvillasbybvr.reserveonline.id/book/332" target="_blank" class="hidden md:hidden lg:block col-span-4 bg-white overflow-hidden order-last">
-            <img src="{{asset('images/banner.png')}}" class="drop-shadow-md" alt="Promotion BVR Bali Holiday Rentals">
+    <div class="grid grid-cols-12 gap-6 items-start" itemscope itemtype="https://www.bvrbaliholidayrentals.com/activities">
+        <a href="https://berryamourvillasbybvr.reserveonline.id/book/332" title="Promotion BVR Bali Holiday Rentals" target="_blank" class="hidden md:hidden lg:block col-span-4 bg-white overflow-hidden order-last">
+            <img src="{{asset('images/banner.png')}}" itemprop="banner" class="drop-shadow-md" alt="Promotion BVR Bali Holiday Rentals">
         </a>
         <div class="col-span-12 md:col-span-12 lg:col-span-8 space-y-[32px] order-first">
             @foreach ($activities as $activity)
@@ -100,17 +98,17 @@ background-position:center;
                     $activity_images = str_replace('"',"",$activity_image);
                 @endphp
                 <div class="block border rounded-lg">
-                    <img src="/storage/{{$activity_images}}" class="w-full h-44 object-cover" alt="">
+                    <img src="/storage/{{$activity_images}}" itemprop="images" class="w-full h-44 object-cover" alt="{{ $activity->name }}">
                     <div class="p-5 space-y-[16px]">
                         <div class="space-y-[8px]">
-                            <h2 class="font-medium text-lg text-gray-900">
+                            <h2 class="font-medium text-lg text-gray-900" itemprop="name">
                                 {{$activity->name}}
                             </h2>
-                            <p class="text-gray-700">
+                            <p class="text-gray-700" itemprop="description">
                                 {{Str::limit($activity->description,150)}}
                             </p>
                         </div>
-                        <a href="/activities/{{$activity->slug}}" class="block text-blue-700">More Details</a>
+                        <a href="/activities/{{$activity->slug}}" class="block text-blue-700" title="More Details">More Details</a>
                     </div>
                 </div>
             @endforeach

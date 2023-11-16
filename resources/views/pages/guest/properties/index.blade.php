@@ -120,23 +120,23 @@
                         // You can now access each image path using a loop or by index
 
                     @endphp
-                    <div class="col-span-3 md:col-span-1 border bg-white">
+                    <div class="col-span-3 md:col-span-1 border bg-white" itemscope itemtype="https://www.bvrbaliholidayrentals.com/properties">
 
                         @if ($property->header_images)
-                        <img src="{{ asset('storage/' . $single_header) }}"
+                        <img src="{{ asset('storage/' . $single_header) }}" itemprop="image"
                         class="h-44 w-full overflow-hidden object-cover" alt="Header Images">
                         @else
-                        <img src="{{ asset('storage/' . $single_image) }}"
+                        <img src="{{ asset('storage/' . $single_image) }}" itemprop="image"
                         class="h-44 w-full overflow-hidden object-cover" alt="Ex Images">
                         @endif
                         <div class="font-semibold mt-4  px-5 pb-5">
-                            {{ $property->name }}
+                            <p itemprop="name">{{ $property->name }}</p>
                             <div class="font-normal text-gray-600">
-                                <a class="text-blue-800"
+                                <a class="text-blue-800" title="location"
                                     href="areas/{{ Str::lower($property->location) }}">{{ $property->location }}</a>,
                                 Indonesia
                             </div>
-                            <a href="/properties/{{ $property->slug }}" class="block font-medium text-blue-600">View
+                            <a href="/properties/{{ $property->slug }}" title="View More Details" class="block font-medium text-blue-600">View
                                 More Details</a>
                         </div>
                     </div>

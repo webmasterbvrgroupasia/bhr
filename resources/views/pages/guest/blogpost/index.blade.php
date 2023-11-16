@@ -88,17 +88,17 @@ background-position:center;
 
         </form>
     </div>
-    <div class="grid grid-cols-12 gap-6 items-start">
-        <div class="col-span-12 md:col-span-12 lg:col-span-10 space-y-[32px] ">
+    <div class="grid grid-cols-12 gap-6 items-start" >
+        <div class="col-span-12 md:col-span-12 lg:col-span-10 space-y-[32px] " itemscope itemtype="https://www.bvrbaliholidayrentals.com/blogpost">
             @foreach ($posts as $post)
             <div class="space-y-[8px] p-8 border rounded-lg">
-                <h3 class="leading-tight text-3xl font-extrabold text-gray-900">
+                <h3 class="leading-tight text-3xl font-extrabold text-gray-900" itemprop="title">
                     {{$post->title}}
                 </h3>
-                <p class="text-lg font-normal text-gray-500">
+                <p class="text-lg font-normal text-gray-500" itemprop="content">
                     {!! Str::limit($post->content,250)!!}
                 </p>
-                <a href="/blogpost/{{$post->slug}}" class="flex items-center space-x-[8px] text-blue-700 font-medium">
+                <a href="/blogpost/{{$post->slug}}" class="flex items-center space-x-[8px] text-blue-700 font-medium" title="Read More">
                     <div>
                         Read More
                     </div>

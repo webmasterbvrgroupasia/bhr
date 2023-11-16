@@ -6,7 +6,7 @@
 
 {{-- Page Meta Keywords --}}
 @section('page-meta-keywords')
-    best travel agency in bali, bali holiday rentals, one stop travel platform
+    travel booking platforms, vacation rentals, bali tour operators, bali tour agency, villa rentals, best hotels in bali, vacation bali, bali hotels and resorts, bali resort, travel agent seminyak, bali vacation rentals, bali villa rentals, travel agency bali, hotel booking platforms, villa bali, bali vacation trip, best hotel booking platform, bali beach rentals
 @endsection
 
 {{-- Page Meta Description --}}

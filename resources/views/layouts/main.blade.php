@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="@yield('page-meta-description')">
     <meta name="keywords" content="@yield('page-meta-keywords')">
-    <meta name="robots" content="index,follow" />
+{{--    <meta name="robots" content="index,follow" />--}}
+    <meta name="robots" content="{{ isset($metaRobots) ? $metaRobots : 'index,follow' }}">
     <meta name="revisit-after" content="10 days">
     <title>@yield('page-title')</title>
     <meta name="mobileOptimized" content="320">

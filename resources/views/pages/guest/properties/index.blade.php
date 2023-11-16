@@ -5,6 +5,15 @@
 @section('additional-style')
 @endsection
 
+@php
+    $metaRobots = request()->has('page') ? 'noindex' : 'index,follow';
+@endphp
+
+{{-- Page Meta Keywords --}}
+@section('page-meta-keywords')
+    hotel ubud bali, seminyak villas, hotel nusa dua bali, hotel canggu bali, villa kuta bali, canggu resorts, best hotels in bali, bali hotels and resorts, bali resort, canggu bali villas, ubud villas, bali villa rentals, hotel private pool bali, bali villa rentals, villa nusa dua bali, villa ubud private pool, bali private villas, best place to stay in bali, vacation villa bali, villa bali, bali pool villa, bali beach rentals, bali all inclusive villas
+@endsection
+
 @section('page-header')
     <header class="pb-10 h-[75vh] md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-start tracking-tight"
         style="

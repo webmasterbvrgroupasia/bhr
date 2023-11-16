@@ -32,4 +32,14 @@ class Area extends Model
     {
         return $this->hasMany(Property::class, "area_id", "id");
     }
+
+    /**
+     * Get all of the comments for the Area
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function activities(): HasMany
+    {
+        return $this->hasMany(Activity::class, 'area_id');
+    }
 }

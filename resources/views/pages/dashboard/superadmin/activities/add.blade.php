@@ -74,92 +74,99 @@
 
         <div class="col-span-12 font-bold tracking-tight text-xl">
             Add New Activity
-            <p class="text-base font-normal w-1/2 text-neutral-500 leading-relaxed">Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Aspernatur dolor fugiat, iure aliquid cupiditate rerum quaerat doloremque expedita non
-                architecto voluptate, aperiam dignissimos. Quia, veritatis!</p>
         </div>
     </section>
-    <form enctype="multipart/form-data" method="POST" enctype="multipart/form-data"
-        action="{{ route('activities.store') }}"class="grid grid-cols-12 gap-x-5 mt-4 px-5 md:px-8 lg:px-[100px] gap-y-5">
-        @csrf
-        <div class="col-span-4">
-            <label for="name" class="font-semibold">Activity Name</label>
-            <input type="text" name="name" id="name" placeholder="e.g The Chillhouse Canggu"
-                class="block w-full py-2 px-2 mt-3">
-        </div>
-        <div class="col-span-4">
-            <label for="" class="font-semibold">Area</label>
-            <select name="area_id" id="area_id" class="block w-full py-2 px-2 mt-3">
-                @foreach ($areas as $area)
-                    <option value="{{ $area->id }}">{{ $area->location }}</option>
-                @endforeach
-            </select>
-        </div>
-        <div class="col-span-8">
-            <label for="name" class="font-semibold">URL Slug</label>
-            <div class="text-sm text-gray-400 font-normal">
-                URL Slug is used to create a SEO-friendly link.
+    <section class="max-w-7xl">
+        <form enctype="multipart/form-data" method="POST" enctype="multipart/form-data"
+            action="{{ route('activities.store') }}"class="max-w-6xl grid grid-cols-12 gap-x-5 mt-4 px-5 md:px-8 lg:px-[100px] gap-y-5">
+            @csrf
+            <div class="col-span-4">
+                <label for="name" class="font-semibold">Activity Name</label>
+                <input type="text" name="name" id="name" placeholder="e.g The Chillhouse Canggu"
+                    class="block w-full py-2 px-2 mt-3" value="{{old('name')}}">
             </div>
-            <input type="text" name="slug" id="slug" placeholder="e.g the-chillhouse-canggu"
-                class="block w-full py-2 px-2 mt-3">
-        </div>
-        <div class="col-span-8">
-            <label for="" class="font-semibold">Activity Images</label>
-            <input type="file" name="images[]" class="block w-full mt-1 rounded-md" placeholder="" multiple />
-        </div>
-        <div class="col-span-8">
-            <label for="" class="font-semibold">Description</label>
-            <textarea name="description" class="block w-full px-2 py-2 leading-relaxed mt-3"
-                placeholder="e.g Join a 7 to 8-hour bird-watching experience. Bali is known for its abundance of bird species, with more than 100 different birds having been already registered. Bird watching experience lasts for half a day."
-                id="" rows="5"></textarea>
-        </div>
-        <div class="col-span-8">
-            <label for="" class="font-semibold">Price</label>
-            <div class="flex items-center">
-                <span
-                    class="h-full rounded-tl-md rounded-bl-md border border-r-0 border-stroke bg-gray-1 py-3 px-4 text-base uppercase text-body-color">
-                    IDR
-                </span>
-                <input type="num" name="price" id="price" placeholder="250000"
-                       class="w-full rounded-br-md rounded-tr-md border border-form-stroke p-3 pl-5 text-black placeholder-[#929DA7] outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+            <div class="col-span-4">
+                <label for="" class="font-semibold">Area</label>
+                <select name="area_id" id="area_id" class="block w-full py-2 px-2 mt-3">
+                    @foreach ($areas as $area)
+                        <option @if(old('area_id') == $area->id) selected @endif value="{{ $area->id }}">{{ $area->location }}</option>
+                    @endforeach
+                </select>
             </div>
-        </div>
-        <div class="col-span-8">
-            <label for="" class="font-semibold">Booking Link</label>
-            <div class="flex items-center">
-                <input type="text" name="booking_link" id="booking_link" placeholder="e.g https://random-link.com"
-                class="block w-full py-2 px-2 mt-3">
+            <div class="col-span-8">
+                <label for="" class="font-semibold">Category</label>
+                <select name="category_id" id="category_id" class="block w-full py-2 px-2 mt-3">
+                    @foreach ($categories as $category)
+                        <option @if(old('category_id') == $category->id) selected @endif value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
             </div>
-        </div>
-        <div class="col-span-8">
-            <label for="" class="font-semibold">Activity Status</label>
-            <div class="flex mt-3">
-                <div class="flex items-center mr-14">
-                    <input id="status" type="radio" value="1" name="status"
-                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300">
-                    <label for="status" class="ml-2 text-sm font-semibold text-gray-900">
-                        Live
-                        <div class="text-sm text-gray-400 font-normal">
-                            Activity <span class="font-bold underline">WILL</span> be shown on the Activity list
-                        </div>
-                    </label>
+            <div class="col-span-8">
+                <label for="name" class="font-semibold">URL Slug</label>
+                <div class="text-sm text-gray-400 font-normal">
+                    URL Slug is used to create a SEO-friendly link.
                 </div>
-                <div class="flex items-center mr-4">
-                    <input id="status" type="radio" value="0" name="status"
-                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 ">
-                    <label for="status" class="ml-2 text-sm font-semibold text-gray-900">
-                        Not Live
-                        <div class="text-sm text-gray-400 font-normal">
-                            Activity will <span class="font-bold underline">NOT</span> be shown on the Activity list
-                        </div>
-                    </label>
+                <input type="text" name="slug" id="slug" placeholder="e.g the-chillhouse-canggu"
+                    class="block w-full py-2 px-2 mt-3" value="{{old('slug')}}">
+            </div>
+            <div class="col-span-8">
+                <label for="" class="font-semibold">Activity Images</label>
+                <input type="file" name="images[]" class="block w-full mt-1 rounded-md" placeholder="" multiple />
+            </div>
+            <div class="col-span-8">
+                <label for="" class="font-semibold">Description</label>
+                <textarea name="description" class="block w-full px-2 py-2 leading-relaxed mt-3"
+                    placeholder="e.g Join a 7 to 8-hour bird-watching experience. Bali is known for its abundance of bird species, with more than 100 different birds having been already registered. Bird watching experience lasts for half a day."
+                    id="" rows="5">{{old('description')}}</textarea>
+            </div>
+            <div class="col-span-8">
+                <label for="" class="font-semibold">Price</label>
+                <div class="flex items-center">
+                    <span
+                        class="h-full rounded-tl-md rounded-bl-md border border-r-0 border-stroke bg-gray-1 py-3 px-4 text-base uppercase text-body-color">
+                        IDR
+                    </span>
+                    <input type="num" name="price" id="price" value="{{old('price')}}" placeholder="250000"
+                           class="w-full rounded-br-md rounded-tr-md border border-form-stroke p-3 pl-5 text-black placeholder-[#929DA7] outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
                 </div>
             </div>
-        </div>
-        <div class="col-span-8">
-            <button type="submit"
-                class="w-full py-2 bg-blue-500 text-white font-bold mt-2 hover:bg-blue-600 transition-all duration-300 rounded-md">Submit</button>
-        </div>
-    </form>
+            <div class="col-span-8">
+                <label for="" class="font-semibold">Booking Link</label>
+                <div class="flex items-center">
+                    <input type="text" name="booking_link" id="booking_link" value="{{old('booking_link')}}" placeholder="e.g https://random-link.com"
+                    class="block w-full py-2 px-2 mt-3">
+                </div>
+            </div>
+            <div class="col-span-8">
+                <label for="" class="font-semibold">Activity Status</label>
+                <div class="flex mt-3">
+                    <div class="flex items-center mr-14">
+                        <input id="status" type="radio" value="1" name="status"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300">
+                        <label for="status" class="ml-2 text-sm font-semibold text-gray-900">
+                            Live
+                            <div class="text-sm text-gray-400 font-normal">
+                                Activity <span class="font-bold underline">WILL</span> be shown on the Activity list
+                            </div>
+                        </label>
+                    </div>
+                    <div class="flex items-center mr-4">
+                        <input id="status" type="radio" value="0" name="status"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 ">
+                        <label for="status" class="ml-2 text-sm font-semibold text-gray-900">
+                            Not Live
+                            <div class="text-sm text-gray-400 font-normal">
+                                Activity will <span class="font-bold underline">NOT</span> be shown on the Activity list
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-8">
+                <button type="submit"
+                    class="w-full py-2 bg-blue-500 text-white font-bold mt-2 hover:bg-blue-600 transition-all duration-300 rounded-md">Submit</button>
+            </div>
+        </form>
+    </section>
     <div class="h-[50px] md:h-[75px] lg:h-[100px]"></div>
 @endsection

@@ -99,10 +99,16 @@ background-position:center;
 
                     $activity_images = str_replace('"',"",$activity_image);
                 @endphp
-                <div class="block border rounded-lg">
+                <div class="block border rounded-lg overflow-hidden">
                     <img src="/storage/{{$activity_images}}" class="w-full h-44 object-cover" alt="">
                     <div class="p-5 space-y-[16px]">
                         <div class="space-y-[8px]">
+                            @if ($activity->category?->name)                                
+                            <div class="text-xs font-medium text-green-800 p-1 rounded-md  bg-green-200 w-fit">
+                                {{$activity->category->name}}
+                            </div>
+                            @else
+                            @endif
                             <h2 class="font-medium text-lg text-gray-900">
                                 {{$activity->name}}
                             </h2>

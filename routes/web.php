@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminActivityCategoryController;
 use Illuminate\Support\Facades\Route;
 
 // Admin Controller
@@ -112,5 +113,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/admin/room-type',AdminRoomTypeController::class);
 
     Route::resource('/admin/special-offers',AdminSpecialOfferController::class);
+
+    Route::resource('/admin/activity-categories', AdminActivityCategoryController::class);
     
 });

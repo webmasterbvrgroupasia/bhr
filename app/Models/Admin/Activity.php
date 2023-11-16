@@ -4,6 +4,7 @@ namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Activity extends Model
 {
@@ -20,6 +21,8 @@ class Activity extends Model
         'images',
 
         'description',
+
+        'category_id',
 
         'price',
 
@@ -41,5 +44,27 @@ class Activity extends Model
         'images' => 'array'
     
     ];
+
+    /**
+     * Get the category that owns the Activity
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category(): BelongsTo
+    {
+       
+        return $this->belongsTo(ActivityCategory::class, 'category_id');
+    
+    }
+
+    /**
+     * Get the user that owns the Activity
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function area(): BelongsTo
+    {
+        return $this->belongsTo(Area::class, 'area_id');
+    }
 
 }

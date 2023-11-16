@@ -20,7 +20,7 @@
     <div class="col-span-2 bg-white mt-2 text-sm font-medium z-50" x-transition x-show="openNavbar">
         <a href="/" class="block border-b-[1px] px-4 py-3">Home</a>
         <a href="/properties" class="block border-b-[1px] px-4 py-3">Bali Rentals</a>
-        <a href="/activities" class="block border-b-[1px] px-4 py-3">Bali Attractives</a>
+        <button class="block border-b-[1px] px-4 py-3">Bali Attractives</button>
         <a href="/areas" class="block border-b-[1px] px-4 py-3">Top Destinations</a>
         <a href="/blogpost" class="block border-b-[1px] px-4 py-3">Blogpost</a>
         <a href="/special-offers" class="block border-b-[1px] px-4 py-3">Special Offers</a>
@@ -135,9 +135,15 @@
                 </li>
                 <li>
                     <a href="/activities" class="hover:text-gray-900 transition">
-                        Bali Attractives
+                        Bali Atractives
                     </a>
                 </li>
+                {{-- <li x-data="{toggleActivitiesMenu: false}" class="relative">
+                    <button @click="toggleActivitiesMenu =! toggleActivitiesMenu" class="hover:text-gray-900 transition">Bali Attractives</button>
+                    <div class="bg-gray-50 p-4 w-full z-50 absolute" x-transition x-cloak x-show="toggleActivitiesMenu">
+                        
+                    </div>
+                </li> --}}
                 <li>
                     <a href="/areas" class="hover:text-gray-900 transition">
                         Areas

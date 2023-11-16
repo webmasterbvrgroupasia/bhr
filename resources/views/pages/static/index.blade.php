@@ -6,7 +6,7 @@
 
 {{-- Page Meta Keywords --}}
 @section('page-meta-keywords')
-    best travel agency in bali, bali holiday rentals, one stop travel platform
+    travel booking platforms, vacation rentals, bali tour operators, bali tour agency, villa rentals, best hotels in bali, vacation bali, bali hotels and resorts, bali resort, travel agent seminyak, bali vacation rentals, bali villa rentals, travel agency bali, hotel booking platforms, villa bali, bali vacation trip, best hotel booking platform, bali beach rentals
 @endsection
 
 {{-- Page Meta Description --}}
@@ -20,10 +20,9 @@
 @endsection
 
 @section('page-header')
-    <header
-        class="relative pb-10 h-auto md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-center tracking-tight">
-        <div class="absolute inset-0 overflow-hidden ">
-            <video class="h-screen w-full object-cover " autoplay loop muted>
+    <header itemscope itemtype="https://www.bvrbaliholidayrentals.com" class="relative pb-10 h-auto md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-center tracking-tight">
+        <div class="absolute inset-0 overflow-hidden">
+            <video class="h-screen w-full object-cover " autoplay loop muted itemprop="holiday in bali">
                 <source src="https://bvrbaliholidayrentals.com/videos/index-header.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -32,14 +31,12 @@
 
         <div class="relative max-w-full md:max-w-3xl lg:max-w-5xl px-2 space-y-[24px]">
             <div>
-                <h1 class="text-base font-normal md:text-xl text-gray-400">Welcome to BVR Bali Holiday Rentals</h1>
+                <h1 class="text-base font-normal md:text-xl text-gray-400" itemprop="title">Welcome to BVR Bali Holiday Rentals</h1>
                 <h2 class="text-white leading-tight text-4xl md:text-6xl font-black">Your One Stop Travel Platform</h2>
             </div>
             <div class="flex space-x-[16px]">
-                <a href="/properties"
-                    class="text-white text-center text-sm bg-[#ff5700] to-blue-500 p-3 block w-fit rounded-lg">Our Selected
-                    Properties</a>
-                <a href="/activities" class="text-white text-center text-sm block w-fit p-3">Find Fun Activities</a>
+                <a href="/properties" class="text-white text-center text-sm bg-[#ff5700] to-blue-500 p-3 block w-fit rounded-lg" title="Our Selected Properties">Our Selected Properties</a>
+                <a href="/activities" class="text-white text-center text-sm block w-fit p-3" title="Find Fun Activities">Find Fun Activities</a>
             </div>
             <div class="bg-white p-[10px] rounded-lg">
                 <form method="GET" action="/properties/search" class="grid grid-cols-2 lg:grid-cols-12 gap-[16px]">
@@ -76,23 +73,22 @@
             </div>
         </div>
     </header>
-
 @endsection
 
 @section('page-content')
-    <main class="px-2 py-8 md:py-8 lg:py-16 max-w-full md:max-w-3xl lg:max-w-5xl mx-auto space-y-[64px]">
+    <main itemscope class="px-2 py-8 md:py-8 lg:py-16 max-w-full md:max-w-3xl lg:max-w-5xl mx-auto space-y-[64px]">
         <section class="space-y-[32px]">
             <div class="space-y-[20px]">
-                <h3 class="leading-tight text-3xl font-extrabold tracking-tight text-gray-900">
+                <h3 class="leading-tight text-3xl font-extrabold tracking-tight text-gray-900" itemprop="title">
                     Bali Hotel, Resort & Villa Rentals
                 </h3>
-                <p class="text-gray-500">
+                <p class="text-gray-500" itemprop="description">
                     @php
                         $total_property = count($all_properties);
                     @endphp
                     We serve you villa, resort, and hotel for your convenience in Bali - the Land of Gods.
                 </p>
-                <a href="/properties" class="text-blue-600 flex items-center space-x-[4px]">
+                <a href="/properties" class="text-blue-600 flex items-center space-x-[4px]" title="See more" itemprop="detail">
                     See more
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" class="w-4 h-4">
@@ -149,14 +145,13 @@
                 @endforeach
             </div>
         </section>
-        <section class="space-y-[32px]">
+        <section class="space-y-[32px]" itemscope>
             <div class="space-y-[20px]">
-                <h3 class="leading-tight text-3xl font-extrabold tracking-tight text-gray-900">
+                <h3 class="leading-tight text-3xl font-extrabold tracking-tight text-gray-900" itemprop="title">
                     Attractive Places in Bali
                 </h3>
-                <p class="text-gray-500">
-                    Browse some of best activities and places to go in Canggu, Seminyak, Kuta, Ubud, and any other
-                    sought-after places in Bali.
+                <p class="text-gray-500" itemprop="description">
+                    Browse some of best activities and places to go in Canggu, Seminyak, Kuta, Ubud, and any other sought-after places in Bali.
                 </p>
                 <a href="/activities" class="text-blue-600 flex items-center space-x-[4px]">
                     Bali tourist spots
@@ -173,7 +168,7 @@
                         $activity_image = str_replace('"', '', $activity_image);
                     @endphp
 
-                    <a href="/activities/{{ $activity->slug }}"
+                    <a href="/activities/{{ $activity->slug }}" title="Activity"
                         class="col-span-2 flex items-center md:col-span-1 p-5 lg:p-12 bg-center bg-cover"
                         style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/storage/{{ $activity_image }}');
                 background-size: cover;
@@ -206,7 +201,7 @@
                 <p class="text-gray-500">
                     Make your holiday perfect by finding must visit places in Bali.
                 </p>
-                <a href="/areas" class="text-blue-600 flex items-center space-x-[4px]">
+                <a href="/areas" class="text-blue-600 flex items-center space-x-[4px]" title="Let me know!">
                     Let me know!
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" class="w-4 h-4">
@@ -216,7 +211,7 @@
             </div>
             <div class="grid grid-cols-12 w-full gap-y-4 mt-4">
                 @foreach ($areas as $area)
-                    <a href="/areas/{{ Strtolower($area->location) }}"
+                    <a href="/areas/{{ Strtolower($area->location) }}" title="Location"
                         class="col-span-12 w-full h-44 flex items-center p-5"
                         style="background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/storage/{{ $area->image }}');
                         background-size:cover;
@@ -235,7 +230,7 @@
                     Property?</h3>
                 <p class="mb-5 text-base sm:text-lg text-gray-200"></p>
                 <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-                    <a href="https://bvrproperty.com" target="_blank"
+                    <a href="https://bvrproperty.com" target="_blank" title="Go To Website"
                         class="w-full md:w-1/4 bg-white focus:ring-1 focus:outline-none focus:ring-gray-300 text-[#ff5700]  hover:bg-black/50 hover:backdrop-blur-sm transition ease-in-out duration-300 rounded-lg inline-flex items-center justify-center px-4 py-2.5 ">
                         <div class="text-left">
                             <div class="mb-1 text-xs">Visit BVR Property</div>

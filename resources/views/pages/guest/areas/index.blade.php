@@ -89,22 +89,22 @@ background-position:center;
             </form>
         </div>
     </section>
-    <section class="px-2 py-8 md:py-8 lg:pb-16 max-w-full md:max-w-3xl lg:max-w-5xl mx-auto space-y-[64px]">
+    <section class="px-2 py-8 md:py-8 lg:pb-16 max-w-full md:max-w-3xl lg:max-w-5xl mx-auto space-y-[64px]" itemscope itemtype="https://www.bvrbaliholidayrentals.com/areas">
         <div class="grid grid-cols-12 gap-5">
             <div class="col-span-12 md:col-span-12 lg:col-span-8 space-y-[32px]">
                 @foreach ($areas as $area)
                     <div class="block border rounded-lg">
-                        <img src="/storage/{{$area->image}}" class="w-full h-44 object-cover" alt="">
+                        <img src="/storage/{{$area->image}}" itemprop="images" class="w-full h-44 object-cover" alt="{{ $area->location }}">
                         <div class="p-5 space-y-[16px]">
                             <div class="space-y-[8px]">
-                                <h2 class="font-medium text-lg text-gray-900">
+                                <h2 class="font-medium text-lg text-gray-900" itemprop="location">
                                     {{$area->location}}
                                 </h2>
-                                <p class="text-gray-700">
+                                <p class="text-gray-700" itemprop="description">
                                     {{Str::limit($area->description,150)}}
                                 </p>
                             </div>
-                            <a href="/areas/{{Str::lower($area->location)}}" class="block text-blue-700">More Details</a>
+                            <a href="/areas/{{Str::lower($area->location)}}" class="block text-blue-700" title="More Detail">More Details</a>
                         </div>
                     </div>
                 @endforeach

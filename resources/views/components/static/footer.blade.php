@@ -8,7 +8,7 @@
             </p>
             <div class="text-sm font-medium text-gray-900">
                 Contact Us On Whatsapp
-                <a href="https://wa.me/6285738930043" class="block text-gray-500 text-sm font-medium mt-2">+62 857-3893-0043</a>
+                <a href="https://wa.me/6285738930043" class="block text-gray-500 text-sm font-medium mt-2" title="phone">+62 857-3893-0043</a>
             </div>
         </div>
         <div class="col-span-12 md:col-span-3">
@@ -18,16 +18,16 @@
                 </div>
                 <ul  class="text-sm space-y-[16px] text-gray-600">
                     <li>
-                        <a href="/properties">Bali Rentals</a>
+                        <a href="/properties" title="Bali Rentals">Bali Rentals</a>
                     </li>
                     <li>
-                        <a href="/areas">Top Destinations</a>
+                        <a href="/areas" title="Top Destinations">Top Destinations</a>
                     </li>
                     <li>
-                        <a href="/activities">Bali Attractives</a>
+                        <a href="/activities" title="Bali Attractives">Bali Attractives</a>
                     </li>
                     <li>
-                        <a href="/blogpost">Blogposts</a>
+                        <a href="/blogpost" title="Blogposts">Blogposts</a>
                     </li>
                 </ul>
 
@@ -40,7 +40,7 @@
                 </div>
                 <ul  class="text-sm space-y-[16px] text-gray-600">
                     <li>
-                        <a href="/about-us">About BVR Bali Holiday Rentals</a>
+                        <a href="/about-us" title="About BVR Bali Holiday Rentals">About BVR Bali Holiday Rentals</a>
                     </li>
                 </ul>
 
@@ -51,17 +51,17 @@
                 <div class="uppercase text-sm font-semibold">
                     visit our other divisions
                 </div>
-                <a href="https://www.bvrgroupasia.com" target="_blank">
+                <a href="https://www.bvrgroupasia.com" target="_blank" title="BVR Group Asia">
                     <img src="{{asset('images/bvr-group-asia.png')}}" class="w-[73px] mt-2 block" alt="BVR Group Asia">
                 </a>
                 <div class="flex space-x-4">
-                    <a href="https://www.bvrproperty.com" target="_blank">
+                    <a href="https://www.bvrproperty.com" target="_blank" title="Property">
                         <img src="{{asset('images/property.png')}}" class="w-14 mt-2 ml-2" alt="BVR Property">
                     </a>
-                    <a href="https://www.bvrgroupasia.com" target="_blank">
+                    <a href="https://www.bvrgroupasia.com" target="_blank" title="Glc">
                         <img src="{{asset('images/glc.png')}}" class="w-16 mt-2" alt="Grand Land Corp">
                     </a>
-                    <a href="https://www.bvrgroupasia.com" target="_blank">
+                    <a href="https://www.bvrgroupasia.com" target="_blank" title="Bcc">
                         <img src="{{asset('images/bcc.jpg')}}" class="w-14 mt-2" alt="Bali Coffee Club">
                     </a>
                 </div>
@@ -69,7 +69,7 @@
             </div>
         </div>
         <div class="col-span-12 flex items-center justify-center text-gray-500 border-t-[1px] pt-8 gap-x-[8px]">
-            Powered by <a href="https://www.bvrdigital.com"><img src="{{asset('images/bvr-digitall.png')}}" alt="BVR Digital" class="w-24"/> </a>
+            Powered by <a href="https://www.bvrdigital.com" title="Bvrdigital"><img src="{{asset('images/bvr-digitall.png')}}" alt="BVR Digital" class="w-24"/> </a>
         </div>
     </div>
 </footer>

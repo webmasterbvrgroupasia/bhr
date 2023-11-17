@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\ActivityCategory;
 use App\Models\Guest\Activity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,8 +19,10 @@ class ActivityController extends Controller
     {
         
         $activities = Activity::with('category')->where('status',1)->paginate(10);
+
+        $categories = ActivityCategory::all();
         
-        return view('pages.guest.activities.index',compact('activities'));
+        return view('pages.guest.activities.index',compact('activities','categories'));
     
     }
 
@@ -108,4 +111,5 @@ class ActivityController extends Controller
     {
         //
     }
+
 }

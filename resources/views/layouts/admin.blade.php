@@ -19,6 +19,10 @@
             font-family: 'Inter', sans-serif !important;
         }
     </style>
+
+    <!-- Load TinyMCE WYSIWYG -->
+    <script src="https://cdn.tiny.cloud/1/lycs6y383oj3czjlc5k1lms5lad4t9flzst2v1cqi5ojpg4y/tinymce/6/tinymce.min.js"
+            referrerpolicy="origin"></script>
 </head>
 
 <body class="bg-white">
@@ -28,5 +32,12 @@
     </main>
     @yield('custom-scripts')
 </body>
-
+<script>
+    tinymce.init({
+        selector: 'textarea#tinymce',
+        height: 500,
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    });
+</script>
 </html>

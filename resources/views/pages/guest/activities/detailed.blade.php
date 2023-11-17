@@ -69,9 +69,9 @@
                         <div class="font-semibold text-gray-900">
                             Description
                         </div>
-                        <p class="text-sm text-gray-500" itemprop="description">
+                        <div class="text-sm text-gray-500" itemprop="description">
                             {{ $activities->description }}
-                        </p>
+                        </div>
                     </div>
                     <div>
                         @if ($activities->price != '0.00')

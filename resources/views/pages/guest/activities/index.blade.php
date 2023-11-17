@@ -104,9 +104,10 @@ background-position:center;
                             <h2 class="font-medium text-lg text-gray-900" itemprop="name">
                                 {{$activity->name}}
                             </h2>
-                            <p class="text-gray-700" itemprop="description">
-                                {{Str::limit($activity->description,150)}}
-                            </p>
+
+                            <div class="text-gray-700">
+                                {!! Str::limit($activity->description, 160) !!}
+                            </div>
                         </div>
                         <a href="/activities/{{$activity->slug}}" class="block text-blue-700" title="More Details">More Details</a>
                     </div>

@@ -70,7 +70,7 @@
             <label for="" class="font-semibold">Description</label>
             <textarea name="description" class="block w-full px-2 py-2 leading-relaxed mt-3"
                 placeholder="e.g The Chillhouse Canggu by BVR Bali Holiday Rentals is nestled among rice fields in Canggu and ocated a 5-minute drive from Echo Beach."
-                id="" rows="5">
+                      id="tinymce">
                 {{ $activity->description }}
             </textarea>
         </div>

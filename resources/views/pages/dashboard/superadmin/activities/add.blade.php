@@ -111,7 +111,7 @@
             <label for="" class="font-semibold">Description</label>
             <textarea name="description" class="block w-full px-2 py-2 leading-relaxed mt-3"
                 placeholder="e.g Join a 7 to 8-hour bird-watching experience. Bali is known for its abundance of bird species, with more than 100 different birds having been already registered. Bird watching experience lasts for half a day."
-                id="" rows="5"></textarea>
+                      id="tinymce"></textarea>
         </div>
         <div class="col-span-8">
             <label for="" class="font-semibold">Price</label>

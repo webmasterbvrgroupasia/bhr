@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Guest;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\ActivityCategory;
-use App\Models\Guest\Activity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ActivityController extends Controller
+class AdminActivityCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,13 +16,11 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        
-        $activities = Activity::with('category')->where('status',1)->paginate(10);
 
-        $categories = ActivityCategory::all();
-        
-        return view('pages.guest.activities.index',compact('activities','categories'));
-    
+        $categories = DB::table('activity_categories')->paginate(10);
+
+        return view('pages.dashboard.superadmin.activity-categories.index',compact('categories'));
+
     }
 
     /**
@@ -33,7 +30,7 @@ class ActivityController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.dashboard.superadmin.activity-categories.create');
     }
 
     /**
@@ -44,7 +41,18 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+
+            'name'=>'required|string'
+        
+        ]);
+
+        // dd($validatedData);
+
+        ActivityCategory::create($validatedData);
+
+        return redirect()->route('activity-categories.index');
+
     }
 
     /**
@@ -53,29 +61,9 @@ class ActivityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
-        $activities = DB::table('activities')
-
-        ->join('areas' , 'areas.id','=','activities.area_id')
-
-        ->select('activities.*','areas.location')
-        
-        ->where('slug', $slug)
-        
-        ->first();
-
-        //Declaring variable to store values from the database.
-        $value = $activities->images;
-                    
-        //Removing the quote symbol from the raw value
-        $value = str_replace(['"'], '', $value);
-        
-        // Split the string into an array using the comma as delimiter
-        $images = explode(',', $value);
-        
-
-            return view('pages.guest.activities.detailed', ['activities' => $activities,'images'=>$images]);
+        //
     }
 
     /**
@@ -86,7 +74,10 @@ class ActivityController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = ActivityCategory::find($id)->firstOrFail();
+
+        return view('pages.dashboard.superadmin.activity-categories.edit',compact('category'));
+        
     }
 
     /**
@@ -98,7 +89,20 @@ class ActivityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $updatedData = $request->validate([
+            
+            'name'=>'required'
+        
+        ]);
+
+        // dd($updatedData);
+
+        $category = ActivityCategory::find($id);
+
+        $category->update($updatedData);
+
+        return redirect()->route('activity-categories.index');
     }
 
     /**
@@ -109,7 +113,12 @@ class ActivityController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
 
+        $category = ActivityCategory::find($id);
+
+        $category->delete();
+
+        return redirect()->back();
+
+    }
 }

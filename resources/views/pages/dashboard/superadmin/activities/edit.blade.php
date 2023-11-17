@@ -55,6 +55,14 @@
             </select>
         </div>
         <div class="col-span-8">
+            <label for="" class="font-semibold">Category</label>
+            <select name="category_id" id="category_id" class="block w-full py-2 px-2 mt-3">
+                @foreach ($categories as $category)
+                    <option @if($activity->category_id == $category->id) selected @endif value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="col-span-8">
             <label for="name" class="font-semibold">URL Slug</label>
             <div class="text-sm text-gray-400 font-normal">
                 URL Slug is used to create a SEO-friendly link.

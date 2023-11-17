@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminActivityCategoryController;
 use Illuminate\Support\Facades\Route;
 
 // Admin Controller
@@ -30,6 +31,7 @@ use Illuminate\Support\Facades\Artisan;
 
 // Search Controller
 use App\Http\Controllers\FindPropertyController;
+use App\Http\Controllers\Guest\DisplayActivitiesByCategory;
 use App\Http\Controllers\Guest\FindPropertyController as GuestFindPropertyController;
 use App\Http\Controllers\Guest\SpecialOfferController;
 use App\Http\Controllers\SubscriberController;
@@ -81,6 +83,8 @@ Route::resource('/testimonials', TestimonialController::class);
 
 Route::resource('/activities', ActivityController::class);
 
+Route::get('/activities/category/{id}', [DisplayActivitiesByCategory::class,'filter'])->name('activity-category.filter');
+
 Route::resource('/blogpost', BlogpostController::class);
 
 Route::resource('/areas', AreaController::class);
@@ -112,5 +116,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/admin/room-type',AdminRoomTypeController::class);
 
     Route::resource('/admin/special-offers',AdminSpecialOfferController::class);
+
+    Route::resource('/admin/activity-categories', AdminActivityCategoryController::class);
     
 });

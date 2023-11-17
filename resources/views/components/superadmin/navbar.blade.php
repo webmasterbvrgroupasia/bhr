@@ -4,11 +4,27 @@
             <img class="w-1/2" src="{{asset('images/logo-bhr-white.png')}}" alt="BVR Bali Holiday Rentals">
         </a>
     </section>
-    <section class="col-span-6 text-sm tracking-tight text-left space-x-5">
+    <section class="col-span-6 text-sm tracking-tight text-left space-x-5 flex">
         <a href="/admin/dashboard">Dashboard</a>
         <a href="/admin/properties">Properties</a>
         <a href="/admin/areas">Areas</a>
-        <a href="/admin/activities">Activities</a>
+        <div x-data="{toggleActivitiesMenu: false}" class="relative">
+            <button class="flex text-sm items-center space-x-2" @click="toggleActivitiesMenu =! toggleActivitiesMenu">
+                <div>
+                    Activities
+                </div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                      </svg>
+                      
+                </div>
+            </button>
+            <div x-cloak x-transition x-show="toggleActivitiesMenu" class="absolute text-xs space-y-2 mt-4 bg-white w-auto border py-2.5 px-4 drop-shadow-md">
+                <a href="{{route('activities.index')}}" class="block">Manage Activities</a>
+                <a href="{{route('activity-categories.index')}}" class="block">Manage Categories</a>
+            </div>
+        </div>
         <a href="/admin/blogpost">Blogpost</a>
         <a href="/admin/users">User Management</a>
         <a href="/admin/special-offers">Special Offers</a>

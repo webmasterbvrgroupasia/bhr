@@ -5,13 +5,13 @@
 @section('page-content')
     <section class="grid grid-cols-12 pt-8 px-5 md:px-8 lg:px-[100px] gap-y-5">
         <div class="col-span-12 font-bold tracking-tight text-xl">
-            Activity Management
+            Activity Category Management
             <p class="text-base font-normal w-1/2 text-neutral-500 leading-relaxed">Lorem ipsum dolor sit amet consectetur
                 adipisicing elit. Aspernatur dolor fugiat, iure aliquid cupiditate rerum quaerat doloremque expedita non
                 architecto voluptate, aperiam dignissimos. Quia, veritatis!</p>
-            <a href="{{ route('activities.create') }}"
+            <a href="{{ route('activity-categories.create') }}"
                 class="block text-white bg-blue-500 hover:bg-blue-600 mt-2 rounded-md w-fit text-sm py-3 px-2">Add New
-                Activity</a>
+                Activity Category</a>
         </div>
     </section>
     @if (Session::has('success-delete'))
@@ -98,7 +98,7 @@
         </div>
     @endif
     <section class="grid grid-cols-12 px-5 md:px-12 lg:px-[100px] gap-x-5 gap-y-10 mt-4">
-        @if (count($activities) < 1)
+        @if (count($categories) < 1)
         <div class="col-span-12">
             <div class="bg-white py-5 drop-shadow-lg px-5 rounded-lg w-1/2">
                 <div class="font-bold text-lg">
@@ -136,67 +136,24 @@
                             <th scope="col" class="px-6 py-3">
                                 Name
                             </th>
-                            <th scope="col" class="px-6 py-3">
-                                Location
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Category
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Description
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Status
-                            </th>
+                            
                             <th scope="col" class="px-6 py-3">
                                 Action
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($activities as $activity)
+                        @foreach ($categories as $category)
                             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $activity->name }}
+                                    {{ $category->name }}
                                 </th>
-                                <td scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $activity->area->location }}
-                                </td>
-                                <td scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    @if ($activity->category?->name)
-
-                                    {{ $activity->category->name }}
-                                        
-                                    @else
-                                    
-                                    Category Not Set Yet                                        
-                                    
-                                    @endif
-
-                                </td>
-                                <td class="px-6 py-4">
-                                    {!! Str::limit($activity->description, 75) !!}
-                                </td>
-                                <td scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    @if ($activity->status == 1)
-                                        <div class="text-green-400 w-full">
-                                            Live
-                                        </div>
-                                    @else
-                                        <div class="text-red-400 w-full">
-                                            Not Live
-                                        </div>
-
-                                    @endif
-                                </td>
+                                
                                 <td class="px-6 py-4 flex space-x-4">
-                                    <a href="{{ route('activities.edit', $activity->id) }}"
+                                    <a href="{{ route('activity-categories.edit', $category->id) }}"
                                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                    <form class="text-red-600 font-medium" method="POST" action="{{ route('activities.destroy', $activity->id) }}">
+                                    <form class="text-red-600 font-medium" method="POST" action="{{ route('activity-categories.destroy', $category->id) }}">
                                         @csrf
                                         @method('delete')
                                         <button type="submit">Delete</button>
@@ -209,7 +166,7 @@
             </div>
         @endif
         <div class="col-span-12 flex justify-center">
-            {{ $activities->links('pagination::tailwind') }}
+            {{ $categories->links('pagination::tailwind') }}
         </div>
     </section>
     <div class="h-[50px] md:h-[75px] lg:h-10"></div>

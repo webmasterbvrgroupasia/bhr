@@ -17,15 +17,13 @@ class AdminActivityController extends Controller
     public function index()
     {
 
-        $activities = DB::table('activities')
+        $activities = Activity::with(['category','area'])
+        
+        ->where('status',1)
 
-        ->join('areas', 'areas.id', '=', 'activities.area_id')
+        ->paginate(10);
 
-        ->select('activities.*', 'areas.location')
-
-        ->skip(0)->paginate(10);;
-
-        return view('pages.dashboard.superadmin.activities.index',['activities' => $activities]);
+        return view('pages.dashboard.superadmin.activities.index',compact('activities'));
     }
 
     /**
@@ -38,7 +36,9 @@ class AdminActivityController extends Controller
 
         $areas = DB::table('areas')->get();
 
-        return view('pages.dashboard.superadmin.activities.add',[ 'areas' => $areas]);
+        $categories = DB::table('activity_categories')->get();
+
+        return view('pages.dashboard.superadmin.activities.add',[ 'areas' => $areas,'categories'=>$categories]);
 
     }
 
@@ -60,6 +60,8 @@ class AdminActivityController extends Controller
 
             'images' => 'required||array|max:4056',
 
+            'category_id' => 'required',
+            
             'description' => 'required',
 
             'price',
@@ -115,7 +117,9 @@ class AdminActivityController extends Controller
 
         $areas = DB::table('areas')->get();
 
-        return view ('pages.dashboard.superadmin.activities.edit',compact('activity'))->with(['areas'=>$areas]);
+        $categories = DB::table('activity_categories')->get();
+
+        return view ('pages.dashboard.superadmin.activities.edit',compact('activity'))->with(['areas'=>$areas,'categories'=>$categories]);
     }
 
     /**
@@ -134,6 +138,8 @@ class AdminActivityController extends Controller
             'area_id' => 'required',
 
             'slug' => 'required',
+
+            'category_id' => 'required',
 
             'images' => 'array|max:4056',
 

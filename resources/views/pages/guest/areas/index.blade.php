@@ -2,6 +2,10 @@
 
 @section('page-title', 'Recommended Areas')
 
+@section('page-meta-keywords')
+    best views in bali | waterfall in ubud | beautiful places in bali | visit bali | destinations in bali | waterfalls near ubud | must visit places in bali | attractive places in bali | places to visit in bali | top destinations in Bali | sanur tourist attractions | uluwatu tourist attraction | ubud tourist attractions | kuta tourist attractions
+@endsection
+
 @section('page-header')
     <header class="pb-10 h-[75vh] md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-start tracking-tight"
         style="

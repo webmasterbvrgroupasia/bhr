@@ -2,9 +2,7 @@
 
 @section('page-title', 'Amazing Activities')
 
-@section('page-meta-keywords')
-    bali safari marine park gianyar | bali bird park | destinations in bali | best adventure in bali | bali top adventure | water boom kuta | private surf lesson | night safari bali | attractions near ubud | waterboom bali | bali tourist spots | surfing bali | must visit places in bali | attractive places in bali | things to do in ubud | places to go in ubud | place to visit in canggu | things to do in canggu
-@endsection
+@section('page-meta-keywords', 'bali safari marine park gianyar | bali bird park | destinations in bali | best adventure in bali | bali top adventure | water boom kuta | private surf lesson | night safari bali | attractions near ubud | waterboom bali | bali tourist spots | surfing bali | must visit places in bali | attractive places in bali | things to do in ubud | places to go in ubud | place to visit in canggu | things to do in canggu')
 
 @section('page-header')
 <header class="pb-10 h-auto md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-start tracking-tight"

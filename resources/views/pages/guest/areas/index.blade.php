@@ -2,6 +2,8 @@
 
 @section('page-title', 'Recommended Areas')
 
+@section('page-meta-keywords', 'best views in bali | waterfall in ubud | beautiful places in bali | visit bali | destinations in bali | waterfalls near ubud | must visit places in bali | attractive places in bali | places to visit in bali | top destinations in Bali | sanur tourist attractions | uluwatu tourist attraction | ubud tourist attractions | kuta tourist attractions')
+
 @section('page-header')
     <header class="pb-10 h-[75vh] md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-start tracking-tight"
         style="
@@ -9,6 +11,7 @@ background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('https://images
 background-size:cover;
 background-position:center;
 ">
+        <div class="px-2 py-8 md:py-8 lg:py-16 max-w-full md:max-w-3xl lg:max-w-5xl mx-auto space-y-[64px]">
         <div class="px-2 py-8 md:py-8 lg:py-16 max-w-full md:max-w-3xl lg:max-w-5xl mx-auto space-y-[64px]">
             <div class="">
                 <h1 class="text-base font-normal md:text-xl text-gray-400">Welcome to BVR Bali Holiday Rentals</h1>

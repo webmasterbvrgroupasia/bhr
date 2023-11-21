@@ -2,6 +2,8 @@
 
 @section('page-title', 'Amazing Activities')
 
+@section('page-meta-keywords', 'bali safari marine park gianyar | bali bird park | destinations in bali | best adventure in bali | bali top adventure | water boom kuta | private surf lesson | night safari bali | attractions near ubud | waterboom bali | bali tourist spots | surfing bali | must visit places in bali | attractive places in bali | things to do in ubud | places to go in ubud | place to visit in canggu | things to do in canggu')
+
 @section('page-header')
 <header class="pb-10 h-auto md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-start tracking-tight"
 style="
@@ -98,12 +100,12 @@ background-position:center;
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                               </svg>
-                              
+
                         </div>
                     </button>
                 </div>
                 <div class="space-y-2 mt-2" x-cloak x-transition x-show="toggleActivityCategoriesDropdown">
-                    @foreach ($categories as $category)                        
+                    @foreach ($categories as $category)
                     <div class="">
                         <a href="{{route('activity-category.filter',$category->id)}}" class="text-sm text-neutral-600">
                             {{$category->name}}
@@ -127,7 +129,7 @@ background-position:center;
                     <img src="/storage/{{$activity_images}}" class="w-full h-44 object-cover" alt="">
                     <div class="p-5 space-y-[16px]">
                         <div class="space-y-[8px]">
-                            @if ($activity->category?->name)                                
+                            @if ($activity->category?->name)
                             <div class="text-xs font-medium text-green-800 p-1 rounded-md  bg-green-200 w-fit">
                                 {{$activity->category->name}}
                             </div>

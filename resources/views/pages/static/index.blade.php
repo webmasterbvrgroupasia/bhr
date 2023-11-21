@@ -5,15 +5,11 @@
 @endsection
 
 {{-- Page Meta Keywords --}}
-@section('page-meta-keywords')
-    travel booking platforms, vacation rentals, bali tour operators, bali tour agency, villa rentals, best hotels in bali, vacation bali, bali hotels and resorts, bali resort, travel agent seminyak, bali vacation rentals, bali villa rentals, travel agency bali, hotel booking platforms, villa bali, bali vacation trip, best hotel booking platform, bali beach rentals
-@endsection
+@section('page-meta-keywords', 'travel booking platforms | vacation rentals | bali tour operators | bali tour agency | villa rentals | best hotels in bali | vacation bali | bali hotels and resorts | bali resort | travel agent seminyak | bali vacation rentals | bali villa rentals | travel agency bali | hotel booking platforms | villa bali | bali vacation trip | best hotel booking platform | bali beach rentals')
+
 
 {{-- Page Meta Description --}}
-@section('page-meta-description')
-    Experiencing paradise vibes never gets easier. With BVR Bali Holiday Rentals, make your Bali holiday perfect, at your
-    fingertips!
-@endsection
+@section('page-meta-description', 'Experiencing paradise vibes never gets easier. With BVR Bali Holiday Rentals, make your Bali holiday perfect, at your fingertips!')
 
 {{-- Additional CSS for specific page --}}
 @section('additional-css')

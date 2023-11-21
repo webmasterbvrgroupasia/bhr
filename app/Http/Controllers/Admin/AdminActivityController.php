@@ -131,7 +131,7 @@ class AdminActivityController extends Controller
      */
     public function update(Request $request, Activity $activity)
     {
-        $request -> validate([
+        $validatedData = $request -> validate([
 
             'name' => 'required',
 
@@ -153,7 +153,22 @@ class AdminActivityController extends Controller
 
         ]);
 
-        $activity->update($request->all());
+        $images = [];
+
+        foreach ($validatedData['images'] as $image) {
+
+            $fileName = uniqid() . '.' . $image->getClientOriginalExtension();
+
+            $image_path = $image->storeAs('images', $fileName,'public');
+
+            array_push($images, $image_path);
+        }
+
+        $allImages = join(',', $images);
+
+        $validatedData['images'] = $allImages;
+
+        $activity->update($validatedData);
 
         return redirect()->route('activities.index')->with('update-success','Data has been updated successfully');
     }

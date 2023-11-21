@@ -1,12 +1,12 @@
 @extends('layouts.detailed')
 
 @section('page-title')
-    {{$activities->name}}
+    {{ $activities->name }}
 @endsection
 
 @section('page-content')
     <div class="max-w-full md:max-w-3xl lg:max-w-5xl px-2 space-y-[24px] mx-auto mt-4" x-data="{
-
+    
     }">
 
         <div class="w-full">
@@ -17,7 +17,7 @@
 
 
         {{-- Main Section Start --}}
-        <main class="space-y-[24px] w-full mx-auto mt-2 md:mt-4 lg:mt-8" itemscope>
+        <main class="space-y-[24px] w-full mx-auto mt-2 md:mt-4 lg:mt-8 pb-16" itemscope>
             <nav class="flex" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1 md:space-x-3">
                     <li class="inline-flex items-center">
@@ -70,7 +70,7 @@
                             Description
                         </div>
                         <div class="text-sm text-gray-500" itemprop="description">
-                            {{ $activities->description }}
+                            {!! $activities->description !!}
                         </div>
                     </div>
                     <div>
@@ -90,7 +90,7 @@
                                 <p class="text-base md:text-base lg:text-lg" title="activities">
                                     Save your seat for {{ $activities->name }}
                                 </p>
-                                <a href="{{ $activities->booking_link }}" title="Book Now"
+                                <a href="https://wa.me/6285738930043" title="Book Now"
                                     class="bg-[#ff5700] block text-white w-fit px-4 py-2 text-sm rounded-md mx-auto">Book
                                     Now</a>
                             </div>
@@ -127,7 +127,7 @@
                             Subscribe our newsletter for latest bali news and promotion. Let's stay updated!
                         </div>
 
-                        <x-forms.subscriber/>
+                        <x-forms.subscriber />
 
                     </div>
                 </div>

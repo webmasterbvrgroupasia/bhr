@@ -18,7 +18,7 @@ class AdminActivityController extends Controller
     {
 
         $activities = Activity::with(['category','area'])
-        
+
         ->where('status',1)
 
         ->paginate(10);
@@ -61,7 +61,7 @@ class AdminActivityController extends Controller
             'images' => 'required||array|max:4056',
 
             'category_id' => 'required',
-            
+
             'description' => 'required',
 
             'price',
@@ -155,18 +155,22 @@ class AdminActivityController extends Controller
 
         $images = [];
 
-        foreach ($validatedData['images'] as $image) {
+        if ($request->has('images')) {
+            foreach ($validatedData['images'] as $image) {
 
-            $fileName = uniqid() . '.' . $image->getClientOriginalExtension();
+                $fileName = uniqid() . '.' . $image->getClientOriginalExtension();
 
-            $image_path = $image->storeAs('images', $fileName,'public');
+                $image_path = $image->storeAs('images', $fileName,'public');
 
-            array_push($images, $image_path);
+                array_push($images, $image_path);
+            }
+
+            $allImages = join(',', $images);
+
+            $validatedData['images'] = $allImages;
         }
 
-        $allImages = join(',', $images);
 
-        $validatedData['images'] = $allImages;
 
         $activity->update($validatedData);
 

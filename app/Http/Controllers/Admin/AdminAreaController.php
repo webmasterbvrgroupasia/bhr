@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AreaUpdateRequest;
 use App\Models\Admin\Area;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -56,8 +57,6 @@ class AdminAreaController extends Controller
 
         }
 
-        // dd($validatedData);
-
         Area::create($validatedData);
 
         return redirect()->route('areas.index')->with('success-add','Area added successfully');
@@ -81,9 +80,9 @@ class AdminAreaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Area $area)
     {
-        //
+        return view('pages.dashboard.superadmin.areas.edit', compact('area'));
     }
 
     /**
@@ -93,9 +92,26 @@ class AdminAreaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Area $area)
     {
-        //
+        $validatedData = $request->validate([
+
+            'location' => 'string',
+
+            'description' => 'string',
+
+            'images' => 'mimes:jpeg,jpg,png,webp,gif|max:4056'
+        ]);
+
+        if($request->file('image')) {
+
+            $validatedData['image'] = $request->file('image')->store('area-images');
+
+        }
+
+        $area->update($validatedData);
+
+        return redirect()->route('areas.index')->with('update-success', 'Data has been updated successfully');
     }
 
     /**

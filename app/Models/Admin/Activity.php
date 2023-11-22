@@ -11,16 +11,18 @@ class Activity extends Model
     use HasFactory;
 
     protected $fillable = [
-        
+
         'name',
 
         'area_id',
-        
+
         'slug',
 
         'images',
 
         'description',
+
+        'inclusions',
 
         'category_id',
 
@@ -44,7 +46,7 @@ class Activity extends Model
     protected $casts = [
 
         'images' => 'array'
-    
+
     ];
 
     /**
@@ -54,9 +56,9 @@ class Activity extends Model
      */
     public function category(): BelongsTo
     {
-       
+
         return $this->belongsTo(ActivityCategory::class, 'category_id');
-    
+
     }
 
     /**

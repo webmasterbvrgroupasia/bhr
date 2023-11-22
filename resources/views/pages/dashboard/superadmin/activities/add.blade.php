@@ -114,26 +114,26 @@
                 <input type="text" name="slug" id="slug" placeholder="e.g the-chillhouse-canggu"
                        class="block w-full py-2 px-2 mt-3" value="{{old('slug')}}">
             </div>
-
-        <div class="col-span-8">
-            <label for="" class="font-semibold">Activity Images</label>
-            <input type="file" name="images[]" class="block w-full mt-1 rounded-md" placeholder="" multiple />
-        </div>
-        <div class="col-span-8 space-y-3">
-            <label for="" class="font-semibold">Description</label>
-            <textarea name="description" class="block w-full px-2 py-2 leading-relaxed mt-3"
-                placeholder="e.g Join a 7 to 8-hour bird-watching experience. Bali is known for its abundance of bird species, with more than 100 different birds having been already registered. Bird watching experience lasts for half a day."
-                      id="tinymce"></textarea>
-        </div>
-        <div class="col-span-8 mt-3 space-y-1">
-            <label for="" class="font-semibold">Price</label>
-            <div class="flex items-center">
-                <span
-                    class="h-full rounded-tl-md rounded-bl-md border border-r-0 border-stroke bg-gray-1 py-3 px-4 text-base uppercase text-body-color">
-                    IDR
-                </span>
-                <input type="num" name="price" id="price" placeholder="250000"
-                       class="w-full rounded-br-md rounded-tr-md border border-form-stroke p-3 pl-5 text-black placeholder-[#929DA7] outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+            <div class="col-span-8">
+                <label for="" class="font-semibold">Activity Images</label>
+                <input type="file" name="images[]" class="block w-full mt-1 rounded-md" placeholder="" multiple />
+            </div>
+            <div class="col-span-8">
+                <label for="" class="font-semibold">Description</label>
+                <textarea name="description" class="block w-full px-2 py-2 leading-relaxed mt-3"
+                    placeholder="e.g Join a 7 to 8-hour bird-watching experience. Bali is known for its abundance of bird species, with more than 100 different birds having been already registered. Bird watching experience lasts for half a day."
+                    id="" rows="5">{{old('description')}}</textarea>
+            </div>
+            <div class="col-span-8">
+                <label for="" class="font-semibold">Price</label>
+                <div class="flex items-center">
+                    <span
+                        class="h-full rounded-tl-md rounded-bl-md border border-r-0 border-stroke bg-gray-1 py-3 px-4 text-base uppercase text-body-color">
+                        IDR
+                    </span>
+                    <input type="num" name="price" id="price" value="{{old('price')}}" placeholder="250000"
+                           class="w-full rounded-br-md rounded-tr-md border border-form-stroke p-3 pl-5 text-black placeholder-[#929DA7] outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+                </div>
             </div>
             <div class="col-span-8 mt-5 space-y-1">
                 <label for="" class="font-semibold">Booking Link</label>
@@ -142,7 +142,7 @@
                     class="block w-full py-2 px-2 mt-3">
                 </div>
             </div>
-            <div class="col-span-8 mt-3 space-y-3">
+            <div class="col-span-8">
                 <label for="" class="font-semibold">Activity Status</label>
                 <div class="flex">
                     <div class="flex items-center mr-14">

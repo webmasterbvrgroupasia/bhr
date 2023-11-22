@@ -65,12 +65,24 @@
             <p class="text-lg font-normal">
             <div class="grid grid-cols-12 gap-x-7 items-start">
                 <div class="col-span-12 md:col-span-8 space-y-[20px]">
-                    <div>
+                    <div class="space-y-2">
                         <div class="font-semibold text-gray-900">
                             Description
                         </div>
-                        <div class="text-sm text-gray-500" itemprop="description">
+                        <div class="text-sm text-gray-500 leading-relaxed" itemprop="description">
                             {!! $activities->description !!}
+                        </div>
+                        <div class="font-semibold text-gray-900">
+                            Inclusion
+                        </div>
+                        <div class="text-sm text-gray-500" itemprop="description">
+                            <ul class="space-y-2">
+                                @foreach ($inclusions as $inclusion)
+                                <li>
+                                    {{$inclusion}}
+                                </li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
                     <div>

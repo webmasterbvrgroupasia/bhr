@@ -65,6 +65,10 @@ class ActivityController extends Controller
         
         ->first();
 
+        $inclusions = $activities->inclusions;
+
+        $inclusions = explode(",",$inclusions);
+
         //Declaring variable to store values from the database.
         $value = $activities->images;
                     
@@ -75,7 +79,7 @@ class ActivityController extends Controller
         $images = explode(',', $value);
         
 
-            return view('pages.guest.activities.detailed', ['activities' => $activities,'images'=>$images]);
+            return view('pages.guest.activities.detailed', ['activities' => $activities,'images'=>$images,'inclusions'=>$inclusions]);
     }
 
     /**

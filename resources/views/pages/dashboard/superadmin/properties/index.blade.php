@@ -160,7 +160,7 @@
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 
                                     {{ $property->location->location }}
-                                    
+
                                 </th>
                                 <td class="px-6 py-4">
                                     {!! Str::limit($property->description, 75) !!}

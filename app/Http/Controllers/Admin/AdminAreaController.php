@@ -95,8 +95,11 @@ class AdminAreaController extends Controller
     public function update(Request $request, Area $area)
     {
         $validatedData = $request->validate([
+
             'location' => 'string',
+
             'description' => 'string',
+
             'images' => 'mimes:jpeg,jpg,png,webp,gif|max:4056'
         ]);
 

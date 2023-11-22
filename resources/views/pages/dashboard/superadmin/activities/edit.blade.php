@@ -38,7 +38,8 @@
         </div>
     </section>
     <form enctype="multipart/form-data" method="POST" enctype="multipart/form-data"
-        action="{{ route('activities.update', $activity->id) }}"class="grid grid-cols-12 gap-x-5 mt-4 px-5 md:px-8 lg:px-[100px] gap-y-5">
+        action="{{ route('activities.update', $activity->id) }}"
+          class="grid grid-cols-12 gap-x-5 mt-4 px-5 md:px-8 lg:px-[100px] gap-y-5">
         @method('PUT')
         @csrf
         <div class="col-span-4">
@@ -69,6 +70,12 @@
             </div>
             <input value="{{ $activity->slug }}" type="text" name="slug" id="slug"
                 placeholder="e.g the-chillhouse-canggu" class="block w-full py-2 px-2 mt-3">
+        </div>
+        <div class="col-span-8">
+            <label for="inclusions" class="font-semibold">Inclusion</label>
+
+            <input type="text" name="inclusions" id="inclusions"
+                   class="block w-full py-2 px-2 mt-3" value="{{ $activity->inclusions }}">
         </div>
         <div class="col-span-8">
             <label for="" class="font-semibold">Property Images</label>
@@ -102,7 +109,7 @@
             </div>
         </div>
         <div class="col-span-8">
-            <label for="" class="font-semibold">Property Status</label>
+            <label for="" class="font-semibold">Activity Status</label>
             <div class="flex mt-3">
                 <div class="flex items-center mr-14">
                     <input id="status" type="radio" value="1" name="status"  {{ $activity->status == '1' ? 'checked' : '' }}

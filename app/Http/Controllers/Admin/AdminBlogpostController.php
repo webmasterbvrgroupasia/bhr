@@ -16,8 +16,7 @@ class AdminBlogpostController extends Controller
      */
     public function index()
     {
-        // Retrieve all data from the database. Each page will have 10 records stored in $posts variable.
-        
+
         $posts = DB::table('blogpost')->paginate(10);
 
         return view('pages.dashboard.superadmin.blogpost.index',['posts'=>$posts]);
@@ -44,9 +43,9 @@ class AdminBlogpostController extends Controller
         $validatedData = $request->validate([
 
             'title'=>'required',
-            
+
             'slug'=>'required',
-            
+
             'image'=>'required|mimes:jpeg,jpg,png,gif',
 
             'content'=>'required',
@@ -58,7 +57,7 @@ class AdminBlogpostController extends Controller
         if($request->file('image')) {
 
             $validatedData['image'] = $request->file('image')->store('blogpost-images');
-        
+
         }
 
         // dd($validatedData);
@@ -86,9 +85,9 @@ class AdminBlogpostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Blogpost $blogpost)
     {
-        //
+        return view('pages.dashboard.superadmin.blogpost.edit', compact('blogpost'));
     }
 
     /**
@@ -98,9 +97,28 @@ class AdminBlogpostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Blogpost $blogpost)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required',
+
+            'slug' => 'required',
+
+            'content' => 'required',
+
+            'image'=>'mimes:jpeg,jpg,png,gif',
+
+            'status' => 'required'
+        ]);
+
+        if ($request->has('image')) {
+
+            $validatedData['image'] = $request->file('image')->store('blogpost-images');
+        }
+
+        $blogpost->update($validatedData);
+
+        return redirect()->route('blogpost.index')->with('success','Blogpost added successfully!');
     }
 
     /**
@@ -116,3 +134,5 @@ class AdminBlogpostController extends Controller
         return redirect()->route('blogpost.index')->with('delete-success','Blogpost Deleted Successfully');
     }
 }
+
+// inclusion

@@ -58,13 +58,15 @@ class AdminActivityController extends Controller
 
             'slug' => 'required',
 
-            'images' => 'required||array|max:4056',
+            'images' => 'required|array|max:4056',
 
             'category_id' => 'required',
 
             'description' => 'required',
 
-            'price',
+            'inclusion' => 'required',
+
+            'price' => 'required',
 
             'booking_link'=>'required',
 
@@ -145,7 +147,9 @@ class AdminActivityController extends Controller
 
             'description' => 'required',
 
-            'price',
+            'inclusions' => 'required',
+
+            'price' => 'required',
 
             'booking_link'=>'required',
 

@@ -47,11 +47,6 @@
                     <label for="description" class="text-sm font-normal text-neutral-700">Package Description</label>
                     <textarea required name="description" id="description" class="w-full border-neutral-300 text-sm py-2.5"
                         placeholder="Package Description">
-                        @if (old('description'))
-                            {{old('description')}}
-                            @else
-
-                        @endif
                     </textarea>
                 </div>
                 <div class="space-y-2">

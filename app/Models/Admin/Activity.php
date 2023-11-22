@@ -36,6 +36,8 @@ class Activity extends Model
         'images' => '-',
 
         'price' => '0',
+
+        'booking_link'=>'-'
     
     ];
 

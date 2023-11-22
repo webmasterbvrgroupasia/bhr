@@ -64,9 +64,7 @@ class AdminActivityController extends Controller
 
             'description' => 'required',
 
-            'price',
-
-            'booking_link'=>'required',
+            'price' => 'numeric',
 
             'status' => 'required'
 
@@ -145,9 +143,7 @@ class AdminActivityController extends Controller
 
             'description' => 'required',
 
-            'price',
-
-            'booking_link'=>'required',
+            'price'=>'numeric',
 
             'status' => 'required'
 

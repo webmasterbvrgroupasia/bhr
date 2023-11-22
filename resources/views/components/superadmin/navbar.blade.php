@@ -20,7 +20,7 @@
                       
                 </div>
             </button>
-            <div x-cloak x-transition x-show="toggleActivitiesMenu" class="absolute text-xs space-y-2 mt-4 bg-white w-auto border py-2.5 px-4 drop-shadow-md">
+            <div x-cloak x-transition x-show="toggleActivitiesMenu" class="absolute text-xs space-y-2 mt-4 bg-white w-auto border py-2.5 px-4 drop-shadow-md z-50">
                 <a href="{{route('activities.index')}}" class="block">Manage Activities</a>
                 <a href="{{route('activity-categories.index')}}" class="block">Manage Categories</a>
             </div>

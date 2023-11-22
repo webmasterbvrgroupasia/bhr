@@ -138,6 +138,9 @@ background-position:center;
                             <h2 class="font-medium text-lg text-gray-900">
                                 {{$activity->name}}
                             </h2>
+                            <p class="leading-relaxed font-light text-neutral-600">
+                                {!! Str::limit($activity->description,125)!!}
+                            </p>
                         </div>
                         <a href="/activities/{{$activity->slug}}" class="block text-blue-700" title="More Details">More Details</a>
                     </div>

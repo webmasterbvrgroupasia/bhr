@@ -62,7 +62,7 @@ class AdminActivityController extends Controller
 
             'category_id' => 'required',
 
-            'description' => 'required',
+            'description' => 'string',
 
             'inclusion' => 'required',
 
@@ -149,7 +149,7 @@ class AdminActivityController extends Controller
 
             'booking_link'=>'required',
 
-            'description' => 'required',
+            'description' => 'string',
 
             'inclusions' => 'required',
 

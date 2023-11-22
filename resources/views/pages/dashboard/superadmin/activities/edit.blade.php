@@ -73,7 +73,6 @@
         </div>
         <div class="col-span-8">
             <label for="inclusions" class="font-semibold">Inclusion</label>
-
             <input type="text" name="inclusions" id="inclusions"
                    class="block w-full py-2 px-2 mt-3" value="{{ $activity->inclusions }}">
         </div>

@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <div>
-                        @if ($activities->price != '0.00')
+                        @if ($activities->price > '0.00')
                             <div class="font-semibold text-gray-900">
                                 Starts From
                             </div>

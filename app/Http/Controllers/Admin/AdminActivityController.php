@@ -62,7 +62,7 @@ class AdminActivityController extends Controller
 
             'category_id' => 'required',
 
-            'description' => 'string',
+            'description' => 'nullable',
 
             'inclusion' => 'required',
 
@@ -70,7 +70,7 @@ class AdminActivityController extends Controller
 
             'booking_link'=>'required',
 
-            'price' => 'numeric',
+            'price' => 'required|numeric',
 
             'status' => 'required'
 
@@ -149,11 +149,11 @@ class AdminActivityController extends Controller
 
             'booking_link'=>'required',
 
-            'description' => 'string',
+            'description' => 'nullable',
 
             'inclusions' => 'required',
 
-            'price' => 'required',
+            'price' => 'required|numeric',
 
             'booking_link'=>'required',
 

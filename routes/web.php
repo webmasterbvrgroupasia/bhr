@@ -96,9 +96,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/properties/{id}/add-room-type', [AdminPropertyController::class, 'add_room_type'])->name('properties.add-room-type');
 
     Route::get('/admin/properties/search',[FindPropertyController::class,'find_property']);
-    
+
     Route::get('/admin/areas/search',[FindAreaController::class,'find_area']);
-    
+
     Route::get('/admin/activities/search',[FindActivityController::class,'find_activity']);
 
     Route::get('/admin/blogposts/search',[FindBlogpostController::class,'find_blogpost']);
@@ -106,7 +106,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/admin/properties', AdminPropertyController::class);
 
     Route::resource('/admin/activities', AdminActivityController::class);
-    
+
     Route::resource('/admin/areas', AdminAreaController::class);
 
     Route::resource('/admin/blogpost', AdminBlogpostController::class);
@@ -118,5 +118,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/admin/special-offers',AdminSpecialOfferController::class);
 
     Route::resource('/admin/activity-categories', AdminActivityCategoryController::class);
-    
+
+});
+
+Route::get('/qrcode', function () {
+    return view('pages.guest.qrcode');
 });

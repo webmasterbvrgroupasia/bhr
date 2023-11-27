@@ -2,6 +2,10 @@
 
 @section('page-title', 'Property Management')
 
+@section('custom-styles')
+    <script src="https://cdn.tiny.cloud/1/lycs6y383oj3czjlc5k1lms5lad4t9flzst2v1cqi5ojpg4y/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+@endsection
+
 @section('page-content')
     @if ($errors->any())
         <div class="px-5 py-5 md:px-12 lg:px-[100px]">
@@ -71,14 +75,19 @@
             <input value="{{ $activity->slug }}" type="text" name="slug" id="slug"
                 placeholder="e.g the-chillhouse-canggu" class="block w-full py-2 px-2 mt-3">
         </div>
-        <div class="col-span-8">
-            <label for="inclusions" class="font-semibold">Inclusion</label>
-            <input type="text" name="inclusions" id="inclusions"
-                   class="block w-full py-2 px-2 mt-3" value="{{ $activity->inclusions }}">
-        </div>
+
         <div class="col-span-8">
             <label for="" class="font-semibold">Property Images</label>
             <input type="file" name="images[]" class="block w-full mt-1 rounded-md" placeholder="" multiple />
+        </div>
+        <div class="col-span-8">
+            <label for="inclusions" class="font-semibold">Inclusion</label>
+
+            <textarea name="inclusions"  class="block w-full px-2 py-2 leading-relaxed mt-3"
+                      placeholder="e.g Join a 7 to 8-hour bird-watching experience. Bali is known for its abundance of bird species, with more than 100 different birds having been already registered. Bird watching experience lasts for half a day."
+                      id="tinymce">
+                 {{ $activity->inclusions }}
+            </textarea>
         </div>
         <div class="col-span-8">
             <label for="" class="font-semibold">Description</label>
@@ -138,4 +147,15 @@
         </div>
     </form>
     <div class="h-[50px] md:h-[75px] lg:h-[100px]"></div>
+
+@endsection
+
+@section('custom-scripts')
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        });
+    </script>
 @endsection

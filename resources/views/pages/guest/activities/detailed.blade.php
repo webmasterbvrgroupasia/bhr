@@ -6,7 +6,7 @@
 
 @section('page-content')
     <div class="max-w-full md:max-w-3xl lg:max-w-5xl px-2 space-y-[24px] mx-auto mt-4" x-data="{
-    
+
     }">
 
         <div class="w-full">
@@ -70,13 +70,7 @@
                             Inclusion
                         </div>
                         <div class="text-sm text-gray-500" itemprop="inclusion">
-                            <ul class="space-y-2">
-                                @foreach ($inclusions as $inclusion)
-                                    <li>
-                                        {{ $inclusion }}
-                                    </li>
-                                @endforeach
-                            </ul>
+                            {!! $activities->inclusions !!}
                         </div>
                         @if ($activities->description)
                             <div class="font-semibold text-gray-900">

@@ -18,7 +18,7 @@ class BlogpostController extends Controller
     public function index()
     {
         $posts = DB::table('blogpost')
-        
+
         ->where('status','=','1')
 
         ->paginate(5);
@@ -56,7 +56,7 @@ class BlogpostController extends Controller
     public function show($slug)
     {
         $post = DB::table('blogpost')
-        
+
         ->where('slug',$slug)
 
         ->first();

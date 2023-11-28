@@ -33,6 +33,8 @@ class Property extends Model
 
         'description',
 
+        'link_youtube',
+
         'pool',
 
         'bar',

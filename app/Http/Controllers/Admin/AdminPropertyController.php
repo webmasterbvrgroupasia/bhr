@@ -91,6 +91,8 @@ class AdminPropertyController extends Controller
 
             'booking_link' => 'required',
 
+            'link_youtube' => 'nullable',
+
             'balcony' => 'required',
 
             'tv' => 'required',
@@ -316,6 +318,8 @@ class AdminPropertyController extends Controller
             'property_status' => 'required',
 
             'booking_link' => 'nullable',
+
+            'link_youtube' => 'nullable',
 
             'balcony' => 'nullable',
 

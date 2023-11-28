@@ -394,8 +394,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div class="col-span-12 md:block md:col-span-4 space-y-[32px]">
 
                     <div class="p-5 border-[1px] border-gray-300 rounded-md bg-white drop-shadow-md space-y-[12px]">
@@ -425,6 +423,21 @@
 
             @endif
 
+            @if ($property->link_youtube)
+                <div class="col-span-2">
+                    <div class="leading-tight text-lg font-bold text-gray-900 dark:text-white">
+                        Property Video
+                    </div>
+                    <iframe
+                        class="w-2/3 h-40 md:h-64 lg:h-80 mt-5"
+                        src="https://www.youtube.com/embed/{{ $property->link_youtube }}"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <hr />
+            @endif
 
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <div class="col-span-2 md:col-span-3">

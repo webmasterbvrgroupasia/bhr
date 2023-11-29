@@ -50,7 +50,7 @@ class AdminActivityController extends Controller
      */
     public function store(Request $request)
     {
-       $validatedData = $request -> validate([
+        $validatedData = $request -> validate([
 
             'name' => 'required',
 
@@ -58,24 +58,21 @@ class AdminActivityController extends Controller
 
             'slug' => 'required',
 
-            'images' => 'required|array|max:4056',
-
             'category_id' => 'required',
+
+            'images' => 'array|max:4056',
+
+            'booking_link'=>'required',
 
             'description' => 'nullable',
 
-            'inclusion' => 'required',
-
-            'price' => 'required',
-
-            'booking_link'=>'required',
+            'inclusions' => 'required',
 
             'price' => 'required|numeric',
 
             'status' => 'required'
 
         ]);
-
         $images = [];
 
         foreach ($validatedData['images'] as $image) {
@@ -154,8 +151,6 @@ class AdminActivityController extends Controller
             'inclusions' => 'required',
 
             'price' => 'required|numeric',
-
-            'booking_link'=>'required',
 
             'status' => 'required'
 

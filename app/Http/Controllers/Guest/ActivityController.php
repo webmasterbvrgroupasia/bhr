@@ -17,13 +17,13 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        
+
         $activities = Activity::with('category')->where('status',1)->paginate(10);
 
         $categories = ActivityCategory::all();
-        
+
         return view('pages.guest.activities.index',compact('activities','categories'));
-    
+
     }
 
     /**
@@ -60,27 +60,23 @@ class ActivityController extends Controller
         ->join('areas' , 'areas.id','=','activities.area_id')
 
         ->select('activities.*','areas.location')
-        
+
         ->where('slug', $slug)
-        
+
         ->first();
-
-        $inclusions = $activities->inclusions;
-
-        $inclusions = explode(",",$inclusions);
 
         //Declaring variable to store values from the database.
         $value = $activities->images;
-                    
+
         //Removing the quote symbol from the raw value
         $value = str_replace(['"'], '', $value);
-        
+
         // Split the string into an array using the comma as delimiter
         $images = explode(',', $value);
-        
 
-            return view('pages.guest.activities.detailed', ['activities' => $activities,'images'=>$images,'inclusions'=>$inclusions]);
+        return view('pages.guest.activities.detailed', ['activities' => $activities,'images'=>$images]);
     }
+
 
     /**
      * Show the form for editing the specified resource.

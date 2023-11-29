@@ -40,7 +40,7 @@ class AdminSpecialOfferController extends Controller
     public function store(Request $request)
     {
         $offerData = $request->validate([
-            
+
             'meta_keywords'=>'required|string',
 
             'meta_description'=>'required|string',
@@ -54,13 +54,13 @@ class AdminSpecialOfferController extends Controller
             'booking_link'=>'required',
 
             'youtube_link'=>'string',
-            
+
             'slug' => 'required|string',
 
             'image' => 'required',
 
             'related_images'=> 'array',
-            
+
             'additional_notes'=>'string',
 
         ]);
@@ -92,13 +92,13 @@ class AdminSpecialOfferController extends Controller
             $offerData['related_images'] = $allRelatedImages;
 
         }
-        
+
         // dd($offerData);
 
         SpecialOffer::create($offerData);
 
         return redirect()->route('special-offers.index');
-       
+
 
     }
 
@@ -121,7 +121,7 @@ class AdminSpecialOfferController extends Controller
      */
     public function edit($id)
     {
-        
+
         $offer = SpecialOffer::find($id);
 
         return view('pages.dashboard.superadmin.specialoffers.edit',compact('offer'));
@@ -138,7 +138,7 @@ class AdminSpecialOfferController extends Controller
     public function update(Request $request, $id)
     {
         $updateData = $request->validate([
-            
+
             'meta_keywords'=>'required|string',
 
             'meta_description'=>'required|string',
@@ -152,26 +152,29 @@ class AdminSpecialOfferController extends Controller
             'booking_link'=>'required',
 
             'youtube_link'=>'string',
-            
+
             'slug' => 'required|string',
 
-            'image' => 'required',
+            'image' => 'array',
 
             'related_images'=>'array',
-            
+
             'additional_notes'=>'string',
 
         ]);
 
-        $image = $updateData['image'];
+        if (isset($updateData['image'])) {
+            $image = $updateData['image'];
 
-        $relatedImages = [];
+            $relatedImages = [];
 
-        $fileName = uniqid() . '.' . $updateData['image']->getClientOriginalExtension();
+            $fileName = uniqid() . '.' . $updateData['image']->getClientOriginalExtension();
 
-        $imagePath = $image->storeAs('offerImages',$fileName,'public');
+            $imagePath = $image->storeAs('offerImages',$fileName,'public');
 
-        $updateData['image'] = $imagePath;
+            $updateData['image'] = $imagePath;
+        }
+
 
         if (isset($updateData['related_images'])) {
 
@@ -191,7 +194,6 @@ class AdminSpecialOfferController extends Controller
 
         }
 
-        // dd($updateData);
 
         $specialOffer = SpecialOffer::find($id);
 

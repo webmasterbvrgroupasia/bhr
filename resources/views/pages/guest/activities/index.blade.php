@@ -104,7 +104,7 @@ background-position:center;
                         <div class="text-white font-medium text-lg">
                             {{ $category->name }}
                             <div class="text-base font-normal">
-                                 Cliks For Details
+                                 Cliks For Detail
                             </div>
                         </div>
                     </a>

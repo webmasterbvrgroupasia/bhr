@@ -88,9 +88,9 @@ background-position:center;
 
         </form>
     </div>
-    <div class="grid grid-cols-12 gap-6 items-start" itemscope itemtype="https://www.bvrbaliholidayrentals.com/activities">
-        <div class="col-span-12 lg:col-span-4 bg-white overflow-hidden order-first lg:order-last space-y-4">
-            <div class="p-4 border" x-data="{toggleActivityCategoriesDropdown: false}">
+    <div class="grid grid-cols-12 gap-4 items-start" itemscope itemtype="https://www.bvrbaliholidayrentals.com/activities">
+        <div class="col-span-12 lg:col-span-4 bg-white overflow-hidden order-first lg:order-last space-y-4 lg:sticky lg:top-5">
+            <div class="p-4 border" x-data="{toggleActivityCategoriesDropdown: true}">
                 <div class="text-sm font-medium">
                     <button class="flex items-center justify-between w-full" @click="toggleActivityCategoriesDropdown =! toggleActivityCategoriesDropdown">
                         <div>
@@ -114,11 +114,8 @@ background-position:center;
                     @endforeach
                 </div>
             </div>
-            <a href="https://berryamourvillasbybvr.reserveonline.id/book/332" title="Promotion BVR Bali Holiday Rentals" target="_blank" class="block">
-                <img src="{{asset('images/banner.png')}}" itemprop="banner" class="hidden lg:block drop-shadow-md w-full h-full" alt="Promotion BVR Bali Holiday Rentals">
-            </a>
         </div>
-        <div class="col-span-12 md:col-span-12 lg:col-span-8 space-y-[32px] order-first">
+        <div class="col-span-12 md:col-span-12 lg:col-span-8 order-first grid grid-cols-1 md:grid-cols-2 gap-4">
             @foreach ($activities as $activity)
                 @php
                     $activity_image = $activity->images;
@@ -126,7 +123,8 @@ background-position:center;
                     $activity_images = str_replace('"',"",$activity_image);
                 @endphp
                 <div class="block border rounded-lg overflow-hidden">
-                    <img src="/storage/{{$activity_images}}" class="w-full h-44 object-cover" alt="">
+                    <img src="/storage/{{$activity_images}}" class="w-full h-44 object-cover" alt="{{$activity->title}} by BVR Bali Holiday Rentals">
+                    {{-- <img src="https://bvrbaliholidayrentals.com/storage/images//655d76f8384d5.png" class="w-full h-44 object-cover" alt=""> --}}
                     <div class="p-5 space-y-[16px]">
                         <div class="space-y-[8px]">
                             @if ($activity->category?->name)
@@ -146,6 +144,8 @@ background-position:center;
                     </div>
                 </div>
             @endforeach
+        {{$activities->links()}}
+
         </div>
     </div>
 </section>

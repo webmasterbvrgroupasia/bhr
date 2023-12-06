@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Activity;
+use App\Models\Admin\ActivityCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use stdClass;
@@ -18,52 +20,42 @@ class IndexController extends Controller
     {
         $all_properties = DB::table('properties')->get();
 
-        $properties = 
-            
+        $properties =
+
         DB::table('properties')
 
             ->join('areas','areas.id','=','properties.area_id')
-            
+
             ->select('properties.*','areas.location')
-            
+
             ->where('property_status', '=', 1)
 
             ->take(12)
-            
+
             ->get();
 
             $shuffledProperties = $properties->shuffle();
-        
-            $activities = 
-            
-            DB::table('activities')
-            
-            ->take(6)
-            
-            ->skip(0)
-            
-            ->where('status','=',1)
 
-            ->get();
+            $activities = ActivityCategory::all();
 
             $shuffledActivities = $activities->shuffle();
 
-            $areas = 
-            
+            $areas =
+
             DB::table('areas')
-            
+
             ->take(4)
-            
+
             ->skip(0)
-            
+
             ->get();
 
             $shuffledAreas = $areas->shuffle();
 
 
 
-        return view ('pages.static.index',['properties'=>$shuffledProperties,'activities'=>$shuffledActivities,'all_properties'=>$all_properties,'areas'=>$shuffledAreas]);
-    
+        return view ('pages.static.index',[ 'properties'=>$shuffledProperties,'activities'=>$shuffledActivities,'all_properties'=>$all_properties,'areas'=>$shuffledAreas]);
+
     }
 
     /**

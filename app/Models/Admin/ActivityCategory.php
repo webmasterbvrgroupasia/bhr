@@ -14,7 +14,11 @@ class ActivityCategory extends Model
 
     protected $fillable = [
         
-        'name'
+        'name',
+
+        'keywords',
+
+        'images'
     
     ];
 

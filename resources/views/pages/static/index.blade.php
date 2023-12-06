@@ -157,17 +157,17 @@
                     </svg>
                 </a>
             </div>
-            <div class="grid grid-cols-2 gap-5">
+            <div class="grid grid-cols-2 gap-4">
                 @foreach ($activities as $activity)
                     <a href="/activities/category/{{ $activity->id }}" title="{{ $activity->name}}"
-                        class="col-span-2 flex items-center md:col-span-1 p-5 lg:p-12 bg-center bg-cover"
+                        class="col-span-2 flex items-center md:col-span-1 p-12 lg:p-12 bg-center bg-cover"
                         style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('{{asset('storage/' . $activity->images)}}');
                 background-size: cover;
                 background-position:center;">
                         <div class="text-white font-medium text-lg">
                             {{ $activity->name }}
-                            <div class="text-base font-normal">
-                                Contact for more details
+                            <div class="text-base font-light text-neutral-100">
+                                Click for More Details
                             </div>
                         </div>
                     </a>

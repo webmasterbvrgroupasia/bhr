@@ -92,38 +92,31 @@ background-position:center;
     </div>
     <div class="grid grid-cols-12 gap-6 items-start" itemscope itemtype="https://www.bvrbaliholidayrentals.com/activities">
         <div class="col-span-12 lg:col-span-4 bg-white overflow-hidden order-first lg:order-last space-y-4">
-            <a href="https://berryamourvillasbybvr.reserveonline.id/book/332" title="Promotion BVR Bali Holiday Rentals" target="_blank" class="block">
+            {{-- <a href="https://berryamourvillasbybvr.reserveonline.id/book/332" title="Promotion BVR Bali Holiday Rentals" target="_blank" class="block">
                 <img src="{{asset('images/banner.png')}}" itemprop="banner" class="hidden lg:block drop-shadow-md w-full h-full" alt="Promotion BVR Bali Holiday Rentals">
-            </a>
+            </a> --}}
         </div>
         <div class="col-span-12 md:col-span-12 lg:col-span-8 space-y-[32px] order-first">
-            @foreach ($activities as $activity)
-                @php
-                    $activity_image = $activity->images;
-        
-                    $activity_images = str_replace('"',"",$activity_image);
-                @endphp
-                <div class="block border rounded-lg overflow-hidden">
-                    <img src="/storage/{{$activity_images}}" class="w-full h-44 object-cover" alt="">
-                    <div class="p-5 space-y-[16px]">
-                        <div class="space-y-[8px]">
-                            @if ($activity->category?->name)
-                            <div class="text-xs font-medium text-green-800 p-1 rounded-md  bg-green-200 w-fit">
-                                {{$activity->category->name}}
+            <div class="grid grid-cols-2 gap-4">
+                @foreach ($activities as $activity)
+                    @php
+                        $activity_image = $activity->images;
+
+                        $activity_images = str_replace('"', '', $activity_image);
+                    @endphp
+                    <div class="border">
+                        <img src="{{ asset('storage/' . $activity->images) }}" alt="{{ $activity->name }}"
+                            class="h-44 w-full object-cover">
+                        <div class="p-4 space-y-2">
+                            <div class="text-lg">
+                                {{ $activity->name }}
                             </div>
-                            @else
-                            @endif
-                            <h2 class="font-medium text-lg text-gray-900">
-                                {{$activity->name}}
-                            </h2>
-                            <p class="leading-relaxed font-light text-neutral-600">
-                                {!! Str::limit($activity->description,125)!!}
-                            </p>
+                            <a href="/activities/{{$activity->slug}}" class="block text-[#ff5700] w-fit">More Details</a>
                         </div>
-                        <a href="/activities/{{$activity->slug}}" class="block text-blue-700" title="More Details">More Details</a>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
+            {{$activities->links()}}
         </div>
     </div>
 </section>

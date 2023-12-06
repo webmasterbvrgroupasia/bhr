@@ -20,7 +20,9 @@ class ActivityController extends Controller
 
         $categories = ActivityCategory::all();
 
-        return view('pages.guest.activities.index',compact('categories'));
+        $activities = Activity::where('status',1)->paginate(10);
+
+        return view('pages.guest.activities.index',compact('categories','activities'));
 
     }
 

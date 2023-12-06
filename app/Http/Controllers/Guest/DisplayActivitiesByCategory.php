@@ -12,7 +12,7 @@ class DisplayActivitiesByCategory extends Controller
 
     public function filter($id) {
 
-        $activities = Activity::where('category_id',$id)->get();
+        $activities = Activity::where('category_id',$id)->paginate(10);
 
         $categories = ActivityCategory::find($id);
         

@@ -136,6 +136,14 @@
                             <th scope="col" class="px-6 py-3">
                                 Name
                             </th>
+
+                            <th scope="col" class="px-6 py-3">
+                                Keywords
+                            </th>
+                            
+                            <th scope="col" class="px-6 py-3">
+                                Image    
+                            </th> 
                             
                             <th scope="col" class="px-6 py-3">
                                 Action
@@ -150,6 +158,16 @@
                                     {{ $category->name }}
                                 </th>
                                 
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $category->keywords }}
+                                </th>
+                                
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $category->images }}
+                                </th>
+
                                 <td class="px-6 py-4 flex space-x-4">
                                     <a href="{{ route('activity-categories.edit', $category->id) }}"
                                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>

@@ -43,11 +43,21 @@ class AdminActivityCategoryController extends Controller
     {
         $validatedData = $request->validate([
 
-            'name'=>'required|string'
+            'name'=>'required|string',
+
+            'keywords' => 'required|string',
+            
+            'images' => 'required|max:4056'
         
         ]);
 
-        // dd($validatedData);
+        $image = $validatedData['images'];
+
+        $filename = uniqid() . '.' . $validatedData['images']->getClientOriginalExtension();
+
+        $imagePath = $image->storeAs('categoryImages',$filename, 'public');
+
+        $validatedData['images'] = $imagePath;
 
         ActivityCategory::create($validatedData);
 
@@ -74,7 +84,7 @@ class AdminActivityCategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = ActivityCategory::find($id)->firstOrFail();
+        $category = ActivityCategory::find($id);
 
         return view('pages.dashboard.superadmin.activity-categories.edit',compact('category'));
         
@@ -92,11 +102,24 @@ class AdminActivityCategoryController extends Controller
 
         $updatedData = $request->validate([
             
-            'name'=>'required'
+            'name'=>'required',
+
+            'keywords' => 'nullable',
+
+            'images' => 'nullable'
         
         ]);
 
-        // dd($updatedData);
+    
+        if (isset($updatedData['images'])) {
+            $image = $updatedData['images'];
+
+            $filename = uniqid() . '.' . $updatedData['images']->getClientOriginalExtension();
+
+            $imagePath = $image->storeAs('categoryImages',$filename, 'public');
+
+            $updatedData['images'] = $imagePath;
+        }
 
         $category = ActivityCategory::find($id);
 

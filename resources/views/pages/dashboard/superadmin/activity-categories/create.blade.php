@@ -86,9 +86,18 @@
                     class="block w-full py-2 px-2 mt-3">
             </div>
             <div class="col-span-8">
+                <label for="keywords" class="font-semifold">Keywords Kategory</label>
+                <input type="text" name="keywords" id="keywords" required placeholder="Keyword" class="block w-full py-2 px-2 mt-3">
+            </div>
+            <div class="col-span-8">
+                <label for="images" class="font-semifold">Images</label>
+                <input type="file" name="images" id="images" required class="block w-full border border-black mt-3 " >
+            </div>
+            <div class="col-span-8">
                 <button type="submit"
                     class="w-full py-2 bg-blue-500 text-white font-bold mt-2 hover:bg-blue-600 transition-all duration-300 rounded-md">Submit</button>
             </div>
+           
         </form>
     </section>
     <div class="h-[50px] md:h-[75px] lg:h-[100px]"></div>

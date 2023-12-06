@@ -159,30 +159,15 @@
             </div>
             <div class="grid grid-cols-2 gap-5">
                 @foreach ($activities as $activity)
-                    @php
-                        $activity_image = $activity->images;
-                        $activity_image = str_replace('"', '', $activity_image);
-                    @endphp
-
-                    <a href="/activities/{{ $activity->slug }}" title="Activity"
+                    <a href="/activities/category/{{ $activity->id }}" title="{{ $activity->name}}"
                         class="col-span-2 flex items-center md:col-span-1 p-5 lg:p-12 bg-center bg-cover"
-                        style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/storage/{{ $activity_image }}');
+                        style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('{{asset('storage/' . $activity->images)}}');
                 background-size: cover;
                 background-position:center;">
                         <div class="text-white font-medium text-lg">
                             {{ $activity->name }}
                             <div class="text-base font-normal">
-                                @if ($activity->price != '0')
-                                    <div class="text-gray-300">
-                                        Starts from
-                                    </div>
-                                    <div>
-                                        IDR
-                                        {{ number_format($activity->price) }}
-                                    </div>
-                                @else
-                                    Contact for more details
-                                @endif
+                                Contact for more details
                             </div>
                         </div>
                     </a>

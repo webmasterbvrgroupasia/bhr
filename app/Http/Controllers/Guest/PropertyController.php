@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Property;
+use App\Models\Guest\Property as GuestProperty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,12 +19,8 @@ class PropertyController extends Controller
     {
         $properties =
 
-            DB::table('properties')
-
-            ->join('areas', 'areas.id', '=', 'properties.area_id')
-
-            ->select('properties.*', 'areas.location')
-
+            GuestProperty::with('location')
+           
             ->where('property_status', '=', 1)
 
             ->orderBy('created_at','desc')
@@ -73,6 +70,8 @@ class PropertyController extends Controller
         
         ->first();
 
+        $propertyId = $property->id;
+
         //Declaring variable to store values from the database.
         $value = $property->images;
                     
@@ -81,8 +80,24 @@ class PropertyController extends Controller
         
         // Split the string into an array using the comma as delimiter
         $images = explode(',', $value);
+
+        $similiarProperties = GuestProperty::with('location')
+        
+        ->where('area_id','=',$property->area_id)
+
+        ->where('id','!=',$propertyId)
+
+        ->orderBy('created_at','desc')
+
+        ->skip(0)
+
+        ->take(3)
+
+        ->get();
+        
+        // dd($similiarProperties);
             
-        return view('pages.guest.properties.detailed', ['property' => $property,'images'=>$images]);
+        return view('pages.guest.properties.detailed', ['property' => $property,'images'=>$images,'similiarProperties'=>$similiarProperties]);
         
     }
 

@@ -11,11 +11,11 @@
 @endsection
 
 @section('page-content')
-<section class="mt-5 md:mt-10 lg:mt-10 px-5 md:px-12 lg:px-[300px]" itemscope>
+<section class="mt-5 md:mt-10 lg:mt-10 px-5 md:px-12 lg:px-[300px] py-16 md:py-24" itemscope>
     <h1 class="text-2xl font-bold" itemprop="name">
         {{ $area->location }}
     </h1>
-    <p class="leading-loose mt-4 md:mt-4 lg:mt-4" itemprop="description">
+    <p class="leading-loose mt-4 md:mt-4 lg:mt-4 font-light" itemprop="description">
         {{ $area->description }}
     </p>
 </section>

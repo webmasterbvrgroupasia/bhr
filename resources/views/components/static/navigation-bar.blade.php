@@ -114,7 +114,7 @@
             </div>
             <div class="text-sm font-medium text-gray-900 flex space-x-[16px]">
                 <div>
-                    <a href="https://wa.me/6285738930043" class="text-blue-600" title="Contact Us">Contact Us</a>
+                    <a href="https://wa.me/6285738930043" class="text-[#ff5700]" title="Contact Us">Contact Us</a>
                 </div>
             </div>
         </div>

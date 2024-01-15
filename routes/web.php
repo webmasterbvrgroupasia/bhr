@@ -33,6 +33,9 @@ use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\FindPropertyController;
 use App\Http\Controllers\Guest\DisplayActivitiesByCategory;
 use App\Http\Controllers\Guest\FindPropertyController as GuestFindPropertyController;
+use App\Http\Controllers\Guest\SearchActivityController;
+use App\Http\Controllers\Guest\SearchProperty;
+use App\Http\Controllers\Guest\SearchPropertyController;
 use App\Http\Controllers\Guest\SpecialOfferController;
 use App\Http\Controllers\SubscriberController;
 
@@ -55,6 +58,10 @@ Route::get('/test-layout',function(){
 });
 
 Route::get('/properties/search',[GuestFindPropertyController::class,'find_property']);
+
+Route::get('/properties/search',[SearchPropertyController::class,'search'])->name('search-property');
+
+Route::get('/activities/search',[SearchActivityController::class,'search'])->name('search-activity');
 
 Route::resource('/',IndexController::class);
 

@@ -18,7 +18,7 @@ class FindPropertyController extends Controller
 
         ->where('name','like',"%".$search."%")
 
-        ->paginate();
+        ->paginate(12);
  
 		return view('pages.guest.properties.index', ['properties' => $properties]);
     }

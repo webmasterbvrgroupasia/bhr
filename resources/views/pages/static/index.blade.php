@@ -5,18 +5,23 @@
 @endsection
 
 {{-- Page Meta Keywords --}}
-@section('page-meta-keywords', 'travel booking platforms | vacation rentals | bali tour operators | bali tour agency | villa rentals | best hotels in bali | vacation bali | bali hotels and resorts | bali resort | travel agent seminyak | bali vacation rentals | bali villa rentals | travel agency bali | hotel booking platforms | villa bali | bali vacation trip | best hotel booking platform | bali beach rentals')
+@section('page-meta-keywords', 'travel booking platforms | vacation rentals | bali tour operators | bali tour agency |
+    villa rentals | best hotels in bali | vacation bali | bali hotels and resorts | bali resort | travel agent seminyak |
+    bali vacation rentals | bali villa rentals | travel agency bali | hotel booking platforms | villa bali | bali vacation
+    trip | best hotel booking platform | bali beach rentals')
 
 
-{{-- Page Meta Description --}}
-@section('page-meta-description', 'Experiencing paradise vibes never gets easier. With BVR Bali Holiday Rentals, make your Bali holiday perfect, at your fingertips!')
+    {{-- Page Meta Description --}}
+@section('page-meta-description', 'Experiencing paradise vibes never gets easier. With BVR Bali Holiday Rentals, make
+    your Bali holiday perfect, at your fingertips!')
 
-{{-- Additional CSS for specific page --}}
+    {{-- Additional CSS for specific page --}}
 @section('additional-css')
 @endsection
 
 @section('page-header')
-    <header itemscope itemtype="https://www.bvrbaliholidayrentals.com" class="relative pb-10 h-auto md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-center tracking-tight">
+    <header itemscope itemtype="https://www.bvrbaliholidayrentals.com"
+        class="relative pb-10 h-auto md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-center tracking-tight">
         <div class="absolute inset-0 overflow-hidden">
             <video class="h-screen w-full object-cover " autoplay loop muted itemprop="holiday in bali">
                 <source src="https://bvrbaliholidayrentals.com/videos/index-header.mp4" type="video/mp4">
@@ -27,15 +32,19 @@
 
         <div class="relative max-w-full md:max-w-3xl lg:max-w-5xl px-2 space-y-[24px]">
             <div>
-                <h1 class="text-base font-normal md:text-xl text-gray-400" itemprop="title">Welcome to BVR Bali Holiday Rentals</h1>
+                <h1 class="text-base font-normal md:text-xl text-gray-400" itemprop="title">Welcome to BVR Bali Holiday
+                    Rentals</h1>
                 <h2 class="text-white leading-tight text-4xl md:text-6xl font-black">Your One Stop Travel Platform</h2>
             </div>
             <div class="flex space-x-[16px]">
-                <a href="/properties" class="text-white text-center text-sm bg-[#ff5700] to-blue-500 p-3 block w-fit rounded-lg" title="Our Selected Properties">Our Selected Properties</a>
-                <a href="/activities" class="text-white text-center text-sm block w-fit p-3" title="Find Fun Activities">Find Fun Activities</a>
+                <a href="/properties"
+                    class="text-white text-center text-sm bg-[#ff5700] to-blue-500 p-3 block w-fit rounded-lg"
+                    title="Our Selected Properties">Our Selected Properties</a>
+                <a href="/activities" class="text-white text-center text-sm block w-fit p-3"
+                    title="Find Fun Activities">Find Fun Activities</a>
             </div>
             <div class="bg-white p-[10px] rounded-lg">
-                <form method="GET" action="/properties/search" class="grid grid-cols-2 lg:grid-cols-12 gap-[16px]">
+                <form method="GET" action="{{route('search-property')}}" class="grid grid-cols-2 lg:grid-cols-12 gap-[16px]">
                     <div class="relative col-span-2 md:col-span-2 lg:col-span-10">
                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -45,7 +54,7 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <input type="text" name="search" id="email-address-icon"
+                        <input type="text" name="destination" id="email-address-icon"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-[14px]  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Where to">
                     </div>
@@ -84,7 +93,8 @@
                     @endphp
                     We serve you villa, resort, and hotel for your convenience in Bali - the Land of Gods.
                 </p>
-                <a href="/properties" class="text-blue-600 flex items-center space-x-[4px]" title="See more" itemprop="detail">
+                <a href="/properties" class="text-[#ff5700] flex items-center space-x-[4px]" title="See more"
+                    itemprop="detail">
                     See more
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" class="w-4 h-4">
@@ -134,7 +144,7 @@
                                     href="areas/{{ Str::lower($property->location) }}">{{ $property->location }}</a>,
                                 Indonesia
                             </div>
-                            <a href="/properties/{{ $property->slug }}" class="block font-medium text-blue-600">View
+                            <a href="/properties/{{ $property->slug }}" class="block font-medium w-fit mt-2 text-[#ff5700]">View
                                 More Details</a>
                         </div>
                     </div>
@@ -147,9 +157,10 @@
                     Attractive Places in Bali
                 </h3>
                 <p class="text-gray-500" itemprop="description">
-                    Browse some of best activities and places to go in Canggu, Seminyak, Kuta, Ubud, and any other sought-after places in Bali.
+                    Browse some of best activities and places to go in Canggu, Seminyak, Kuta, Ubud, and any other
+                    sought-after places in Bali.
                 </p>
-                <a href="/activities" class="text-blue-600 flex items-center space-x-[4px]">
+                <a href="/activities" class="text-[#ff5700] flex items-center space-x-[4px]">
                     Bali tourist spots
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" class="w-4 h-4">
@@ -159,9 +170,9 @@
             </div>
             <div class="grid grid-cols-2 gap-4">
                 @foreach ($activities as $activity)
-                    <a href="/activities/category/{{ $activity->id }}" title="{{ $activity->name}}"
+                    <a href="/activities/category/{{ $activity->id }}" title="{{ $activity->name }}"
                         class="col-span-2 flex items-center md:col-span-1 p-12 lg:p-12 bg-center bg-cover"
-                        style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('{{asset('storage/' . $activity->images)}}');
+                        style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('{{ asset('storage/' . $activity->images) }}');
                 background-size: cover;
                 background-position:center;">
                         <div class="text-white font-medium text-lg">
@@ -182,7 +193,7 @@
                 <p class="text-gray-500">
                     Make your holiday perfect by finding must visit places in Bali.
                 </p>
-                <a href="/areas" class="text-blue-600 flex items-center space-x-[4px]" title="Let me know!">
+                <a href="/areas" class="text-[#ff5700] flex items-center space-x-[4px]" title="Let me know!">
                     Let me know!
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" class="w-4 h-4">

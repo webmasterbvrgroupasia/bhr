@@ -56,7 +56,9 @@ class AdminBlogpostController extends Controller
 
         if($request->file('image')) {
 
-            $validatedData['image'] = $request->file('image')->store('blogpost-images');
+            $filename = uniqid().'.'.$validatedData['image']->getClientOriginalExtension();
+
+            $validatedData['image'] = $request->file('image')->storeAs('blogpost-images', $filename, 'public');
 
         }
 
@@ -113,7 +115,9 @@ class AdminBlogpostController extends Controller
 
         if ($request->has('image')) {
 
-            $validatedData['image'] = $request->file('image')->store('blogpost-images');
+            $filename = uniqid().'.'.$validatedData['image']->getClientOriginalExtension();
+
+            $validatedData['image'] = $request->file('image')->storeAs('blogpost-images', $filename, 'public');
         }
 
         $blogpost->update($validatedData);

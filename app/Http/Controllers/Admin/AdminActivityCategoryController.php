@@ -46,9 +46,9 @@ class AdminActivityCategoryController extends Controller
             'name'=>'required|string',
 
             'keywords' => 'required|string',
-            
+
             'images' => 'required|max:4056'
-        
+
         ]);
 
         $image = $validatedData['images'];
@@ -87,7 +87,7 @@ class AdminActivityCategoryController extends Controller
         $category = ActivityCategory::find($id);
 
         return view('pages.dashboard.superadmin.activity-categories.edit',compact('category'));
-        
+
     }
 
     /**
@@ -101,17 +101,18 @@ class AdminActivityCategoryController extends Controller
     {
 
         $updatedData = $request->validate([
-            
+
             'name'=>'required',
 
             'keywords' => 'nullable',
 
             'images' => 'nullable'
-        
+
         ]);
 
-    
+
         if (isset($updatedData['images'])) {
+
             $image = $updatedData['images'];
 
             $filename = uniqid() . '.' . $updatedData['images']->getClientOriginalExtension();

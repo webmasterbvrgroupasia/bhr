@@ -53,7 +53,9 @@ class AdminAreaController extends Controller
 
         if($request->file('image')) {
 
-            $validatedData['image'] = $request->file('image')->store('area-images');
+            $filename = uniqid() . '.' . $validatedData['image']->getClientOriginalExtension();
+
+            $validatedData['image'] = $request->file('image')->storeAs('area-images', $filename, 'public');
 
         }
 
@@ -100,12 +102,14 @@ class AdminAreaController extends Controller
 
             'description' => 'string',
 
-            'images' => 'mimes:jpeg,jpg,png,webp,gif|max:4056'
+            'image' => 'mimes:jpeg,jpg,png,webp,gif|max:4056'
         ]);
 
         if($request->file('image')) {
 
-            $validatedData['image'] = $request->file('image')->store('area-images');
+            $filename = uniqid() . '.' . $validatedData['image']->getClientOriginalExtension();
+
+            $validatedData['image'] = $request->file('image')->storeAs('area-images', $filename, 'public');
 
         }
 

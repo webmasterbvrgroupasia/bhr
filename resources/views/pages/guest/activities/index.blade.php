@@ -71,22 +71,28 @@ background-position:center;
                             Sorry, there are no properties matching your search criteria. Please try a different search.
                         </div>
                     @else
+
                         @foreach ($activities as $activity)
                             @php
+
                                 $activity_image = $activity->images;
 
-                            $activity_images = str_replace('"', '', $activity_image);
-                        @endphp
-                        <div class="border">
-                            <img src="{{ asset('storage/' . $activity_images) }}" alt="{{ $activity->name }}" class='h-44 w-full object-cover'>
-                            <div class="p-4 space-y-2">
-                                <div class="text-lg">
-                                    {{ $activity->name }}
+                                $activity_images = str_replace('"', '', $activity_image);
+
+                            @endphp
+                            <div class="border">
+                                <img src="{{ asset('storage/' . $activity_images) }}" alt="{{ $activity->name }}"
+                                    class='h-44 w-full object-cover'>
+                                <div class="p-4 space-y-2">
+                                    <div class="text-lg">
+                                        {{ $activity->name }}
+                                    </div>
+                                    <a href="/activities/{{ $activity->slug }}" class="block text-[#ff5700] w-fit">More
+                                        Details</a>
                                 </div>
-                                <a href="/activities/{{$activity->slug}}" class="block text-[#ff5700] w-fit">More Details</a>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @endif
                 </div>
                 {{ $activities->links() }}
             </div>

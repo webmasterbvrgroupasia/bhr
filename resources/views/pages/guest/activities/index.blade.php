@@ -75,21 +75,18 @@ background-position:center;
                             @php
                                 $activity_image = $activity->images;
 
-                                $activity_images = str_replace('"', '', $activity_image);
-                            @endphp
-                            <div class="border">
-                                <img src="{{ asset('storage/' . $activity->images) }}" alt="{{ $activity->name }}"
-                                    class="h-44 w-full object-cover">
-                                <div class="p-4 space-y-2">
-                                    <div class="text-lg">
-                                        {{ $activity->name }}
-                                    </div>
-                                    <a href="/activities/{{ $activity->slug }}" class="block text-[#ff5700] w-fit">More
-                                        Details</a>
+                            $activity_images = str_replace('"', '', $activity_image);
+                        @endphp
+                        <div class="border">
+                            <img src="{{ asset('storage/' . $activity_images) }}" alt="{{ $activity->name }}" class='h-44 w-full object-cover'>
+                            <div class="p-4 space-y-2">
+                                <div class="text-lg">
+                                    {{ $activity->name }}
                                 </div>
+                                <a href="/activities/{{$activity->slug}}" class="block text-[#ff5700] w-fit">More Details</a>
                             </div>
-                        @endforeach
-                    @endif
+                        </div>
+                    @endforeach
                 </div>
                 {{ $activities->links() }}
             </div>

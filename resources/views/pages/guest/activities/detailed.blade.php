@@ -6,7 +6,7 @@
 
 @section('page-content')
     <div class="max-w-full md:max-w-3xl lg:max-w-5xl px-2 space-y-[24px] mx-auto mt-4" x-data="{
-
+    
     }">
 
         <div class="w-full">

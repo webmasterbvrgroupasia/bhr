@@ -3,7 +3,6 @@
 @section('page-title', 'Amazing Activities')
 
 @section('page-meta-keywords')
- {{ $categories->get($id-1)->keywords}}
 @endsection
 
 @section('page-header')

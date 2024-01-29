@@ -103,6 +103,8 @@ background-position:center;
                         $activity_image = $activity->images;
 
                         $activity_images = str_replace('"', '', $activity_image);
+
+                        echo $activity_images;
                     @endphp
                     <div class="border">
                         <img src="{{ asset('storage/' . $activity->images) }}" alt="{{ $activity->name }}"

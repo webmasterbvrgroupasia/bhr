@@ -14,9 +14,9 @@ class DisplayActivitiesByCategory extends Controller
 
         $activities = Activity::where('category_id',$id)->paginate(10);
 
-        $categories = ActivityCategory::find($id);
+        $categories = ActivityCategory::all();
         
-        return view('pages.guest.activities.filtered',compact('activities','categories'));
+        return view('pages.guest.activities.filtered',compact('activities','categories', 'id'));
 
     }
 

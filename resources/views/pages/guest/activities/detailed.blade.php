@@ -93,8 +93,7 @@
                                 style="
                 background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/storage/{{ $images[0] }}');
                 background-position: center;
-                background-size:cover;
-            ">
+                background-size:cover;">
                                 <p class="text-base md:text-base lg:text-lg" title="activities">
                                     Save your seat for {{ $activities->name }}
                                 </p>

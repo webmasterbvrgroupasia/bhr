@@ -1,8 +1,6 @@
-@extends('layouts.detailed')
+@extends('layouts.main')
 
-@section('page-title')
-    {{ $property->name }}
-@endsection
+{!!seo($seoData)!!}
 
 @section('page-content')
 
@@ -192,10 +190,7 @@
         <div class="grid grid-cols-12 gap-x-7 items-start">
             <div class="col-span-12 md:col-span-8 space-y-[20px]">
                 <div>
-                    <div class="font-semibold text-gray-900">
-                        Description
-                    </div>
-                    <p class="text-sm text-gray-500" itemprop="description">
+                    <p class="text-base text-gray-500 leading-loose" itemprop="description">
                         {{ $property->description }}
                     </p>
                 </div>
@@ -532,7 +527,7 @@
                         $singleImage = str_replace('"','',$singleImage);
                     @endphp
                     <div class="bg-white border border-neutral-100 hover:drop-shadow-md">
-                        <img src="{{asset('storage/'.$singleImage[0])}}" alt="">
+                        <img src="{{asset('storage/'.$singleImage[0])}}" class="h-44 object-cover w-full" alt="">
                         <div class="font-semibold p-4">
                             {{ $similiarProperty->name }}
                             <div class="font-normal text-gray-600">

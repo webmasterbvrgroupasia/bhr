@@ -7,6 +7,7 @@ use App\Models\Admin\Blogpost;
 use App\Models\Admin\Property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RalphJSmit\Laravel\SEO\Support\SEOData;
 
 class BlogpostController extends Controller
 {
@@ -23,7 +24,12 @@ class BlogpostController extends Controller
 
         ->paginate(5);
 
-        return view ('pages.guest.blogpost.index',['posts'=>$posts]);
+        $seoData = new SEOData(
+            title: 'Blogpost and Articles | BVR Bali Holiday Rentals',
+            description: 'Lorem'
+        );
+
+        return view ('pages.guest.blogpost.index',['posts'=>$posts,'seoData'=>$seoData]);
     }
 
     /**

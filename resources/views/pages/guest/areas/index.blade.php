@@ -1,28 +1,11 @@
 @extends('layouts.main')
 
-@section('page-title', 'Recommended Areas')
-
-@section('page-meta-keywords', 'best views in bali | waterfall in ubud | beautiful places in bali | visit bali | destinations in bali | waterfalls near ubud | must visit places in bali | attractive places in bali | places to visit in bali | top destinations in Bali | sanur tourist attractions | uluwatu tourist attraction | ubud tourist attractions | kuta tourist attractions')
-
-@section('page-header')
-    <header class="pb-10 h-[75vh] md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-start tracking-tight"
-        style="
-background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
-background-size:cover;
-background-position:center;
-">
-        <div class="px-2 py-8 md:py-8 lg:py-16 max-w-full md:max-w-3xl lg:max-w-5xl mx-auto space-y-[64px]">
-        <div class="px-2 py-8 md:py-8 lg:py-16 max-w-full md:max-w-3xl lg:max-w-5xl mx-auto space-y-[64px]">
-            <div class="">
-                <h1 class="text-base font-normal md:text-xl text-gray-400">Welcome to BVR Bali Holiday Rentals</h1>
-                <h2 class="text-white leading-tight text-4xl md:text-6xl font-black">Selected Areas</h2>
-            </div>
-        </div>
-
-    </header>
-@endsection
+{!!seo($seoData)!!}
 
 @section('page-content')
+
+    <x-guest.header coverImage="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" subTitle="Discover Bali's Diversity" mainTitle="Exploring Bali's Regions"/>
+
     <section class="px-2 py-8 md:py-8 lg:pb-16 max-w-full md:max-w-3xl lg:max-w-5xl mx-auto space-y-[64px]">
         <div class="hidden md:block bg-white p-[10px] md:-mt-28 lg:-mt-16 rounded-lg border">
             <form method="POST" action="" class="grid grid-cols-2 lg:grid-cols-12 gap-[16px]">

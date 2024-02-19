@@ -35,7 +35,7 @@
 </head>
 
 <body class="bg-white">
-    @include('components.static.navigation-bar')
+    <x-guest.navigation-bar/>
     @yield('page-header')
     <main class="">
         @yield('page-content')

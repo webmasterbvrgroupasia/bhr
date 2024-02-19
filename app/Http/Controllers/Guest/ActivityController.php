@@ -7,6 +7,7 @@ use App\Models\Admin\ActivityCategory;
 use App\Models\Guest\Activity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RalphJSmit\Laravel\SEO\Support\SEOData;
 
 class ActivityController extends Controller
 {
@@ -18,11 +19,27 @@ class ActivityController extends Controller
     public function index()
     {
 
+        $seoData = new SEOData(
+            
+            title: 'Amazing Activities | BVR Bali Holiday Rentals',
+
+            description: 'Embark on unforgettable adventures with BVR Bali Holiday Rentals. Explore thrilling activities that will elevate your Bali experience. Start planning your next adventure today!',
+        
+        );
+
         $categories = ActivityCategory::all();
 
         $activities = Activity::where('status',1)->paginate(10);
 
-        return view('pages.guest.activities.index',compact('categories','activities'));
+        return view('pages.guest.activities.index',[
+
+            'seoData' => $seoData,
+            
+            'categories' => $categories,
+            
+            'activities' => $activities,
+        
+        ]);
 
     }
 
@@ -55,7 +72,7 @@ class ActivityController extends Controller
      */
     public function show($slug)
     {
-        $activities = DB::table('activities')
+        $activity = DB::table('activities')
 
         ->join('areas' , 'areas.id','=','activities.area_id')
 
@@ -65,8 +82,14 @@ class ActivityController extends Controller
 
         ->first();
 
+        $price = $activity->price;
+
+        $markup = $price * 20 / 100;
+
+        $dummyPrice = $price + $markup;
+
         //Declaring variable to store values from the database.
-        $value = $activities->images;
+        $value = $activity->images;
 
         //Removing the quote symbol from the raw value
         $value = str_replace(['"'], '', $value);
@@ -74,7 +97,15 @@ class ActivityController extends Controller
         // Split the string into an array using the comma as delimiter
         $images = explode(',', $value);
 
-        return view('pages.guest.activities.detailed', ['activities' => $activities,'images'=>$images]);
+        return view('pages.guest.activities.detailed', [
+            
+            'activity' => $activity,
+            
+            'images'=>$images,
+        
+            'dummyPrice' => $dummyPrice,
+
+        ]);
     }
 
 

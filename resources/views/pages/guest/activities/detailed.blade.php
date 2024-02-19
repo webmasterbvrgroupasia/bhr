@@ -1,7 +1,7 @@
 @extends('layouts.detailed')
 
 @section('page-title')
-    {{ $activities->name }}
+    {{ $activity->name }}
 @endsection
 
 @section('page-content')
@@ -10,8 +10,7 @@
     }">
 
         <div class="w-full">
-            <img src="{{ asset('storage/' . $images[0]) }}" class="h-56 lg:h-[450px] w-full object-cover rounded-lg"
-                alt="">
+            <img src="{{ asset('storage/' . $images[0]) }}" class="h-52 md:h-96 w-full object-cover rounded-lg" alt="">
         </div>
 
 
@@ -53,14 +52,14 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                             <span
-                                class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">{{ $activities->name }}</span>
+                                class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">{{ $activity->name }}</span>
                         </div>
                     </li>
                 </ol>
             </nav>
 
             <h1 class="leading-tight text-3xl font-extrabold" itemprop="name">
-                {{ $activities->name }}
+                {{ $activity->name }}
             </h1>
             <p class="text-lg font-normal">
             <div class="grid grid-cols-12 gap-x-7 items-start">
@@ -69,33 +68,52 @@
                         <div class="font-semibold text-gray-900">
                             Inclusion
                         </div>
-                        <div class="text-sm text-gray-500" itemprop="inclusion">
-                            {!! $activities->inclusions !!}
+                        <div class="text-neutral-600">
+                            @php
+                                $inclusions = $activity->inclusions;
+                                $inclusionArr = explode('-', $inclusions);
+                            @endphp
+                            <ul class="">
+                                @foreach ($inclusionArr as $inclusion)
+                                    <li>
+                                        @php
+                                            $inclusion = str_replace(',', ' ', $inclusion);
+                                        @endphp
+
+                                        {!! $inclusion !!}
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
-                        @if ($activities->description)
+                        @if ($activity->description)
                             <div class="font-semibold text-gray-900">
                                 Description
                             </div>
                             <div class="text-sm text-gray-500 leading-relaxed" itemprop="description">
-                                {!! $activities->description !!}
+                                {!! $activity->description !!}
                             </div>
                         @endif
                     </div>
-                    <div>
-                        @if ($activities->price > '0.00')
+                    <div class="space-y-4">
+                        @if ($activity->price > '0.00')
                             <div class="font-semibold text-gray-900">
-                                Starts From
+                                Start From
                             </div>
-                            <p class="text-sm text-gray-500" itemprop="price">
-                                IDR {{ number_format($activities->price) }}
-                            </p>
+                            <span>
+                                <span class="line-through block text-xs font-medium text-red-800">
+                                    IDR {{number_format($dummyPrice)}}
+                                </span>
+                            </span>
+                            <span class="text-sm text-gray-800 font-semibold" itemprop="price">
+                                IDR {{ number_format($activity->price) }}
+                            </span>
                             <div class="mt-[8px] w-full rounded-md p-5 md:p-5 lg:p-12 text-center text-white font-bold space-y-[8px]"
                                 style="
                 background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/storage/{{ $images[0] }}');
                 background-position: center;
                 background-size:cover;">
-                                <p class="text-base md:text-base lg:text-lg" title="activities">
-                                    Save your seat for {{ $activities->name }}
+                                <p class="text-base md:text-base lg:text-lg" title="{{ $activity->name }}">
+                                    Save your seat for {{ $activity->name }}
                                 </p>
                                 <a href="https://wa.me/6285738930043" title="Book Now"
                                     class="bg-[#ff5700] block text-white w-fit px-4 py-2 text-sm rounded-md mx-auto">Book
@@ -112,9 +130,9 @@
                 background-size:cover;
             ">
                                 <p class="text-base md:text-base lg:text-lg">
-                                    Save your seat for {{ $activities->name }}
+                                    Save your seat for {{ $activity->name }}
                                 </p>
-                                <a href="{{ $activities->booking_link }}" title="Book Now"
+                                <a href="{{ $activity->booking_link }}" title="Book Now"
                                     class="bg-[#ff5700] block text-white w-fit px-4 py-2 text-sm rounded-md mx-auto">Book
                                     Now</a>
                             </div>

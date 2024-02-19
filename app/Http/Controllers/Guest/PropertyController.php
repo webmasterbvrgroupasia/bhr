@@ -7,6 +7,7 @@ use App\Models\Admin\Property;
 use App\Models\Guest\Property as GuestProperty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RalphJSmit\Laravel\SEO\Support\SEOData;
 
 class PropertyController extends Controller
 {
@@ -17,6 +18,12 @@ class PropertyController extends Controller
      */
     public function index()
     {
+        $seoData = new SEOData(
+            title: 'Explore Our Properties | BVR Bali Holiday Rentals',
+            description: "Embark on a journey through our exquisite properties at BVR Bali Holiday Rentals. Discover luxury, comfort, and the perfect getaway.",
+            url: "https://bvrbaliholidayrentals.com/properties",
+        );
+
         $properties =
 
             GuestProperty::with('location')
@@ -27,7 +34,7 @@ class PropertyController extends Controller
 
             ->paginate(15);
 
-        return view('pages.guest.properties.index', ['properties' => $properties]);
+        return view('pages.guest.properties.index', ['properties' => $properties,'seoData' => $seoData]);
     }
 
     /**
@@ -70,6 +77,18 @@ class PropertyController extends Controller
         
         ->first();
 
+        $metaDescription = $property->description;
+
+        $metaDescription = explode('.',$metaDescription);
+
+        $seoData = new SEOData(
+            
+            title:  $property->name . ' | BVR Bali Holiday Rentals',
+
+            description: $metaDescription[0] . '.',
+        
+        );
+
         $propertyId = $property->id;
 
         //Declaring variable to store values from the database.
@@ -97,7 +116,7 @@ class PropertyController extends Controller
         
         // dd($similiarProperties);
             
-        return view('pages.guest.properties.detailed', ['property' => $property,'images'=>$images,'similiarProperties'=>$similiarProperties]);
+        return view('pages.guest.properties.detailed', ['property' => $property,'images'=>$images,'similiarProperties'=>$similiarProperties,'seoData'=>$seoData]);
         
     }
 

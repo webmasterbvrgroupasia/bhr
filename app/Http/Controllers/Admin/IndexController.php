@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RalphJSmit\Laravel\SEO\Support\SEOData;
 
 class IndexController extends Controller
 {
@@ -20,7 +21,14 @@ class IndexController extends Controller
 
         $area_overview = DB::table('areas')->orderBy('created_at','desc')->limit(5)->get();
 
-        return view('pages.dashboard.superadmin.index',['property_overview' => $property_overview,'area_overview'=>$area_overview]);
+
+        return view('pages.dashboard.superadmin.index',[
+
+            'property_overview' => $property_overview,
+            
+            'area_overview'=>$area_overview,
+                    
+        ]);
     
     }
 

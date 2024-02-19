@@ -1,5 +1,6 @@
+{!!seo($seoData)!!}
+
 @extends('layouts.main')
-@section('page-title', 'About Us')
 
 @section('page-header')
     <section

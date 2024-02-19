@@ -31,6 +31,8 @@ use Illuminate\Support\Facades\Artisan;
 
 // Search Controller
 use App\Http\Controllers\FindPropertyController;
+use App\Http\Controllers\Guest\AboutUsController;
+use App\Http\Controllers\Guest\ContactController;
 use App\Http\Controllers\Guest\DisplayActivitiesByCategory;
 use App\Http\Controllers\Guest\FindPropertyController as GuestFindPropertyController;
 use App\Http\Controllers\Guest\SearchActivityController;
@@ -50,12 +52,6 @@ use App\Http\Controllers\SubscriberController;
 |
 */
 
-Route::get('/test-layout',function(){
-    return view('pages.test-detailed',[
-        'title'=>'Test Title',
-        'description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    ]);
-});
 
 Route::get('/properties/search',[GuestFindPropertyController::class,'find_property']);
 
@@ -63,13 +59,27 @@ Route::get('/properties/search',[SearchPropertyController::class,'search'])->nam
 
 Route::get('/activities/search',[SearchActivityController::class,'search'])->name('search-activity');
 
-Route::resource('/',IndexController::class);
+Route::get('/',[IndexController::class,'index'])->name('welcome');
 
-Route::get('/about-us', function () {
+Route::get('/about-us',[AboutUsController::class,'index'])->name('about-us');
 
-    return view('pages.static.about');
+Route::get('/contact-us',[ContactController::class,'index'])->name('guest.contact-us.index');
 
-});
+Route::get('/properties',[PropertyController::class,'index'])->name('guest.properties.index');
+
+Route::get('/properties/{slug}',[PropertyController::class,'show'])->name('guest.properties.show');
+
+Route::get('/activities',[ActivityController::class,'index'])->name('guest.activities.index');
+
+Route::get('/activities/{slug}',[ActivityController::class,'show'])->name('guest.activities.show');
+
+Route::get('/areas',[AreaController::class,'index'])->name('guest.areas.index');
+
+Route::get('/blogpost',[BlogpostController::class,'index'])->name('guest.blogpost.index');
+
+Route::get('/blogpost/{slug}',[BlogpostController::class,'show'])->name('guest.blogpost.show');
+
+Route::get('/contact-us',[ContactController::class,'index'])->name('guest.contact-us');
 
 // Defining Route to store subscriber
 Route::post('/subscriber',[SubscriberController::class,'store'])->name('subscriber.store');
@@ -80,21 +90,21 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/special-offers',[SpecialOfferController::class,'index']);
+Route::get('/special-offers',[SpecialOfferController::class,'index'])->name('guest.special-offers.index');
 
-Route::get('/special-offers/{slug}',[SpecialOfferController::class,'show'])->name('offer.detail');
+Route::get('/special-offers/{slug}',[SpecialOfferController::class,'show'])->name('guest.special-offers.show');
 
-Route::resource('/properties', PropertyController::class);
+// Route::resource('/properties', PropertyController::class);
 
-Route::resource('/testimonials', TestimonialController::class);
+// Route::resource('/testimonials', TestimonialController::class);
 
-Route::resource('/activities', ActivityController::class);
+// Route::resource('/activities', ActivityController::class);
 
 Route::get('/activities/category/{id}', [DisplayActivitiesByCategory::class,'filter'])->name('activity-category.filter');
 
-Route::resource('/blogpost', BlogpostController::class);
+// Route::resource('/blogpost', BlogpostController::class);
 
-Route::resource('/areas', AreaController::class);
+// Route::resource('/areas', AreaController::class);
 
 Route::middleware(['auth'])->group(function () {
 

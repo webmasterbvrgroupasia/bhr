@@ -7,6 +7,7 @@ use App\Models\Admin\Activity;
 use App\Models\Admin\ActivityCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RalphJSmit\Laravel\SEO\Support\SEOData;
 use stdClass;
 
 class IndexController extends Controller
@@ -52,9 +53,17 @@ class IndexController extends Controller
 
             $shuffledAreas = $areas->shuffle();
 
+            $seoData = new SEOData(
+            
+                title: 'Bali Holiday at Your Fingertips | BVR Bali Holiday Rentals',
+    
+                description: "Experiencing paradise vibes never gets easier. With BVR Bali Holiday Rentals, make your Bali holiday perfect, at your fingertips!"
+    
+            );
 
 
-        return view ('pages.static.index',[ 'properties'=>$shuffledProperties,'activities'=>$shuffledActivities,'all_properties'=>$all_properties,'areas'=>$shuffledAreas]);
+        return view ('pages.static.index',[ 'properties'=>$shuffledProperties,'activities'=>$shuffledActivities,'all_properties'=>$all_properties,'areas'=>$shuffledAreas,            'seoData' =>$seoData,
+    ]);
 
     }
 

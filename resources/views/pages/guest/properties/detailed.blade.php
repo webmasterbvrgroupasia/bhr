@@ -48,7 +48,7 @@
     @endphp
 
     <div class="max-w-full md:max-w-3xl lg:max-w-5xl px-2 space-y-[24px] mx-auto mt-4" x-data="{
-    
+
     }">
 
         <div id="gallery" class="relative w-full" data-carousel="slide">
@@ -196,7 +196,7 @@
                 </div>
                 <div class="w-full rounded-md p-5 md:p-5 lg:p-12 text-center text-white font-bold space-y-[8px]"
                     style="
-                background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/storage/{{ $property_images[1] }}');
+                background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/storage/{{ $property_images[0] }}');
                 background-position: center;
                 background-size:cover;
             ">

@@ -5,7 +5,7 @@
 
 @section('page-header')
     <header itemscope itemtype="https://www.bvrbaliholidayrentals.com"
-        class="relative pb-10 h-auto md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-center tracking-tight">
+        class="relative pb-10 h-screen md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-center tracking-tight">
         <div class="absolute inset-0 overflow-hidden">
             <video class="h-screen w-full object-cover " autoplay loop muted itemprop="holiday in bali">
                 <source src="https://bvrbaliholidayrentals.com/videos/index-header.mp4" type="video/mp4">
@@ -14,51 +14,26 @@
             <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
 
-        <div class="relative max-w-full md:max-w-3xl lg:max-w-5xl px-2 space-y-[24px]">
-            <div>
-                <h1 class="text-base font-normal md:text-xl text-gray-400" itemprop="title">Welcome to BVR Bali Holiday
-                    Rentals</h1>
-                <h2 class="text-white leading-tight text-4xl md:text-6xl font-black">Your One Stop Travel Platform</h2>
-            </div>
-            <div class="flex space-x-[16px]">
-                <a href="/properties"
-                    class="text-white text-center text-sm bg-[#ff5700] to-blue-500 p-3 block w-fit rounded-lg"
-                    title="Our Selected Properties">Our Selected Properties</a>
-                <a href="/activities" class="text-white text-center text-sm block w-fit p-3"
-                    title="Find Fun Activities">Find Fun Activities</a>
-            </div>
-            <div class="bg-white p-[10px] rounded-lg">
-                <form method="GET" action="{{route('search-property')}}" class="grid grid-cols-2 lg:grid-cols-12 gap-[16px]">
-                    <div class="relative col-span-2 md:col-span-2 lg:col-span-10">
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                class="w-5 h-5 text-gray-400">
-                                <path fill-rule="evenodd"
-                                    d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                        <input type="text" name="destination" id="email-address-icon"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-[14px]  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Where to">
-                    </div>
-                    <button
-                        class="bg-[#ff5700] rounded-lg text-white w-full md:w-fit lg:w-full px-6 py-[14px] flex justify-center col-span-2 md:col-span-1  lg:col-span-2">
-                        <div class="flex items-center space-x-[8px]">
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    class="w-4 h-4">
-                                    <path fill-rule="evenodd"
-                                        d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <div>
-                                Search
-                            </div>
-                        </div>
-                    </button>
-                </form>
+        <div class="w-full z-40">
+            <div class="max-w-full md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto px-4 md:px-0 space-y-8">
+                <div class="space-y-2">
+                    <h1 class="text-neutral-200 font-light">
+                        Welcome to BVR Bali Holiday Rentals
+                    </h1>
+                    <h2 class="text-4xl lg:text-6xl font-black text-white leading-normal max-w-xl">
+                        Your One Stop Travel Platform
+                    </h2>
+                </div>
+                <div class="space-x-2">
+                    <a href="{{route('guest.properties.index')}}" class="py-2.5 px-4 w-full bg-[#ff5700] font-medium text-white rounded">Browse Properties</a>
+                    <a href="{{route('guest.activities.index')}}" class="py-2.5 px-4 w-full text-white font-medium border border-neutral-400 rounded">Find Fun Activities</a>
+                </div>
+                <div>
+                    <form action="{{route('search-property')}}" method="GET" class="grid grid-cols-3 gap-4 max-w-xl">
+                        <input type="text" name="destination" id="" class="col-span-2 rounded p-2.5 bg-white/40 text-neutral-100 placeholder:text-white" placeholder="Find Your Destination">
+                        <button type="submit" class="py-2.5 text-white bg-[#ff5700] rounded">Search</button>
+                    </form>
+                </div>
             </div>
         </div>
     </header>

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BHR Administrator - @yield('page-title')</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/admin.js'])
+    <script src="https://cdn.tiny.cloud/1/lycs6y383oj3czjlc5k1lms5lad4t9flzst2v1cqi5ojpg4y/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,8 +20,6 @@
             font-family: 'Inter', sans-serif !important;
         }
     </style>
-
-
 </head>
 
 <body class="bg-white">
@@ -29,5 +28,7 @@
         @yield('page-content')
     </main>
     @yield('custom-scripts')
+    
 </body>
+
 </html>

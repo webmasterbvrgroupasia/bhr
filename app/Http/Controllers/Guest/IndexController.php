@@ -8,7 +8,6 @@ use App\Models\Admin\ActivityCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use RalphJSmit\Laravel\SEO\Support\SEOData;
-use stdClass;
 
 class IndexController extends Controller
 {

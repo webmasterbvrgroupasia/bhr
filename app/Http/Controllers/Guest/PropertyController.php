@@ -19,9 +19,13 @@ class PropertyController extends Controller
     public function index()
     {
         $seoData = new SEOData(
+
             title: 'Explore Our Properties | BVR Bali Holiday Rentals',
+            
             description: "Embark on a journey through our exquisite properties at BVR Bali Holiday Rentals. Discover luxury, comfort, and the perfect getaway.",
+            
             url: "https://bvrbaliholidayrentals.com/properties",
+        
         );
 
         $properties =

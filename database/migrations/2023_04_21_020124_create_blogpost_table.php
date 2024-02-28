@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('room_type', function (Blueprint $table) {
-            $table->longText('images')->after('maximum_child')->nullable();
+        Schema::create('blogpost', function (Blueprint $table) {
+            $table->id();
+            $table->string('title',255);
+            $table->string('slug',255);
+            $table->string('image');
+            $table->longText('content');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('room_type', function (Blueprint $table) {
-            $table->dropColumn('images');
-        });
+        Schema::dropIfExists('blogpost');
     }
 };

@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AdminBlogpostController;
 use App\Http\Controllers\Admin\AdminRoomTypeController;
 use App\Http\Controllers\Admin\AdminSpecialOfferController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\FeedbackController as AdminFeedbackController;
 use App\Http\Controllers\Admin\IndexController as AdminIndexController;
 use App\Http\Controllers\Admin\RoomTypeController;
 
@@ -20,6 +21,9 @@ use App\Http\Controllers\Guest\TestimonialController;
 use App\Http\Controllers\Guest\ActivityController;
 use App\Http\Controllers\Guest\BlogpostController;
 use App\Http\Controllers\Guest\AreaController;
+
+// Form Validation
+use Spatie\Honeypot\ProtectAgainstSpam;
 
 // Authentication and Authorization Controller
 use App\Http\Controllers\Auth\LoginController;
@@ -34,6 +38,7 @@ use App\Http\Controllers\FindPropertyController;
 use App\Http\Controllers\Guest\AboutUsController;
 use App\Http\Controllers\Guest\ContactController;
 use App\Http\Controllers\Guest\DisplayActivitiesByCategory;
+use App\Http\Controllers\Guest\FeedbackController;
 use App\Http\Controllers\Guest\FindPropertyController as GuestFindPropertyController;
 use App\Http\Controllers\Guest\SearchActivityController;
 use App\Http\Controllers\Guest\SearchProperty;
@@ -80,6 +85,10 @@ Route::get('/blogpost',[BlogpostController::class,'index'])->name('guest.blogpos
 Route::get('/blogpost/{slug}',[BlogpostController::class,'show'])->name('guest.blogpost.show');
 
 Route::get('/contact-us',[ContactController::class,'index'])->name('guest.contact-us');
+
+Route::get('/guest-stay-feedback',[FeedbackController::class,'index'])->name('guest.feedback.index');
+
+Route::post('/guest-stay-feedback',[FeedbackController::class,'submit'])->name('guest.feedback.submit')->middleware(ProtectAgainstSpam::class);
 
 // Defining Route to store subscriber
 Route::post('/subscriber',[SubscriberController::class,'store'])->name('subscriber.store');
@@ -135,6 +144,12 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/admin/special-offers',AdminSpecialOfferController::class);
 
     Route::resource('/admin/activity-categories', AdminActivityCategoryController::class);
+
+    Route::get('/admin/feedback/index',[AdminFeedbackController::class,'index'])->name('admin.feedback.index');
+
+    Route::get('/admin/feedback/download',[AdminFeedbackController::class,'download'])->name('admin.feedback.download');
+
+    Route::get('/admin/feedback/download/filter/',[AdminFeedbackController::class,'downloadWithFilter'])->name('admin.feedback.download-with-filter');
 
 });
 

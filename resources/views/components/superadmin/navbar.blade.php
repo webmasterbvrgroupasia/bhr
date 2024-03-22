@@ -31,6 +31,7 @@
         <a href="/admin/users">User Management</a>
         <a href="/admin/special-offers">Special Offers</a>
         <a href="{{route('admin.feedback.index')}}">Feedback</a>
+        <a href="{{route('admin.vouchers.index')}}">Vouchers</a>
     </section>
     <section class="col-span-2" x-data="{ open: false }">
         <button @click="open = ! open" class="flex space-x-3 ml-auto items-center">

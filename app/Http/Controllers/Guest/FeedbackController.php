@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SendEmailNotificationToAdmin;
+use App\Mail\SendEmailToGuest;
 use App\Models\Feedback;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 use RalphJSmit\Laravel\SEO\Support\SEOData;
 
@@ -35,7 +39,7 @@ class FeedbackController extends Controller
 
             'email_address' => 'required|string:rfc,dns',
 
-            'phone_number' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'phone_number' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9',
 
             'nationality' => 'required|string',
 
@@ -85,6 +89,8 @@ class FeedbackController extends Controller
 
             Feedback::create($validatedData);
 
+            Mail::to('ecommerce@bvrproperty.com')->send(new SendEmailNotificationToAdmin($validatedData));
+
             return view('pages.guest.feedback.voucher',[
 
                 'first_name' => $validatedData['first_name'],
@@ -106,5 +112,11 @@ class FeedbackController extends Controller
             return view('pages.guest.feedback.thankyou');
         
         }
+    }
+
+    function pdf() {
+        $customPaper = array(0,0,283.80,567.00);
+        $pdf = Pdf::loadView('pdf.voucher')->setPaper($customPaper,'landscape');
+        return $pdf->stream();
     }
 }

@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\FeedbackController as AdminFeedbackController;
 use App\Http\Controllers\Admin\IndexController as AdminIndexController;
 use App\Http\Controllers\Admin\RoomTypeController;
-
+use App\Http\Controllers\Admin\VoucherController;
 // Guest Controller
 use App\Http\Controllers\Guest\PropertyController;
 use App\Http\Controllers\Guest\TestimonialController;
@@ -45,6 +45,7 @@ use App\Http\Controllers\Guest\SearchProperty;
 use App\Http\Controllers\Guest\SearchPropertyController;
 use App\Http\Controllers\Guest\SpecialOfferController;
 use App\Http\Controllers\SubscriberController;
+use App\Models\Feedback;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,6 +90,12 @@ Route::get('/contact-us',[ContactController::class,'index'])->name('guest.contac
 Route::get('/guest-stay-feedback',[FeedbackController::class,'index'])->name('guest.feedback.index');
 
 Route::post('/guest-stay-feedback',[FeedbackController::class,'submit'])->name('guest.feedback.submit')->middleware(ProtectAgainstSpam::class);
+
+Route::post('/guest-stay-feedback/send-to-email',[FeedbackController::class,'sendToEmail'])->name('guest.feedback.send');
+
+// DELETE LATER
+Route::get('/pdf',[FeedbackController::class,'pdf']);
+
 
 // Defining Route to store subscriber
 Route::post('/subscriber',[SubscriberController::class,'store'])->name('subscriber.store');
@@ -150,6 +157,18 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/feedback/download',[AdminFeedbackController::class,'download'])->name('admin.feedback.download');
 
     Route::get('/admin/feedback/download/filter/',[AdminFeedbackController::class,'downloadWithFilter'])->name('admin.feedback.download-with-filter');
+
+    Route::get('/admin/vouchers/index',[VoucherController::class,'index'])->name('admin.vouchers.index');
+
+    Route::get('/admin/vouchers/create',[VoucherController::class,'create'])->name('admin.vouchers.create');
+
+    Route::post('/admin/vouchers/store',[VoucherController::class,'store'])->name('admin.vouchers.store');
+
+    Route::delete('/admin/vouchers/{voucherId}/disable',[VoucherController::class,'disable'])->name('admin.vouchers.disable');
+
+    Route::get('/admin/vouchers/{id}/select-user',[VoucherController::class,'select_user'])->name('admin.vouchers.select-user');
+
+    Route::post('/admin/vouchers/send-email',[VoucherController::class,'send_email'])->name('admin.vouchers.send-email');
 
 });
 

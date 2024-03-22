@@ -27,14 +27,17 @@
                         </div>
                     </a>
                     <div>
-                        <form action="{{route('admin.feedback.download-with-filter')}}" method="GET" class="flex space-x-2 items-end">
+                        <form action="{{ route('admin.feedback.download-with-filter') }}" method="GET"
+                            class="flex space-x-2 items-end">
                             <div class="space-y-2">
                                 <label for="from_date" class="font-medium text-sm text-neutral-600">From Date</label>
-                                <input type="date" name="from_date" id="from_date" class="block py-2.5 rounded-md border border-neutral-200">
+                                <input type="date" name="from_date" id="from_date"
+                                    class="block py-2.5 rounded-md border border-neutral-200">
                             </div>
                             <div class="space-y-2">
                                 <label for="end_date" class="font-medium text-sm text-neutral-600">From Date</label>
-                                <input type="date" name="end_date" id="end_date" class="block py-2.5 rounded-md border border-neutral-200">
+                                <input type="date" name="end_date" id="end_date"
+                                    class="block py-2.5 rounded-md border border-neutral-200">
                             </div>
                             <div>
                                 <button class="py-2.5 bg-black text-white px-4 rounded">Download</button>
@@ -46,7 +49,7 @@
         </div>
         <div class="max-w-7xl mx-auto p-4 drop-shadow-md grid grid-cols-12 gap-4 items-start">
             <div class="col-span-12 bg-white space-y-8 p-4">
-                <table class="table-fixed w-full">
+                <table class="table-auto w-full">
                     <thead>
                         <tr class="bg-neutral-50">
                             <td class="px-4 py-4 font-medium text-sm">
@@ -68,6 +71,9 @@
                                 Room (If Applicable)
                             </td>
                             <td class="px-4 py-4 font-medium text-sm">
+                                Subscriber to BVR Bulletin Insights
+                            </td>
+                            <td class="px-4 py-4 font-medium text-sm">
                                 Submit Form Date
                             </td>
                         </tr>
@@ -82,7 +88,10 @@
                                     <td class="px-4 py-4 text-sm font-light text-neutral-600">{{ $feedback->first_name }}
                                     </td>
                                 @endif
-                                <td class="px-4 py-4 text-sm font-light text-neutral-600">{{ $feedback->email_address }}
+                                <td class="px-4 py-4 text-sm font-light text-neutral-600">
+                                    <p>
+                                        {{ $feedback->email_address }}
+                                    </p>
                                 </td>
                                 <td class="px-4 py-4 text-sm font-light text-neutral-600">{{ $feedback->phone_number }}</td>
                                 <td class="px-4 py-4 text-sm font-light text-neutral-600">{{ $feedback->nationality }}</td>
@@ -96,6 +105,15 @@
                                     @endif
                                 </td>
                                 <td class="px-4 py-4 text-sm font-light text-neutral-600">{{ $feedback->room }}</td>
+                                <td class="px-4 py-4 text-sm font-light text-neutral-600">
+
+                                    @if ($feedback->subscribe_to_newsletter == 'yes')
+                                        Yes
+                                    @else
+                                        No
+                                    @endif
+
+                                </td>
                                 <td class="px-4 py-4 text-sm font-light text-neutral-600">{{ $feedback->created_at }}</td>
                             </tr>
                         @endforeach

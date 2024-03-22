@@ -169,7 +169,12 @@
                                 <select required name="reference" id="reference" class="w-full border-neutral-200">
                                     <option disabled>Select Room</option>
                                     <option @if(old('reference') == 'Website') selected @endif value="Website">Website</option>
-                                    <option @if(old('reference') == 'Online Travel Agent') selected @endif value="Online Travel Agent">Online Travel Agent</option>
+                                    <option @if(old('reference') == 'Booking.com') selected @endif value="Booking.com">Booking.com</option>
+                                    <option @if(old('reference') == 'Tiket.com') selected @endif value="Tiket.com">Tiket.com</option>
+                                    <option @if(old('reference') == 'Traveloka') selected @endif value="Traveloka">Traveloka</option>
+                                    <option @if(old('reference') == 'Agoda') selected @endif value="Agoda">Agoda</option>
+                                    <option @if(old('reference') == 'Expedia') selected @endif value="Expedia">Expedia</option>
+                                    <option @if(old('reference') == 'Ctrip') selected @endif value="Ctrip">Ctrip</option>
                                     <option @if(old('reference') == 'Friend') selected @endif value="Friend">Friend</option>
                                     <option @if(old('reference') == 'Social Media') selected @endif value="Social Media">Social Media</option>
                                     <option @if(old('reference') == 'Google') selected @endif value="Google">Google</option>

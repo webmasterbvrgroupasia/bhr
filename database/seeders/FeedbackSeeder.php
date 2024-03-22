@@ -17,7 +17,7 @@ class FeedbackSeeder extends Seeder
     {
         $faker = \Faker\Factory::create();
 
-        for ($i=0; $i < 400 ; $i++) { 
+        for ($i=0; $i < 10 ; $i++) { 
            
             $dummyData = [
                 'first_name' => $faker->firstName(),

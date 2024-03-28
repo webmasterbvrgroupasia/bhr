@@ -81,6 +81,8 @@ Route::get('/activities/{slug}',[ActivityController::class,'show'])->name('guest
 
 Route::get('/areas',[AreaController::class,'index'])->name('guest.areas.index');
 
+Route::get('/areas/{location}', [AreaController::class, 'show'])->name('guest.areas.show');
+
 Route::get('/blogpost',[BlogpostController::class,'index'])->name('guest.blogpost.index');
 
 Route::get('/blogpost/{slug}',[BlogpostController::class,'show'])->name('guest.blogpost.show');

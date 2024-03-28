@@ -66,5 +66,4 @@
     </a>
     @yield('additional-scripts')
 </body>
-
 </html>

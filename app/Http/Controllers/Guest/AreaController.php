@@ -17,25 +17,24 @@ class AreaController extends Controller
      */
     public function index()
     {
-        
+
         $areas = Area::get();
 
         $seoData = new SEOData(
-          
+
             title: 'Recommended Areas | BVR Bali Holiday Rentals',
-          
+
             description: "Discover Bali's Hidden Gems: Dive Into Local Culture and Landscapes with BVR Bali Holiday Rentals. Explore the beauty and charm of Bali's diverse regions. Start your journey now!"
-        
+
         );
 
         return view('pages.guest.areas.index',[
-            
+
             'areas'=>$areas,
-        
+
             'seoData' => $seoData
 
         ]);
-    
     }
 
     /**
@@ -67,14 +66,33 @@ class AreaController extends Controller
      */
     public function show($location)
     {
-
         $area = DB::table('areas')
-        
+
         ->where('location', $location)
-        
+
         ->first();
 
-        return view ('pages.guest.areas.detailed', compact('area'));
+        $metaDescription = $area->description;
+
+        $seoData = new SEOData(
+
+            title: $area->location . ' | BVR Bali Holiday Rentals',
+
+            description: $metaDescription
+        );
+
+
+        $properties = Db::table('properties')
+
+        ->join('areas', 'areas.id', '=', 'properties.area_id')
+
+        ->select('properties.*', 'areas.location')
+
+        ->where('area_id', $area->id)
+
+        ->get();
+
+        return view ('pages.guest.areas.detailed', compact('area', 'properties', 'seoData'));
 
 
     }

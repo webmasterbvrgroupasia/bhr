@@ -90,7 +90,7 @@
                                     {{Str::limit($area->description,150)}}
                                 </p>
                             </div>
-                            <a href="/areas/{{Str::lower($area->location)}}" class="block text-blue-700" title="More Detail">More Details</a>
+                            <a href="{{ route('guest.areas.show', Str::lower($area->location))}}" class="block text-blue-700" title="More Detail">More Details</a>
                         </div>
                     </div>
                 @endforeach

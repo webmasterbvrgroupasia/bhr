@@ -4,43 +4,61 @@
 
 
 @section('page-header')
-    <header itemscope itemtype="https://www.bvrbaliholidayrentals.com"
-        class="relative pb-10 h-screen md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-center tracking-tight">
-        <div class="absolute inset-0 overflow-hidden">
-            <video class="h-screen w-full object-cover " autoplay loop muted itemprop="holiday in bali">
-                <source src="https://bvrbaliholidayrentals.com/videos/index-header.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="absolute inset-0 bg-black opacity-50"></div>
-        </div>
+   <div x-data="{ searchModal: window.innerWidth >= 768 }" x-init="init">
+       <header itemscope itemtype="https://www.bvrbaliholidayrentals.com"
+               class="relative pb-10 h-screen md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-center tracking-tight">
+           <div class="absolute inset-0 overflow-hidden">
+               <video class="h-screen w-full object-cover" autoplay loop muted itemprop="holiday in bali" style="z-index: -1;">
+                   <source src="https://bvrbaliholidayrentals.com/videos/index-header.mp4" type="video/mp4">
+                   Your browser does not support the video tag.
+               </video>
 
-        <div class="w-full z-40">
-            <div class="max-w-full md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto px-4 md:px-0 space-y-8">
-                <div class="space-y-2">
-                    <h1 class="text-neutral-200 font-light">
-                        Welcome to BVR Bali Holiday Rentals
-                    </h1>
-                    <h2 class="text-4xl lg:text-6xl font-black text-white leading-normal max-w-xl">
-                        Your One Stop Travel Platform
-                    </h2>
-                </div>
-                <div class="space-x-2">
-                    <a href="{{route('guest.properties.index')}}" class="py-2.5 px-4 w-full bg-[#ff5700] font-medium text-white rounded">Browse Properties</a>
-                    <a href="{{route('guest.activities.index')}}" class="py-2.5 px-4 w-full text-white font-medium border border-neutral-400 rounded">Find Fun Activities</a>
-                </div>
-                <div>
-                    <form action="{{route('search-property')}}" method="GET" class="grid grid-cols-3 gap-4 max-w-xl">
-                        <input type="text" name="destination" id="" class="col-span-2 rounded p-2.5 bg-white/40 text-neutral-100 placeholder:text-white" placeholder="Find Your Destination">
-                        <button type="submit" class="py-2.5 text-white bg-[#ff5700] rounded">Search</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </header>
+               <div class="absolute inset-0 bg-black opacity-50"></div>
+           </div>
+
+           <div class="w-full z-40">
+               <div class="max-w-full md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto px-4 md:px-0 space-y-8">
+                   <div class="space-y-2">
+                       <h1 class="text-neutral-200 font-light">
+                           Welcome to BVR Bali Holiday Rentals
+                       </h1>
+                       <h2 class="text-4xl lg:text-6xl font-black text-white leading-loose max-w-xl">
+                           Your One Stop Travel Platform
+                       </h2>
+                       <div class="">
+                           <button @click="searchModal = !searchModal"
+                                   class="flex justify-center items-center w-full px-24 py-3 bg-[#ff5700] block md:hidden">
+                               <div class="text-white font-bold ">
+                                   Search
+                               </div>
+                           </button>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </header>
+
+       <section
+           x-transition x-cloak x-show="searchModal" x-on:click.away="window.innerWidth < 768 ? searchModal = false : null"
+           class="absolute z-50 -mt-56 md:-mt-40 lg:-mt-28 inset-x-1 md:inset-x-8 lg:inset-x-48">
+           <div class="w-full md:max-w-3xl lg:max-w-7xl space-y-[54px] ">
+               <x-guest.search-bar-engine fromTable="property" />
+           </div>
+       </section>
+
+       <script>
+           function init() {
+               window.addEventListener('resize', () => {
+                   this.searchModal = window.innerWidth >= 768;
+               });
+           }
+       </script>
+   </div>
 @endsection
 
+
 @section('page-content')
-    <main itemscope class="px-2 py-8 md:py-8 lg:py-16 max-w-full md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto space-y-[64px]">
+    <main itemscope class="px-2 py-8 md:py-8 lg:py-16 md:pt-64 lg:pt-24 max-w-full md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto space-y-[64px]">
         <section class="space-y-[32px]">
             <div class="space-y-[20px]">
                 <h3 class="leading-tight text-3xl font-extrabold tracking-tight text-gray-900" itemprop="title">

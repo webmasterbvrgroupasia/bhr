@@ -6,7 +6,33 @@
     <x-guest.header mainTitle="Unwrap Unforgettable Memories: Explore Our Special Offers" subTitle="Exclusive Deals Await"
         coverImage="https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
 
-    <section class="py-16 md:py-24 w-full">
+    <div x-data="{ searchModal: window.innerWidth >= 768 }" x-init="init" class="">
+        <div class="w-full flex justify-center items-center">
+            <button @click.stop="searchModal = !searchModal" class="-mt-52 w-full mx-4 py-3 bg-[#ff5700] block md:hidden">
+                <div class="text-white font-bold">
+                    Search
+                </div>
+            </button>
+        </div>
+
+        <div  x-transition x-cloak x-show="searchModal" x-on:click.away="window.innerWidth < 768 ? searchModal = false : null">
+            <section class="-mt-28 flex justify-center">
+                <div class="lg:px-2 py-2 max-w-full md:max-w-3xl lg:max-w-7xl space-y-[54px]">
+                    <x-guest.search-bar-engine fromTable="property" />
+                </div>
+            </section>
+        </div>
+
+        <script>
+            function init() {
+                window.addEventListener('resize', () => {
+                    this.searchModal = window.innerWidth >= 768;
+                });
+            }
+        </script>
+    </div>
+
+    <section class="py-8 md:py-16 w-full">
         <div class="max-w-full md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto px-4 md:px-0 grid grid-cols-12 gap-4 items-start">
             @foreach ($special_offers as $special_offer)
                 <div class="col-span-12 md:col-span-8 grid md:grid-cols-3 items-center border border-neutral-50 bg-white hover:drop-shadow-sm">

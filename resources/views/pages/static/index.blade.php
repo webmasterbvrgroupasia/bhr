@@ -9,7 +9,7 @@
                class="relative pb-10 h-screen md:h-[75vh] lg:h-[85vh] pt-20 bg-black flex items-center justify-center tracking-tight">
            <div class="absolute inset-0 overflow-hidden">
                <video class="h-screen w-full object-cover" autoplay loop muted itemprop="holiday in bali" style="z-index: -1;">
-                   <source src="https://bvrbaliholidayrentals.com/videos/index-header.mp4" type="video/mp4">
+                   <source src="https://bvrbaliholidayrentals.com/videos/preview.mp4" type="video/mp4">
                    Your browser does not support the video tag.
                </video>
 

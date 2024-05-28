@@ -1,9 +1,9 @@
-<nav class="hidden md:hidden lg:block w-full py-4 fixed z-50">
+<nav class="hidden md:hidden lg:block w-full py-4 fixed z-50 ">
     <div class="lg:max-w-4xl xl:max-w-6xl mx-auto p-4 bg-white drop-shadow-md grid grid-cols-12 gap-8 items-center">
-        <div class="col-span-2">
-            <img src="{{ asset('images/bhr-logo.png') }}" alt="BVR Bali Holiday Rentals">
+        <div class="col-span-3">
+            <img src="{{ asset('images/bhr-logo.png') }}" class="w-48" alt="BVR Bali Holiday Rentals">
         </div>
-        <div class="col-span-8 space-x-4 flex justify-center">
+        <div class="col-span-7 space-x-4 flex justify-center">
             <x-guest.nav-link href="{{ route('welcome') }}" :active="request()->routeIs('welcome')">
                 Homepage
             </x-guest.nav-link>

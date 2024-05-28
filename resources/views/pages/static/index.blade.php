@@ -40,7 +40,7 @@
 
        <section
            x-transition x-cloak x-show="searchModal" x-on:click.away="window.innerWidth < 768 ? searchModal = false : null"
-           class="absolute z-50 -mt-56 md:-mt-40 lg:-mt-28 inset-x-1 md:inset-x-8 lg:inset-x-48">
+           class="absolute z-40 -mt-56 md:-mt-40 lg:-mt-28 inset-x-1 md:inset-x-8 lg:inset-x-48 xl:inset-x-52">
            <div class="w-full md:max-w-3xl lg:max-w-7xl space-y-[54px] ">
                <x-guest.search-bar-engine fromTable="property" />
            </div>
@@ -148,7 +148,7 @@
             <div class="grid grid-cols-2 gap-4">
                 @foreach ($activities as $activity)
                     <a href="/activities/category/{{ $activity->id }}" title="{{ $activity->name }}"
-                        class="col-span-2 flex items-center md:col-span-1 p-12 lg:p-12 bg-center bg-cover"
+                        class="col-span-2 flex items-center md:col-span-1 p-12 lg:p-24 bg-center bg-cover"
                         style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('{{asset('storage/' . $activity->images)}}');
                             background-size: cover;
                             background-position:center;">
@@ -178,10 +178,10 @@
                     </svg>
                 </a>
             </div>
-            <div class="grid grid-cols-12 w-full gap-y-4 mt-4">
+            <div class="grid grid-cols-12 w-full gap-4 mt-4">
                 @foreach ($areas as $area)
                     <a href="/areas/{{ Strtolower($area->location) }}" title="Location"
-                        class="col-span-12 w-full h-44 flex items-center p-5"
+                        class="col-span-12 md:col-span-6 w-full h-44 flex items-center p-5"
                         style="background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/storage/{{ $area->image }}');
                         background-size:cover;
                         background-position:center;

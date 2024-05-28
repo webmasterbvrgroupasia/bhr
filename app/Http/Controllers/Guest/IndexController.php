@@ -26,7 +26,7 @@ class IndexController extends Controller
 
             ->join('areas','areas.id','=','properties.area_id')
 
-            ->select('properties.*','areas.location')
+            ->select('properties.*','areas.name')
 
             ->where('property_status', '=', 1)
 

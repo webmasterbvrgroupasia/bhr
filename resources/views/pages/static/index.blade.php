@@ -38,27 +38,17 @@
            </div>
        </header>
 
-       <section
-           x-transition x-cloak x-show="searchModal" x-on:click.away="window.innerWidth < 768 ? searchModal = false : null"
-           class="absolute z-40 -mt-56 md:-mt-40 lg:-mt-28 inset-x-1 md:inset-x-8 lg:inset-x-48 xl:inset-x-52">
-           <div class="w-full md:max-w-3xl lg:max-w-7xl space-y-[54px] ">
-               <x-guest.search-bar-engine fromTable="property" />
-           </div>
+       <section class="md:relative lg:absolute hidden md:flex lg:block justify-center lg:-mt-24 w-full">
+           <x-guest.search-bar-engine class="hidden md:block max-w-7xl mx-auto" fromTable="property" />
        </section>
+       
 
-       <script>
-           function init() {
-               window.addEventListener('resize', () => {
-                   this.searchModal = window.innerWidth >= 768;
-               });
-           }
-       </script>
    </div>
 @endsection
 
 
 @section('page-content')
-    <main itemscope class="px-2 py-8 md:py-8 lg:py-16 md:pt-64 lg:pt-24 max-w-full md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto space-y-[64px]">
+    <main itemscope class="px-2 py-8 md:py-8 lg:py-16 md:pt-24 lg:pt-24 max-w-full md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto space-y-[64px]">
         <section class="space-y-[32px]">
             <div class="space-y-[20px]">
                 <h3 class="leading-tight text-3xl font-extrabold tracking-tight text-gray-900" itemprop="title">

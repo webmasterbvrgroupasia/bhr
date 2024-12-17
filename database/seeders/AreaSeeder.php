@@ -17,57 +17,57 @@ class AreaSeeder extends Seeder
     {
         $areas = [
             [
-                'name'=>'Canggu',
+                'location'=>'Canggu',
                 'description'=>'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos voluptatibus quidem reprehenderit culpa nostrum.',
                 'image'=>'images/areas/canggu.webp'
-            ],     
+            ],
             [
-                'name'=>'Bedugul',
+                'location'=>'Bedugul',
                 'description'=>'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos voluptatibus quidem reprehenderit culpa nostrum.',
                 'image'=>'images/areas/bedugul.webp'
             ],
             [
-                'name'=>'Kintamani',
+                'location'=>'Kintamani',
                 'description'=>'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos voluptatibus quidem reprehenderit culpa nostrum.',
                 'image'=>'images/areas/kintamani.webp'
             ],
             [
-                'name'=>'Kuta',
+                'location'=>'Kuta',
                 'description'=>'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos voluptatibus quidem reprehenderit culpa nostrum.',
                 'image'=>'images/areas/kuta.webp'
             ],
             [
-                'name'=>'Ubud',
+                'location'=>'Ubud',
                 'description'=>'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos voluptatibus quidem reprehenderit culpa nostrum.',
                 'image'=>'images/areas/ubud.webp'
             ],
             [
-                'name'=>'Uluwatu',
+                'location'=>'Uluwatu',
                 'description'=>'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos voluptatibus quidem reprehenderit culpa nostrum.',
                 'image'=>'images/areas/uluwatu.webp'
             ],
             [
-                'name'=>'Nusa Dua',
+                'location'=>'Nusa Dua',
                 'description'=>'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos voluptatibus quidem reprehenderit culpa nostrum.',
                 'image'=>'images/areas/nusa-dua.webp'
             ],
             [
-                'name'=>'Seminyak',
+                'location'=>'Seminyak',
                 'description'=>'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos voluptatibus quidem reprehenderit culpa nostrum.',
                 'image'=>'images/areas/seminyak.webp'
             ],
             [
-                'name'=>'Denpasar',
+                'location'=>'Denpasar',
                 'description'=>'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos voluptatibus quidem reprehenderit culpa nostrum.',
                 'image'=>'images/areas/denpasar.webp'
             ],
             [
-                'name'=>'Jimbaran',
+                'location'=>'Jimbaran',
                 'description'=>'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos voluptatibus quidem reprehenderit culpa nostrum.',
                 'image'=>'images/areas/jimbaran.webp'
             ],
             [
-                'name'=>'Kerobokan',
+                'location'=>'Kerobokan',
                 'description'=>'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos voluptatibus quidem reprehenderit culpa nostrum.',
                 'image'=>'images/areas/kerobokan.webp'
             ],

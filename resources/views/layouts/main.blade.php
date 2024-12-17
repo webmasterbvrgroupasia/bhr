@@ -67,6 +67,7 @@
             </svg>
         </div>
     </a>
+
     @yield('additional-scripts')
 
 </body>

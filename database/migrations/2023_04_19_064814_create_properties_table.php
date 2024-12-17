@@ -32,6 +32,7 @@ return new class extends Migration
             $table->boolean('jacuzzi');
             $table->boolean('air_conditioner');
             $table->tinyInteger('property_status');
+            $table->boolean('balcony');
             $table->timestamps();
         });
     }

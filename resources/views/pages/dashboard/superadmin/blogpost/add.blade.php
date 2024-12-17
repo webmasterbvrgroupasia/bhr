@@ -3,7 +3,7 @@
 @section('page-title', 'Add New Blopost')
 
 @section('custom-styles')
-<script src="https://cdn.tiny.cloud/1/lycs6y383oj3czjlc5k1lms5lad4t9flzst2v1cqi5ojpg4y/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/hfs386agsytuc6c69krcljr6jzoo8ctvzcyhmm3o4s9p4z6c/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 @endsection
 
 @section('page-content')

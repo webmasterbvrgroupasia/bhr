@@ -39,9 +39,9 @@
        </header>
 
        <section class="md:relative lg:absolute hidden md:flex lg:block justify-center lg:-mt-24 w-full">
-           <x-guest.search-bar-engine class="hidden md:block max-w-7xl mx-auto" fromTable="property" />
+           <x-guest.search-bar-engine class="hidden md:block max-w-6xl mx-auto" fromTable="property" />
        </section>
-       
+
 
    </div>
 @endsection
@@ -49,6 +49,123 @@
 
 @section('page-content')
     <main itemscope class="px-2 py-8 md:py-8 lg:py-16 md:pt-24 lg:pt-24 max-w-full md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto space-y-[64px]">
+        <section class="space-y-6">
+            <div class="space-y-4">
+                <h3 class="leading-tight text-3xl font-extrabold tracking-tight text-gray-900">
+                    Featured Bali Accommodations
+                </h3>
+                <p class="leading-8 text-gray-500 text-justify">
+                    Stay in style with our curated collection of Bali's finest hotels, resorts, and villas. Indulge in luxury
+                    <br class="hidden md:block"> and experience the beauty of the Island of the Gods.
+                </p>
+            </div>
+            <div>
+                <div class="grid grid-cols-12 gap-y-2 md:gap-10">
+
+                    @foreach ($property_promotion_top as $index => $property)
+                        @php
+                            $value = $property->images;
+
+                            // Remove the array symbol and the quotes
+                            $value = str_replace(['"'], '', $value);
+
+                            // Split the string into an array using the comma as delimiter
+                            $images = explode(',', $value);
+
+                            $single_image = $images[0];
+
+                            $total_images = count($images);
+
+                            $header_value = $property->header_images;
+
+                            $header_value = str_replace(['"'], '', $header_value);
+
+                            $single_header = explode(',', $header_value);
+
+                            $single_header = $single_header[0];
+
+                        @endphp
+                        <div class="col-span-12 md:col-span-6 border bg-white">
+                            @if($property->slug == 'the-capital-hotel-and-resort')
+                                <img src="{{ asset('images/sky-capital.jpg') }}"
+                                     class="h-44 w-full overflow-hidden object-cover" alt="{{$property->name}}">
+                            @elseif ($property->header_images)
+                                <img src="{{ asset('storage/' . $single_header) }}"
+                                     class="h-44 w-full overflow-hidden object-cover" alt="{{$property->name}}">
+                            @else
+                                <img src="{{ asset('storage/' . $single_image) }}"
+                                     class="h-44 w-full overflow-hidden object-cover" alt="{{$property->name}}">
+                            @endif
+                            <div class="font-semibold p-3 space-y-2">
+                                <p class="text-lg">
+                                    {{ $property->name }}
+                                </p>
+                                <div class="w-full flex justify-between">
+                                    <div class="font-normal text-gray-600  text-xs">
+                                        <a class=""
+                                           href="areas/{{ Str::lower($property->location) }}">{{ $property->location }}</a>,
+                                        Indonesia
+                                    </div>
+                                    <a href="/properties/{{ $property->slug }}" class="block font-medium w-fit text-[#ff5700] text-sm">View
+                                        More Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+                    @foreach ($property_promotions_bottom as $index => $property)
+                            @php
+                                $value = $property->images;
+
+                                // Remove the array symbol and the quotes
+                                $value = str_replace(['"'], '', $value);
+
+                                // Split the string into an array using the comma as delimiter
+                                $images = explode(',', $value);
+
+                                $single_image = $images[0];
+
+                                $total_images = count($images);
+
+                                $header_value = $property->header_images;
+
+                                $header_value = str_replace(['"'], '', $header_value);
+
+                                $single_header = explode(',', $header_value);
+
+                                $single_header = $single_header[0];
+
+                            @endphp
+                            <div class="col-span-12 md:col-span-4 border bg-white">
+                                @if($property->slug == 'the-capital-hotel-and-resort')
+                                    <img src="{{ asset('images/sky-capital.jpg') }}"
+                                         class="h-44 w-full overflow-hidden object-cover" alt="{{$property->name}}">
+                                @elseif ($property->header_images)
+                                    <img src="{{ asset('storage/' . $single_header) }}"
+                                         class="h-44 w-full overflow-hidden object-cover" alt="{{$property->name}}">
+                                @else
+                                    <img src="{{ asset('storage/' . $single_image) }}"
+                                         class="h-44 w-full overflow-hidden object-cover" alt="{{$property->name}}">
+                                @endif
+                                <div class="font-semibold p-3 space-y-2">
+                                    <p class="text-lg">
+                                        {{ $property->name }}
+                                    </p>
+                                    <div class="w-full flex justify-between">
+                                        <div class="font-normal text-gray-600  text-xs">
+                                            <a class=""
+                                               href="areas/{{ Str::lower($property->location) }}">{{ $property->location }}</a>,
+                                            Indonesia
+                                        </div>
+                                        <a href="/properties/{{ $property->slug }}" class="block font-medium w-fit text-[#ff5700] text-sm">View
+                                            More Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                </div>
+            </div>
+        </section>
         <section class="space-y-[32px]">
             <div class="space-y-[20px]">
                 <h3 class="leading-tight text-3xl font-extrabold tracking-tight text-gray-900" itemprop="title">

@@ -3,7 +3,7 @@
 @section('page-title', 'Activity Management')
 
 @section('custom-styles')
-    <script src="https://cdn.tiny.cloud/1/lycs6y383oj3czjlc5k1lms5lad4t9flzst2v1cqi5ojpg4y/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/hfs386agsytuc6c69krcljr6jzoo8ctvzcyhmm3o4s9p4z6c/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 @endsection
 
 @section('page-content')
@@ -137,7 +137,7 @@
                           placeholder="e.g Join a 7 to 8-hour bird-watching experience. Bali is known for its abundance of bird species, with more than 100 different birds having been already registered. Bird watching experience lasts for half a day."
                           id="tinymce"></textarea>
             </div>
-            <div class="col-span-8 mt-3 space-y-1">
+            <div class="col-span-8 mt-3 space-y-2">
                 <label for="" class="font-semibold">Price</label>
                 <div class="flex items-center">
                 <span
@@ -151,6 +151,13 @@
                     <label for="" class="font-semibold">Booking Link</label>
                     <div class="flex items-center">
                         <input type="text" name="booking_link" id="booking_link" value="{{old('booking_link')}}" placeholder="e.g https://random-link.com"
+                               class="block w-full py-2 px-2 mt-3">
+                    </div>
+                </div>
+                <div class="col-span-8 mt-5">
+                    <label for="" class="font-semibold">Youtube Encode</label>
+                    <div class="flex items-center">
+                        <input type="text" name="youtube_url" id="booking_link" value="{{old('youtube_url')}}" placeholder="e.gqweq4"
                                class="block w-full py-2 px-2 mt-3">
                     </div>
                 </div>

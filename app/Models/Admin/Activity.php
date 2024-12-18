@@ -30,7 +30,9 @@ class Activity extends Model
 
         'booking_link',
 
-        'status'
+        'status',
+
+        'youtube_url'
     ];
 
     protected $attributes = [

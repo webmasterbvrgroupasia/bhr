@@ -70,7 +70,9 @@ class AdminActivityController extends Controller
 
             'price' => 'required|numeric',
 
-            'status' => 'required'
+            'status' => 'required',
+
+            'youtube_url' => 'required'
 
         ]);
         $images = [];
@@ -152,7 +154,9 @@ class AdminActivityController extends Controller
 
             'price' => 'required|numeric',
 
-            'status' => 'required'
+            'status' => 'required',
+
+            'youtube_url' => 'nullable'
 
         ]);
 

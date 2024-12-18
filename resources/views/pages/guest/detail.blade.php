@@ -24,7 +24,7 @@ background-position:center;
 @section('page-content')
     <section class="px-2 py-8 md:py-8 lg:pb-16 max-w-full md:max-w-3xl lg:max-w-5xl mx-auto space-y-[64px]" itemscope>
         <div class="space-y-4 grid grid-cols-12">
-            <div class="col-span-12 md:col-span-12 mx-auto px-4 md:px-0">
+            <div class="col-span-8">
                 <div class="space-y-2">
                     <p class="text-base text-neutral-500 w-full md:w-full leading-loose" itemprop="description">
                         {{ $offer->description }}

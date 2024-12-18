@@ -116,6 +116,13 @@
                     placeholder="e.g https://random-link.com" class="block w-full py-2 px-2 mt-3">
             </div>
         </div>
+        <div class="col-span-8 mt-5">
+                    <label for="" class="font-semibold">Youtube Encode</label>
+                    <div class="flex items-center">
+                        <input type="text" name="youtube_url" id="booking_link" value="{{$activity->youtube_url}}" placeholder="e.gqweq4"
+                               class="block w-full py-2 px-2 mt-3">
+                    </div>
+                </div>
         <div class="col-span-8">
             <label for="" class="font-semibold">Activity Status</label>
             <div class="flex mt-3">
